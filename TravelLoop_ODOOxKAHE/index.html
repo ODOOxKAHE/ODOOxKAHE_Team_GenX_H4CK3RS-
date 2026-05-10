@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Traveloop - Your smart trip planner. Discover breathtaking destinations, plan itineraries, track budgets, and share journeys with friends.">
+  <title>Traveloop - Smart Trip Planner</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%230d9488'/><path d='M10 16l4 4 8-8' stroke='white' stroke-width='2.5' fill='none'/></svg>">
+</head>
+<body>
+
+<!-- ═══ LOGIN PAGE ═══ -->
+<div id="login-page">
+  <div class="login-visual">
+    <img src="images/hero.png" alt="Travel destination">
+    <div class="login-visual-text">
+      <h2>Explore the Unknown</h2>
+      <p>Discover breathtaking destinations and create memories that last a lifetime with Traveloop's premium travel concierge.</p>
+    </div>
+  </div>
+  <div class="login-form-side">
+    <form class="login-form" id="loginForm">
+      <div class="nav-logo">
+        <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" fill="#0d9488"/><path d="M10 16l4 4 8-8" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Traveloop
+      </div>
+      <h1>Welcome back</h1>
+      <p class="subtitle">Your journey begins here.</p>
+      <div class="input-group">
+        <label class="input-label" for="email">Email Address</label>
+        <input class="input" type="email" id="email" placeholder="you@example.com" value="traveler@traveloop.com">
+      </div>
+      <div class="input-group">
+        <label class="input-label" for="password">Password</label>
+        <input class="input" type="password" id="password" placeholder="••••••••" value="password">
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin:4px 0 16px">
+        <label style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--on-surface-variant);cursor:pointer">
+          <input type="checkbox" checked style="accent-color:var(--secondary)"> Remember me
+        </label>
+        <a href="#" style="font-size:13px;color:var(--secondary);font-weight:600">Forgot Password?</a>
+      </div>
+      <button type="submit" class="btn btn-primary">Sign In</button>
+      <div class="login-divider">or continue with</div>
+      <div class="social-btns">
+        <button type="button" class="social-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          Google
+        </button>
+        <button type="button" class="social-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07c0 6.02 4.39 11.01 10.13 11.93v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.26h3.33l-.53 3.49h-2.8v8.44C19.61 23.08 24 18.09 24 12.07z"/></svg>
+          Facebook
+        </button>
+      </div>
+      <p class="login-footer">New to Traveloop? <a href="#" id="createAccountLink">Create an account</a></p>
+    </form>
+  </div>
+</div>
+
+<!-- ═══ APP SHELL ═══ -->
+<div id="app-shell">
+  <!-- Navigation -->
+  <nav class="nav" id="mainNav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" onclick="navigate('explore')">
+        <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" fill="#0d9488"/><path d="M10 16l4 4 8-8" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Traveloop
+      </a>
+      <div class="nav-links" id="navLinks"></div>
+      <div class="nav-actions">
+        <button class="btn-icon" data-tooltip="Notifications" onclick="alert('No new notifications')">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 18a2 2 0 004 0M5 8a7 7 0 0114 0c0 3.5 1 5.5 2 7H3c1-1.5 2-3.5 2-7z"/></svg>
+        </button>
+        <div class="nav-avatar" id="navAvatar" onclick="navigate('profile')">AT</div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="app-content" id="appContent"></main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo" style="color:white;font-size:22px">
+            <svg viewBox="0 0 32 32" width="28" height="28" fill="none"><circle cx="16" cy="16" r="14" fill="#0d9488"/><path d="M10 16l4 4 8-8" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Traveloop
+          </div>
+          <p>Your premium travel concierge. Plan trips, track budgets, and share adventures with friends and fellow travelers.</p>
+        </div>
+        <div><h3>Product</h3><ul class="footer-links"><li><a href="#" onclick="navigate('explore')">Explore</a></li><li><a href="#" onclick="navigate('trips')">My Trips</a></li><li><a href="#" onclick="navigate('plan')">Plan Trip</a></li><li><a href="#" onclick="navigate('budget')">Budget</a></li></ul></div>
+        <div><h3>Community</h3><ul class="footer-links"><li><a href="#" onclick="navigate('community')">Discovery</a></li><li><a href="#" onclick="navigate('social')">Social</a></li><li><a href="#" onclick="navigate('discussion')">Discussions</a></li></ul></div>
+        <div><h3>Support</h3><ul class="footer-links"><li><a href="#">Help Center</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li><li><a href="#">About Us</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2024 Traveloop Inc. All rights reserved.</span>
+        <div style="display:flex;gap:16px">
+          <a href="#">Twitter</a><a href="#">Instagram</a><a href="#">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
