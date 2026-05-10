@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InvoiceAI - Demo Payment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .payment-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+            color: white;
+        }
+
+        .demo-badge {
+            background: linear-gradient(135deg, #f39c12, #e74c3c);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .invoice-id {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .amount-section {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 30px;
+        }
+
+        .amount-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 8px;
+        }
+
+        .amount {
+            font-size: 42px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px;
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 12px;
+            margin-bottom: 24px;
+            color: #10b981;
+            font-weight: 600;
+        }
+
+        .status-icon {
+            font-size: 24px;
+        }
+
+        .info-box {
+            background: rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 24px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+        }
+
+        .footer {
+            margin-top: 24px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="payment-card">
+        <div class="demo-badge">🧪 DEMO MODE</div>
+
+        <div class="logo">📄</div>
+
+        <h1>Payment Page</h1>
+        <div class="invoice-id" id="invoiceId">Invoice #---</div>
+
+        <div class="amount-section">
+            <div class="amount-label">Amount Due</div>
+            <div class="amount" id="amount">---</div>
+        </div>
+
+        <div class="status">
+            <span class="status-icon">✓</span>
+            <span>Demo Payment Successful!</span>
+        </div>
+
+        <div class="info-box">
+            <strong>This is a demo payment page.</strong><br><br>
+            In production, this would connect to Razorpay to process real payments.
+            Configure your Razorpay API keys in the <code>.env</code> file to enable live payments.
+        </div>
+
+        <a href="http://localhost:5174" class="back-btn">
+            ← Back to InvoiceAI
+        </a>
+
+        <div class="footer">
+            Powered by InvoiceAI • Demo Mode
+        </div>
+    </div>
+
+    <script>
+        // Parse URL params
+        const path = window.location.pathname;
+        const parts = path.split( '/' );
+        const invoiceNumber = parts[ 2 ] || 'Unknown';
+
+        document.getElementById( 'invoiceId' ).textContent = `Invoice #${ invoiceNumber }`;
+
+        // Get amount from URL params if available
+        const urlParams = new URLSearchParams( window.location.search );
+        const amount = urlParams.get( 'amount' );
+        if ( amount )
+        {
+            document.getElementById( 'amount' ).textContent = `₹${ parseFloat( amount ).toLocaleString( 'en-IN' ) }`;
+        } else
+        {
+            document.getElementById( 'amount' ).textContent = 'Amount Received';
+        }
+    </script>
+</body>
+
+</html>
