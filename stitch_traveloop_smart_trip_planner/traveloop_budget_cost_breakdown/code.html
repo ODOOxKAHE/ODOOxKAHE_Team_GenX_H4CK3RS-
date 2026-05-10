@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Traveloop - Trip Expense &amp; Breakdown</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#00201d",
+                        "inverse-surface": "#2d3133",
+                        "secondary-fixed": "#89f5e7",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#7c839b",
+                        "primary-fixed": "#dae2fd",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-container-low": "#f2f4f6",
+                        "on-secondary-fixed-variant": "#005049",
+                        "on-background": "#191c1e",
+                        "surface-bright": "#f7f9fb",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#400010",
+                        "primary-container": "#131b2e",
+                        "outline-variant": "#c6c6cd",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#86f2e4",
+                        "outline": "#76777d",
+                        "on-secondary-container": "#006f66",
+                        "surface-dim": "#d8dadc",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "background": "#f7f9fb",
+                        "on-primary-fixed": "#131b2e",
+                        "tertiary": "#000000",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-container": "#eceef0",
+                        "secondary": "#006a61",
+                        "on-tertiary-fixed-variant": "#891933",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "surface": "#f7f9fb",
+                        "secondary-fixed-dim": "#6bd8cb",
+                        "on-tertiary-container": "#da586c",
+                        "on-surface": "#191c1e",
+                        "primary-fixed-dim": "#bec6e0",
+                        "inverse-primary": "#bec6e0",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#565e74",
+                        "on-surface-variant": "#45464d",
+                        "error": "#ba1a1a",
+                        "primary": "#000000",
+                        "tertiary-fixed": "#ffdadc",
+                        "tertiary-fixed-dim": "#ffb2b9",
+                        "tertiary-container": "#400010",
+                        "surface-container-high": "#e6e8ea"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "base": "8px",
+                        "margin-desktop": "40px",
+                        "gutter": "24px",
+                        "section-gap": "80px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .ripple-bg {
+            background: linear-gradient(135deg, rgba(134, 242, 228, 0.1) 0%, rgba(255, 255, 255, 0) 100%),
+                        url('data:image/svg+xml,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path fill="%2386f2e4" fill-opacity="0.05" d="M47.5,-59.2C60.1,-50.2,67.8,-33.3,71.1,-15.8C74.4,1.7,73.3,19.7,65.3,34.1C57.3,48.5,42.4,59.3,26.4,64.8C10.4,70.3,-6.7,70.5,-23.4,65.5C-40.1,60.5,-56.4,50.3,-65.4,35.3C-74.4,20.3,-76.1,0.5,-70.7,-16.8C-65.3,-34.1,-52.8,-48.9,-38.3,-57.2C-23.8,-65.5,-7.3,-67.3,10.1,-60.9C27.5,-54.5,47.5,-59.2Z" transform="translate(100 100)" /></svg>');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen ripple-bg">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-md shadow-[0_4px_20px_rgba(15,23,42,0.05)] h-16">
+<div class="max-w-container-max mx-auto px-gutter flex justify-between items-center h-full">
+<div class="text-headline-md font-bold text-primary">Traveloop</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md text-secondary border-b-2 border-secondary pb-1" href="#">My Trips</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Explore</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Community</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-outline-variant">
+<img alt="User profile photo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-RLCSKtWEM5vypeEfaKs1WI7dLSVJCYsX5dzz2-o153Knpy_M21rgnrs_GPGNXqb28Wi9FRpwI7BYfYEWbiA6gEokQiABdPxAVrNqEPGigQZW5al5J7tOXjnvI73uNZ7rCIgzhyyqlZlP2kJ0e5YzisC2snJADwZYKkvUk-UY2txvtStcZ4UbOD3GTD-xktvbQsMRHfOpGdzMdNhs-00IkhdqoNVQ_ZZ8HQQDQp1YwOGYCwY_Tp-i9DC38prl2vMHs5NP0p9biHg6"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-section-gap max-w-container-max mx-auto px-gutter">
+<!-- Header & Breadcrumbs -->
+<div class="mb-gutter">
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm mb-2">
+<span>My Trips</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span>Bali Escape 2024</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-secondary font-bold">Expense Breakdown</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary">Tropical Oasis Expense Analysis</h1>
+<p class="text-on-surface-variant mt-2 max-w-2xl">A detailed look into your island getaway budget, including special student benefits and museum discounts applied.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Budget Visuals (Bento Style) -->
+<div class="lg:col-span-8 space-y-gutter">
+<!-- Main Breakdown Chart -->
+<div class="glass-card rounded-xl p-gutter shadow-[0_4px_20px_rgba(15,23,42,0.05)]">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h3 class="font-headline-md text-headline-md">Cost Distribution</h3>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Total Spent: $2,450.00</p>
+</div>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-label-sm font-label-sm">Under Budget</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+<!-- Simulated Donut Chart -->
+<div class="relative w-full aspect-square max-w-[240px] mx-auto flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90">
+<circle cx="120" cy="120" fill="transparent" r="100" stroke="#000000" stroke-dasharray="628" stroke-dashoffset="157" stroke-width="24"></circle> <!-- Primary/Navy - Flights (75%) -->
+<circle cx="120" cy="120" fill="transparent" r="100" stroke="#006a61" stroke-dasharray="628" stroke-dashoffset="471" stroke-width="24"></circle> <!-- Secondary/Teal - Experiences (25%) -->
+<circle cx="120" cy="120" fill="transparent" r="100" stroke="#da586c" stroke-dasharray="628" stroke-dashoffset="565" stroke-width="24"></circle> <!-- Accent/Coral - Food (10%) -->
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-headline-lg text-headline-lg">$2.4k</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Total</span>
+</div>
+</div>
+<!-- Legend -->
+<div class="space-y-4">
+<div class="flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<span class="font-label-md text-label-md">Transport &amp; Flights</span>
+</div>
+<span class="font-bold">$1,200</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="font-label-md text-label-md">Luxury Stays</span>
+</div>
+<span class="font-bold">$850</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-on-tertiary-container"></span>
+<span class="font-label-md text-label-md">Dining &amp; Cafes</span>
+</div>
+<span class="font-bold">$300</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-secondary-fixed-dim"></span>
+<span class="font-label-md text-label-md">Activities</span>
+</div>
+<span class="font-bold">$100</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Offers Availed Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="bg-primary text-on-primary p-gutter rounded-xl shadow-lg relative overflow-hidden group">
+<div class="absolute -right-10 -top-10 w-40 h-40 bg-on-primary-fixed-variant/20 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-500"></div>
+<div class="relative z-10">
+<span class="material-symbols-outlined text-secondary-fixed text-4xl mb-4">school</span>
+<h4 class="font-headline-md text-headline-md mb-2">Student Benefits</h4>
+<p class="text-primary-fixed-dim font-body-md text-body-md mb-6">ISIC Card utilized for international transport and co-working spaces.</p>
+<div class="flex items-baseline gap-1">
+<span class="text-headline-lg font-headline-lg text-secondary-fixed">-$145</span>
+<span class="text-label-sm font-label-sm text-primary-fixed-dim">SAVED</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-highest p-gutter rounded-xl shadow-[0_4px_20px_rgba(15,23,42,0.05)] relative overflow-hidden group">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">museum</span>
+<h4 class="font-headline-md text-headline-md text-primary mb-2">Culture Pass</h4>
+<p class="text-on-surface-variant font-body-md text-body-md mb-6">Free entry to 4 national museums and 15% off temple tours.</p>
+<div class="flex items-baseline gap-1">
+<span class="text-headline-lg font-headline-lg text-primary">-$82</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">SAVED</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Expense Timeline -->
+<div class="glass-card rounded-xl p-gutter">
+<h3 class="font-headline-md text-headline-md mb-8">Detailed Itinerary Timeline</h3>
+<div class="relative pl-8">
+<!-- Timeline Spine -->
+<div class="absolute left-[7px] top-2 bottom-0 w-[2px] bg-secondary-fixed"></div>
+<div class="space-y-12">
+<!-- Day 1 -->
+<div class="relative">
+<div class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-primary border-4 border-white z-10"></div>
+<div class="flex flex-col md:flex-row gap-gutter">
+<div class="md:w-32 flex-shrink-0">
+<span class="font-label-md text-label-md text-secondary uppercase tracking-wider">Day 1</span>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Oct 12, 2024</p>
+</div>
+<div class="flex-grow glass-card p-6 rounded-lg shadow-sm border-l-4 border-l-primary">
+<div class="flex justify-between items-start mb-4">
+<h4 class="font-headline-md text-headline-md">Arrival &amp; Beach Club</h4>
+<span class="font-bold text-on-surface">$120.00</span>
+</div>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-secondary-container/50 text-on-secondary-container px-3 py-1 rounded-full text-label-sm font-label-sm">Relaxation</span>
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-label-sm font-label-sm">High Activity</span>
+</div>
+<img class="w-full h-48 object-cover rounded-lg mb-4" data-alt="A lush tropical beach scene at sunset with swaying palm trees over white sand and turquoise water. In the foreground, a stylish modern beach club features low-slung wooden furniture and soft ambient lighting. The atmosphere is serene and luxurious, with a warm golden glow from the setting sun reflecting off the gentle ocean waves." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyM_zHEZJa1H8r58NzQEwH5pmSUx5MPy_9fwNJy3smvj6x1hxLzaYwHvfdqXNedMwYnPDMdfOFvhccnD06wYa2pcR-zFeUeB0dNMZBQd9hkDM-JBHZElDRY5J8spXVRldM_jtDwYXB23yYyzXPtgUmpjvp2jp6v_tpOjvI6q_TDZGBRnacikB1tog1z5frnCGijQxLLu1kUvrorbxSesOs0Xc9FxGrwZOxfmj4wgNTs_KYXYqHrl6rL7pTkbrfzEDPrAMWcbiC8-W8"/>
+<p class="text-body-md text-on-surface-variant">Checked into The Azure Oasis and spent the afternoon at Finns Beach Club. Dinner was at a local Warung.</p>
+</div>
+</div>
+</div>
+<!-- Day 2 -->
+<div class="relative">
+<div class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-primary border-4 border-white z-10"></div>
+<div class="flex flex-col md:flex-row gap-gutter">
+<div class="md:w-32 flex-shrink-0">
+<span class="font-label-md text-label-md text-secondary uppercase tracking-wider">Day 2</span>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Oct 13, 2024</p>
+</div>
+<div class="flex-grow glass-card p-6 rounded-lg shadow-sm border-l-4 border-l-secondary">
+<div class="flex justify-between items-start mb-4">
+<h4 class="font-headline-md text-headline-md">Temple Tour &amp; Waterfall</h4>
+<span class="font-bold text-on-surface">$85.00</span>
+</div>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-secondary-container/50 text-on-secondary-container px-3 py-1 rounded-full text-label-sm font-label-sm">Culture</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed-variant px-3 py-1 rounded-full text-label-sm font-label-sm">Sightseeing</span>
+</div>
+<p class="text-body-md text-on-surface-variant">Morning visit to Uluwatu Temple. Afternoon trek to the hidden waterfall. Applied the Culture Pass for free entry.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Share Journey Card & Quick Stats -->
+<div class="lg:col-span-4 space-y-gutter">
+<!-- Share Journey Modal/Card -->
+<div class="bg-white rounded-xl shadow-xl overflow-hidden border border-outline-variant p-gutter">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-secondary text-2xl">share</span>
+<h3 class="font-headline-md text-headline-md">Share Journey</h3>
+</div>
+<p class="text-body-md text-on-surface-variant mb-6">Ready to inspire others? Set your trip visibility and share your planned route with the community.</p>
+<div class="space-y-4 mb-8">
+<label class="flex items-center p-4 rounded-lg border-2 border-secondary bg-secondary-container/10 cursor-pointer transition-all">
+<input checked="" class="w-5 h-5 text-secondary focus:ring-secondary mr-4 border-outline" name="visibility" type="radio"/>
+<div class="flex-grow">
+<span class="font-label-md text-label-md text-primary block">Public</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Anyone on Traveloop can view this trip</span>
+</div>
+<span class="material-symbols-outlined text-secondary">public</span>
+</label>
+<label class="flex items-center p-4 rounded-lg border-2 border-transparent bg-surface-container-low hover:bg-surface-container-high cursor-pointer transition-all">
+<input class="w-5 h-5 text-secondary focus:ring-secondary mr-4 border-outline" name="visibility" type="radio"/>
+<div class="flex-grow">
+<span class="font-label-md text-label-md text-primary block">Friends Only</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Only your followers can see your path</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">group</span>
+</label>
+</div>
+<button class="w-full bg-secondary text-on-secondary font-label-md text-label-md py-4 rounded-lg hover:opacity-90 active:scale-[0.98] transition-all shadow-md">
+                        Publish to Community
+                    </button>
+<button class="w-full mt-3 bg-transparent text-secondary border-2 border-secondary font-label-md text-label-md py-3 rounded-lg hover:bg-secondary/5 transition-all">
+                        Invite Private Collaborators
+                    </button>
+</div>
+<!-- Budget Summary Card -->
+<div class="glass-card rounded-xl p-gutter border-t-4 border-t-on-tertiary-container">
+<h4 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-6">Budget Health</h4>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label-md text-label-md">Planned Budget</span>
+<span class="font-bold">$3,000</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 82%"></div>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-2 text-right">82% utilized</p>
+</div>
+<div class="p-4 bg-secondary-container/30 rounded-lg">
+<div class="flex items-center gap-2 text-on-secondary-container mb-2">
+<span class="material-symbols-outlined text-[20px]">savings</span>
+<span class="font-bold">Estimated Savings</span>
+</div>
+<p class="text-headline-md font-headline-md text-on-secondary-container">$550.00</p>
+</div>
+</div>
+</div>
+<!-- Ad/Teaser -->
+<div class="rounded-xl overflow-hidden relative h-48 group cursor-pointer">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A mesmerizing underwater view of a coral reef teeming with vibrant tropical fish. Sunlight filters through the clear turquoise water, creating dancing light patterns on the white sandy ocean floor. The scene is tranquil and colorful, with diverse marine life and healthy coral formations in shades of pink, orange, and blue." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv3_Mg8MEs1nW39Oc-0BH_aw6yWoCwIYHkD_IrPI89TPQwbyckrirrom2DGpx_C1Eo506JglD6_z1RMHLuUMIoevh_ICZZA1ZQhd61TNm9CyOpOp8fvzmILdJ9xk3ww45kSa4yFbQveMXWWRYandwMP83tlplHkyKRle_VK6HOCWJzxALJQ4p1Bcd312UXn4jIxwx90C5Xgjh4dxeh_-m279yFlvCJ8e6ouXv5-4AoPY2WvB_FZK-xvEPSrNkcw2MFa57lUejuMStK"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
+<span class="text-secondary-fixed font-label-sm text-label-sm uppercase font-bold mb-1">Coming Soon</span>
+<h5 class="text-white font-headline-md text-headline-md">Underwater Safari Experience</h5>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant w-full py-margin-desktop">
+<div class="max-w-container-max mx-auto px-gutter flex flex-col md:flex-row justify-between items-center gap-base">
+<div class="text-headline-md font-bold text-primary">Traveloop</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">About Us</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Help Center</a>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 Traveloop Inc. All rights reserved.</p>
+</div>
+</footer>
+</body></html>

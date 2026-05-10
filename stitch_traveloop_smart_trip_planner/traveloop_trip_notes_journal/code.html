@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Trip Notes - Traveloop</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#ffffff",
+                    "secondary-fixed": "#89f5e7",
+                    "on-primary-container": "#7c839b",
+                    "inverse-primary": "#bec6e0",
+                    "primary-fixed-dim": "#bec6e0",
+                    "inverse-surface": "#2d3133",
+                    "on-tertiary": "#ffffff",
+                    "surface-dim": "#d8dadc",
+                    "tertiary": "#000000",
+                    "primary": "#000000",
+                    "on-secondary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-bright": "#f7f9fb",
+                    "on-secondary-fixed-variant": "#005049",
+                    "secondary-container": "#86f2e4",
+                    "surface-container": "#eceef0",
+                    "on-surface-variant": "#45464d",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary": "#006a61",
+                    "background": "#f7f9fb",
+                    "outline": "#76777d",
+                    "tertiary-fixed": "#ffdadc",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#400010",
+                    "surface-container-high": "#e6e8ea",
+                    "primary-fixed": "#dae2fd",
+                    "on-secondary-container": "#006f66",
+                    "secondary-fixed-dim": "#6bd8cb",
+                    "on-surface": "#191c1e",
+                    "on-secondary-fixed": "#00201d",
+                    "primary-container": "#131b2e",
+                    "on-tertiary-fixed-variant": "#891933",
+                    "on-error-container": "#93000a",
+                    "surface-container-low": "#f2f4f6",
+                    "on-primary-fixed": "#131b2e",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-background": "#191c1e",
+                    "tertiary-fixed-dim": "#ffb2b9",
+                    "outline-variant": "#c6c6cd",
+                    "on-tertiary-fixed": "#400010",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "on-tertiary-container": "#da586c",
+                    "surface-tint": "#565e74",
+                    "surface": "#f7f9fb",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#e0e3e5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "margin-desktop": "40px",
+                    "container-max": "1280px",
+                    "base": "8px",
+                    "margin-mobile": "16px",
+                    "section-gap": "80px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "label-md": ["Plus Jakarta Sans"],
+                    "headline-xl": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-secondary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-gutter max-w-container-max mx-auto h-16 bg-surface dark:bg-surface-dim shadow-[0_4px_20px_rgba(15,23,42,0.05)]">
+<div class="flex items-center gap-8">
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">Traveloop</span>
+<div class="hidden md:flex gap-6">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary font-label-md text-label-md" href="#">My Trips</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary font-label-md text-label-md" href="#">Explore</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary font-label-md text-label-md" href="#">Community</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-surface-container-low transition-colors duration-200">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User profile photo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmMTkcoMDjIlzVKczizhOTphnl4L9PoZLzWCkHwDhUbJ1TWH7yT5H2UfDEzt0X5QzzL8el-5HmwjqQvUygvD1Aqh8zpzwprdRdDofwTJNBk28BKKf09Nw-9v3uLSerKPfpvplWxh8xcrx0G7GP4v-_6r1h6K31ToFOwWzHVOP8ldCI620rqYUzh7p7VIVAhVMsxWsgqhWAte7I1hRzDXSVzGf9e3k1cAv2WVuOFCvAIwcH7849jKFIglLOTOiAxkCbkpwSQ1NhJIsV"/>
+</div>
+</div>
+</nav>
+<!-- Hero Background Section -->
+<section class="relative min-h-screen pt-16 flex flex-col items-center">
+<!-- Background Image -->
+<div class="fixed inset-0 z-[-1]">
+<img alt="Kerala Backwaters Background" class="w-full h-full object-cover" data-alt="A serene landscape of the Kerala backwaters at sunrise, featuring a luxury traditional wooden houseboat floating on calm, reflective water. Lush tropical palm trees line the horizon under a soft, hazy golden sky. The scene captures a peaceful, premium travel atmosphere with high-key lighting and a soft, airy color palette dominated by warm tones and natural greens, reflecting a minimalist and professional aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZQ_uixZdvxP-6cSf1WRsNGeyOFlqQWRCflsvt3bQ0m-MxZIYOHfDnojQDhyMZNBGNFPEKg_8aCTcn8StqkEtDyw2f_V9NpE8rmzYCJ4hGhiL15M0ybvoohZ1HIGxPJSm4-Jy0_TEBh7JYXuqO7aeFfkbLQW090MVshrnFzRJ_QrvMZNZoo3tw8JOpwX5tOIKVz-O1xDAbNOdnCoyGMHADC8MZBOgpzdf3C6aRH0f0kJSaPHhsLHZuRxqI35vzC0a5mt9p4Nmrwdpb"/>
+<div class="absolute inset-0 bg-black/10 backdrop-blur-[2px]"></div>
+</div>
+<!-- Content Canvas -->
+<main class="w-full max-w-container-max mx-auto px-gutter py-margin-desktop">
+<!-- Journal Header Card -->
+<div class="glass-panel rounded-xl p-8 mb-base shadow-[0_4px_20px_rgba(15,23,42,0.05)] border border-white/40">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-secondary">book_5</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Travel Journal</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg mb-4">Trip Notes</h1>
+<!-- Trip Selector Dropdown -->
+<div class="relative inline-block">
+<button class="flex items-center gap-3 px-4 py-2 bg-white rounded-lg border border-outline-variant hover:border-secondary transition-all">
+<span class="font-label-md text-label-md text-on-surface">Paris &amp; Rome Adventure</span>
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+</button>
+</div>
+</div>
+<button class="flex items-center gap-2 bg-primary text-on-primary px-6 py-3 rounded-lg font-label-md text-label-md hover:opacity-90 active:scale-[0.98] transition-all shadow-lg">
+<span class="material-symbols-outlined">add</span>
+                        + Add Note
+                    </button>
+</div>
+<!-- Tabs -->
+<div class="flex gap-8 mt-10 border-b border-outline-variant/30">
+<button class="pb-3 font-label-md text-label-md text-secondary border-b-2 border-secondary">All Notes</button>
+<button class="pb-3 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors">By Day</button>
+<button class="pb-3 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors">By Stop</button>
+</div>
+</div>
+<!-- Notes List -->
+<div class="grid grid-cols-1 gap-6 mt-8">
+<!-- Entry 1 -->
+<div class="glass-panel group rounded-xl p-6 flex flex-col md:flex-row gap-6 border border-white/50 hover:shadow-xl transition-all duration-300">
+<div class="w-full md:w-48 h-32 rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Rome Hotel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A sophisticated boutique hotel lobby in Rome, featuring elegant marble floors and warm ambient lighting. The atmosphere is quiet and professional, with a focus on luxury travel details. High-quality textures and soft shadows create a refined, modern aesthetic consistent with a premium concierge experience. The lighting is soft and golden, highlighting the architectural details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAe9VCUcz2ENf3UEzAVa3rbTijaVSrQcs2V4AOE45S02bWTL-2Cmkp6dsPf5vGxuInYwZayLlAJ4dWYBQ1i687fY0yWPki22iksxV1FV5ZKpAIo3yAXTC0ayBBxQnBOwPoAEWVfbOdM98_qg3bJ0JiUSOnavUcXnBCDxIrd2wlpPtAtKYt44DzGLgg2r7LzTlduBVwuEAkrOWJNjBz3gNqH66Q2DoOx-tohwkT6D3j2LqetK_CU-MfBc-p7sjuQMX03sKqk_LSkjWbp"/>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-tighter">Rome Stop</span>
+<span class="font-label-sm text-label-sm text-outline">Day 3: June 14, 2025</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2 text-on-surface">Hotel check-in details - Rome stop</h3>
+</div>
+<div class="flex gap-2 opacity-40 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-2 hover:bg-error-container hover:text-error rounded-full transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
+<div class="flex items-center gap-2 bg-white/40 p-3 rounded-lg border border-white/20">
+<span class="material-symbols-outlined text-secondary text-base">schedule</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Check-in: 14:00</span>
+</div>
+<div class="flex items-center gap-2 bg-white/40 p-3 rounded-lg border border-white/20">
+<span class="material-symbols-outlined text-secondary text-base">door_front</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Room: #402</span>
+</div>
+<div class="flex items-center gap-2 bg-white/40 p-3 rounded-lg border border-white/20">
+<span class="material-symbols-outlined text-secondary text-base">restaurant</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Breakfast included</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Entry 2 -->
+<div class="glass-panel group rounded-xl p-6 flex flex-col md:flex-row gap-6 border border-white/50 hover:shadow-xl transition-all duration-300">
+<div class="w-full md:w-48 h-32 rounded-lg overflow-hidden flex-shrink-0 bg-secondary-container/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-5xl">train</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-tighter">Transit</span>
+<span class="font-label-sm text-label-sm text-outline">Day 2: June 13, 2025</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2 text-on-surface">TGV Ticket Reference &amp; Platform</h3>
+</div>
+<div class="flex gap-2 opacity-40 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-2 hover:bg-error-container hover:text-error rounded-full transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+<p class="text-body-md text-on-surface-variant mt-2 max-w-2xl">Reference: XJ9281. Departure from Paris Gare de Lyon. Remember to validate ticket at the yellow terminal before boarding.</p>
+</div>
+</div>
+<!-- Entry 3 -->
+<div class="glass-panel group rounded-xl p-6 flex flex-col md:flex-row gap-6 border border-white/50 hover:shadow-xl transition-all duration-300">
+<div class="w-full md:w-48 h-32 rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Paris Dinner" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A wide-angle evening shot of the Eiffel Tower seen from a nearby Parisian street cafe. The lighting is romantic and high-contrast, with the golden lights of the tower glowing against a deep navy blue twilight sky. The street level is vibrant with warm cafe lights, suggesting a lively but sophisticated atmosphere. The overall style is clean and evocative, aligning with luxury travel planning aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL1qiFpCyH12JD3JvGFV0ssupVAZkOyBkP1-OUGyV3qPsoBZtE14Mtlb_IdJrpaFcHLALCjLed1OaLYE-2ZBEfOTvTkFha5XZBvuPY7Iu4vNmBHJ5z9oPgx9IReMLeWQw5SV0BBfR_kgS57u5m3qlDMPb-k3aZwdrzcgu8UC7R4ZQ8hN1Uov6TugN3FxTt3YMxHSeaACckpNYccRSpp1gEySUDnTx5KYjBlp3WyyMJKBNkh3X61PcCA2BBK7YjsInIFPKOcLnPmXse"/>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-tighter">Paris Stop</span>
+<span class="font-label-sm text-label-sm text-outline">Day 1: June 12, 2025</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2 text-on-surface">Le Jules Verne Reservation</h3>
+</div>
+<div class="flex gap-2 opacity-40 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-2 hover:bg-error-container hover:text-error rounded-full transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+<div class="flex items-center gap-4 mt-4">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-base">confirmation_number</span>
+<span class="text-label-sm font-label-sm">Booking ID: JV-8829-X</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-base">timer</span>
+<span class="text-label-sm font-label-sm">Time: 20:30</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</section>
+<!-- Footer -->
+<footer class="w-full py-margin-desktop px-gutter max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-base bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline-variant dark:border-outline">
+<div class="flex flex-col gap-2">
+<span class="text-headline-md font-headline-md text-primary dark:text-primary-fixed">Traveloop</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant">© 2024 Traveloop Inc. All rights reserved.</span>
+</div>
+<div class="flex gap-6">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">About Us</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">Help Center</a>
+</div>
+</footer>
+</body></html>

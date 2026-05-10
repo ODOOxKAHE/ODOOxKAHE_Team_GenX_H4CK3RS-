@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Traveloop Admin - User Trends &amp; Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#565e74",
+                        "on-tertiary-fixed-variant": "#891933",
+                        "on-surface-variant": "#45464d",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#ffdadc",
+                        "tertiary": "#000000",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2d3133",
+                        "inverse-primary": "#bec6e0",
+                        "surface-bright": "#f7f9fb",
+                        "secondary-fixed-dim": "#6bd8cb",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-dim": "#d8dadc",
+                        "outline": "#76777d",
+                        "secondary": "#006a61",
+                        "primary-container": "#131b2e",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#131b2e",
+                        "on-surface": "#191c1e",
+                        "primary-fixed-dim": "#bec6e0",
+                        "surface": "#f7f9fb",
+                        "primary-fixed": "#dae2fd",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "surface-variant": "#e0e3e5",
+                        "on-primary-container": "#7c839b",
+                        "on-background": "#191c1e",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-tertiary-fixed": "#400010",
+                        "outline-variant": "#c6c6cd",
+                        "on-secondary-container": "#006f66",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary-container": "#86f2e4",
+                        "on-secondary-fixed-variant": "#005049",
+                        "on-secondary-fixed": "#00201d",
+                        "on-tertiary-container": "#da586c",
+                        "tertiary-fixed-dim": "#ffb2b9",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "primary": "#000000",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#400010",
+                        "background": "#f7f9fb",
+                        "surface-container": "#eceef0",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#89f5e7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "margin-desktop": "40px",
+                        "section-gap": "80px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .devotional-overlay {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.4));
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased min-h-screen relative">
+<!-- Background Image: Thiruchendur Murugan Theme -->
+<div class="fixed inset-0 z-[-1] overflow-hidden">
+<img class="w-full h-full object-cover opacity-90 scale-105" data-alt="A grand and serene temple atmosphere featuring a majestic Murugan idol in a sacred sanctuary. The scene is illuminated by warm, glowing oil lamps (deepam) and ethereal incense smoke (agarbathi) swirling in golden light. The overall mood is powerful and devotional, with a rich palette of deep maroons, burnt oranges, and temple golds, creating a majestic backdrop for a modern interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJSvweeEe-vEinQEh9RuNlxZ6JxUKX6PJcXz2H1Eix61kAwi1hOsSlNoOXLhnCGaWtx2Xcw4T2Al_z03fUAFhbta9k_3D-BcYgzHrk4XsAw2PKta4gxTCSQtKxWUBjRrnu_rklw20rjC-djJBB_8dx1AjjsOGqTR7XCkLrYhMe3j6Z0x3RprhkzrTBeCq3TwCeKcY7X3hQC8Ef2EkU_deiOMsvuP1uAsBkVCdo2Df_d-BnlD042j6AHXX4eTHfL81avSJhvnwhw8zd"/>
+<div class="absolute inset-0 devotional-overlay"></div>
+</div>
+<!-- Header Section (Shared Component: TopNavBar) -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-md shadow-[0_4px_20px_rgba(15,23,42,0.05)] h-16">
+<div class="max-w-container-max mx-auto px-gutter h-full flex justify-between items-center">
+<div class="flex items-center gap-8">
+<span class="text-headline-md font-headline-md font-bold text-primary">Traveloop</span>
+<nav class="hidden md:flex gap-6">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">My Trips</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Explore</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Community</a>
+</nav>
+</div>
+<div class="flex items-center gap-base">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="bg-surface-container-low border-none rounded-full pl-10 pr-4 py-2 text-label-md focus:ring-2 focus:ring-secondary w-64" placeholder="Search analytics..." type="text"/>
+</div>
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border-2 border-secondary-container">
+<img alt="User profile photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhX3eYUea5qCnDj9VygOipo2-QSqdZe2YnQIxlkOpbFDduoREzO9WL9jtVE35_8BEe3G7BREZQ8coWO7d9ixseiNKLCK1A1AAtQpAGXnY0VwH28D-p9NH-OhA71uEfsbdOZF2wGKs58TILQFXcU7tAmV4KszmW0YXvYeVQJrQvt2gnXFZwva2zUS47CuKZQkD8OoAxPvu7-Zi_n4qwnbjDyqRM3o0t2PPEhUyRv-hM-v2T8-vC3xhpjIySaqgqdPSBlNHhxEMuRO1P"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-margin-desktop px-gutter max-w-container-max mx-auto">
+<!-- Controls Bar -->
+<section class="mb-base flex flex-col md:flex-row gap-4 items-center justify-between glass-panel p-4 rounded-xl shadow-lg">
+<div class="flex-1 w-full max-w-lg">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg pl-10 pr-4 py-2 text-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all" placeholder="Search data points..." type="text"/>
+</div>
+</div>
+<div class="flex gap-2 w-full md:w-auto overflow-x-auto pb-1 md:pb-0">
+<button class="flex items-center gap-1 px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg text-label-md font-label-md hover:bg-surface-container-low transition-colors whitespace-nowrap">
+<span class="material-symbols-outlined text-sm">group_work</span>
+                    Group by
+                </button>
+<button class="flex items-center gap-1 px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg text-label-md font-label-md hover:bg-surface-container-low transition-colors whitespace-nowrap">
+<span class="material-symbols-outlined text-sm">filter_alt</span>
+                    Filter
+                </button>
+<button class="flex items-center gap-1 px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg text-label-md font-label-md hover:bg-surface-container-low transition-colors whitespace-nowrap">
+<span class="material-symbols-outlined text-sm">sort</span>
+                    Sort by
+                </button>
+</div>
+</section>
+<!-- Navigation Tabs -->
+<nav class="flex gap-2 mb-8 overflow-x-auto pb-2 scrollbar-hide">
+<button class="px-6 py-2 rounded-full font-label-md text-label-md bg-white/20 text-white backdrop-blur-md border border-white/30 hover:bg-white/30 transition-all">Manage Users</button>
+<button class="px-6 py-2 rounded-full font-label-md text-label-md bg-white/20 text-white backdrop-blur-md border border-white/30 hover:bg-white/30 transition-all">Popular Cities</button>
+<button class="px-6 py-2 rounded-full font-label-md text-label-md bg-white/20 text-white backdrop-blur-md border border-white/30 hover:bg-white/30 transition-all">Popular Activities</button>
+<button class="px-6 py-2 rounded-full font-label-md text-label-md bg-secondary text-white shadow-lg border border-secondary shadow-secondary/20">User Trends and Analytics</button>
+</nav>
+<!-- Bento Grid Dashboard Content -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Popular Destinations Pie Chart -->
+<div class="md:col-span-4 glass-panel p-gutter rounded-xl shadow-xl flex flex-col items-center">
+<h3 class="w-full text-headline-md font-headline-md mb-6 text-on-surface">Popular Destinations</h3>
+<div class="relative w-48 h-48 mb-8">
+<!-- Stylized SVG Pie Chart -->
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="transparent" r="16" stroke="#e0e3e5" stroke-width="3"></circle>
+<circle cx="18" cy="18" fill="transparent" r="16" stroke="#006a61" stroke-dasharray="75, 100" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="transparent" r="16" stroke="#891933" stroke-dasharray="15, 100" stroke-dashoffset="-75" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="transparent" r="16" stroke="#da586c" stroke-dasharray="10, 100" stroke-dashoffset="-90" stroke-width="4"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-headline-md font-bold text-on-surface">1,240</span>
+<span class="text-label-sm text-on-surface-variant">Total Trips</span>
+</div>
+</div>
+<div class="w-full space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-secondary"></div>
+<span class="text-label-md text-on-surface">Bali, Indonesia</span>
+</div>
+<span class="font-bold text-secondary">75%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-on-tertiary-fixed-variant"></div>
+<span class="text-label-md text-on-surface">Thiruchendur, India</span>
+</div>
+<span class="font-bold text-on-tertiary-fixed-variant">15%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-on-tertiary-container"></div>
+<span class="text-label-md text-on-surface">Kyoto, Japan</span>
+</div>
+<span class="font-bold text-on-tertiary-container">10%</span>
+</div>
+</div>
+</div>
+<!-- User Engagement Line Chart -->
+<div class="md:col-span-8 glass-panel p-gutter rounded-xl shadow-xl">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-headline-md font-headline-md text-on-surface">User Engagement</h3>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-surface-container text-label-sm rounded-full">Weekly</span>
+<span class="px-3 py-1 bg-secondary text-white text-label-sm rounded-full">Monthly</span>
+</div>
+</div>
+<div class="h-64 relative mt-8">
+<!-- Graph Mockup -->
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 400 100">
+<!-- Horizontal Grid Lines -->
+<line stroke="rgba(0,0,0,0.05)" stroke-width="0.5" x1="0" x2="400" y1="0" y2="0"></line>
+<line stroke="rgba(0,0,0,0.05)" stroke-width="0.5" x1="0" x2="400" y1="25" y2="25"></line>
+<line stroke="rgba(0,0,0,0.05)" stroke-width="0.5" x1="0" x2="400" y1="50" y2="50"></line>
+<line stroke="rgba(0,0,0,0.05)" stroke-width="0.5" x1="0" x2="400" y1="75" y2="75"></line>
+<!-- Line Chart Paths -->
+<path d="M0,80 Q50,70 100,40 T200,50 T300,20 T400,30" fill="none" stroke="#006a61" stroke-width="3"></path>
+<circle cx="100" cy="40" fill="#006a61" r="4"></circle>
+<circle cx="200" cy="50" fill="#006a61" r="4"></circle>
+<circle cx="300" cy="20" fill="#006a61" r="4"></circle>
+<!-- Area Fill -->
+<path d="M0,80 Q50,70 100,40 T200,50 T300,20 T400,30 V100 H0 Z" fill="url(#grad1)" opacity="0.1"></path>
+<defs>
+<lineargradient id="grad1" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:#006a61;stop-opacity:1"></stop>
+<stop offset="100%" style="stop-color:#006a61;stop-opacity:0"></stop>
+</lineargradient>
+</defs>
+</svg>
+<!-- X Axis Labels -->
+<div class="flex justify-between mt-4 text-label-sm text-outline px-2">
+<span>Jan</span><span>Mar</span><span>May</span><span>Jul</span><span>Sep</span><span>Nov</span>
+</div>
+</div>
+</div>
+<!-- Trips Created Bar Chart -->
+<div class="md:col-span-5 glass-panel p-gutter rounded-xl shadow-xl">
+<h3 class="text-headline-md font-headline-md mb-6 text-on-surface">Trips Created</h3>
+<div class="flex items-end gap-4 h-48 w-full px-4">
+<div class="flex-1 bg-secondary/20 rounded-t-lg transition-all hover:bg-secondary/40 relative group" style="height: 40%;">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-primary text-white text-[10px] px-2 py-1 rounded">240</div>
+</div>
+<div class="flex-1 bg-secondary/40 rounded-t-lg transition-all hover:bg-secondary/60 relative group" style="height: 65%;">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-primary text-white text-[10px] px-2 py-1 rounded">420</div>
+</div>
+<div class="flex-1 bg-secondary rounded-t-lg transition-all hover:brightness-110 relative group" style="height: 90%;">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-primary text-white text-[10px] px-2 py-1 rounded">580</div>
+</div>
+<div class="flex-1 bg-secondary/30 rounded-t-lg transition-all hover:bg-secondary/50 relative group" style="height: 55%;">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-primary text-white text-[10px] px-2 py-1 rounded">310</div>
+</div>
+<div class="flex-1 bg-on-tertiary-fixed-variant rounded-t-lg transition-all hover:brightness-110 relative group" style="height: 100%;">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-primary text-white text-[10px] px-2 py-1 rounded">650</div>
+</div>
+</div>
+<div class="flex justify-between mt-4 text-label-sm text-outline px-4">
+<span>M</span><span>T</span><span>W</span><span>T</span><span>F</span>
+</div>
+</div>
+<!-- User Trends Table -->
+<div class="md:col-span-7 glass-panel p-gutter rounded-xl shadow-xl overflow-hidden">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-headline-md font-headline-md text-on-surface">Top Influencers</h3>
+<button class="text-secondary font-label-md hover:underline">View All</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="border-b border-outline-variant">
+<th class="pb-3 font-label-md text-label-md text-outline">User</th>
+<th class="pb-3 font-label-md text-label-md text-outline">Country</th>
+<th class="pb-3 font-label-md text-label-md text-outline">Trips</th>
+<th class="pb-3 font-label-md text-label-md text-outline text-right">Trend</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30">
+<tr>
+<td class="py-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold text-xs">AS</div>
+<span class="text-body-md font-medium">Arun Subramanian</span>
+</td>
+<td class="py-4 text-body-md text-on-surface-variant">India</td>
+<td class="py-4 text-body-md text-on-surface-variant">42</td>
+<td class="py-4 text-right">
+<span class="text-secondary flex items-center justify-end gap-1 font-bold">
+<span class="material-symbols-outlined text-sm">trending_up</span> 12%
+                                    </span>
+</td>
+</tr>
+<tr>
+<td class="py-4 flex items-center gap-3">
+<img class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5ZUueMlHidbCh0AGGTy3DBb_E_qGivxAWEse94yXNbxfQCoPwW46dhVeUlAV3pNGEmQ_YDL1tZQ6xd7eGcgJLDwSB68rr0VHzsEp4q0t9u-dOWQbok7ivXw8yNSzLGFof2s7WqVhbKRYZmJw1Lf2AS1ef-j8zQbpQd4iBWQXr4WW45xmzAL8SoqdXQEFzMYjtzI3Gf-F94lQQM-D4qDZB-FvXX60LAXuvfIbXZXZqnF1ly7g12LsVURyErc-RVR1oTnESKThA9bOU"/>
+<span class="text-body-md font-medium">Sarah Jenkins</span>
+</td>
+<td class="py-4 text-body-md text-on-surface-variant">USA</td>
+<td class="py-4 text-body-md text-on-surface-variant">38</td>
+<td class="py-4 text-right">
+<span class="text-secondary flex items-center justify-end gap-1 font-bold">
+<span class="material-symbols-outlined text-sm">trending_up</span> 8%
+                                    </span>
+</td>
+</tr>
+<tr>
+<td class="py-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-on-tertiary-fixed-variant/20 text-on-tertiary-fixed-variant flex items-center justify-center font-bold text-xs">MK</div>
+<span class="text-body-md font-medium">Miko Kaneko</span>
+</td>
+<td class="py-4 text-body-md text-on-surface-variant">Japan</td>
+<td class="py-4 text-body-md text-on-surface-variant">35</td>
+<td class="py-4 text-right">
+<span class="text-error flex items-center justify-end gap-1 font-bold">
+<span class="material-symbols-outlined text-sm">trending_down</span> 4%
+                                    </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer (Shared Component: Footer) -->
+<footer class="w-full py-margin-desktop px-gutter max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-base border-t border-white/20 mt-12 bg-white/10 backdrop-blur-sm">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="text-headline-md font-headline-md text-white font-bold">Traveloop</span>
+<p class="text-label-sm text-white/60">© 2024 Traveloop Inc. All rights reserved.</p>
+</div>
+<nav class="flex flex-wrap justify-center gap-6">
+<a class="text-label-sm text-white/80 hover:text-white transition-colors" href="#">About Us</a>
+<a class="text-label-sm text-white/80 hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="text-label-sm text-white/80 hover:text-white transition-colors" href="#">Terms of Service</a>
+<a class="text-label-sm text-white/80 hover:text-white transition-colors" href="#">Help Center</a>
+</nav>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-white/60 hover:text-white cursor-pointer transition-colors">public</span>
+<span class="material-symbols-outlined text-white/60 hover:text-white cursor-pointer transition-colors">security</span>
+<span class="material-symbols-outlined text-white/60 hover:text-white cursor-pointer transition-colors">hub</span>
+</div>
+</footer>
+</body></html>

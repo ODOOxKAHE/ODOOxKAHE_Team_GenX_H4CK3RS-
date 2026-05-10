@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Traveloop - My Trips</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#400010",
+                        "on-surface-variant": "#45464d",
+                        "on-secondary-fixed-variant": "#005049",
+                        "secondary-fixed-dim": "#6bd8cb",
+                        "outline": "#76777d",
+                        "surface-container": "#eceef0",
+                        "on-surface": "#191c1e",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "primary-container": "#131b2e",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary-container": "#86f2e4",
+                        "on-primary-container": "#7c839b",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#bec6e0",
+                        "outline-variant": "#c6c6cd",
+                        "tertiary-fixed": "#ffdadc",
+                        "on-error-container": "#93000a",
+                        "background": "#f7f9fb",
+                        "on-primary-fixed": "#131b2e",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-bright": "#f7f9fb",
+                        "surface-variant": "#e0e3e5",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#bec6e0",
+                        "secondary": "#006a61",
+                        "primary": "#000000",
+                        "surface": "#f7f9fb",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "surface-container-high": "#e6e8ea",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#2d3133",
+                        "surface-container-highest": "#e0e3e5",
+                        "secondary-fixed": "#89f5e7",
+                        "on-tertiary-fixed-variant": "#891933",
+                        "on-tertiary-fixed": "#400010",
+                        "tertiary-fixed-dim": "#ffb2b9",
+                        "surface-tint": "#565e74",
+                        "primary-fixed": "#dae2fd",
+                        "on-tertiary-container": "#da586c",
+                        "on-secondary-fixed": "#00201d",
+                        "tertiary": "#000000",
+                        "on-secondary-container": "#006f66",
+                        "surface-dim": "#d8dadc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "base": "8px",
+                        "section-gap": "80px",
+                        "margin-mobile": "16px",
+                        "container-max": "1280px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>body {
+    font-family: "Plus Jakarta Sans", sans-serif
+    }
+.glass-panel {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px)
+    }
+.hero-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(https://lh3.googleusercontent.com/aida-public/AB6AXuB7h4HaNj8RQxNQvO8uANZ5o3Dpg4tYUlesxrTraPp13VC2Lv6-8-3_plI8BEDO3W3OUKUF0P1wW7sjJfKRnyR1kPqMd6KhhMSdNukQYnD4Y6bqsWArdRxrmBCfyVGj22Yeb9cd8Z-z3J9iRw3Y-VLD-4lXRd0RfbF_WO4mzMlAbOKteooE_P0uqYeNisdyUqX5tlmK2_UnCaqFP3ZZCljN2vC_zH2RtvHf_RXNF7B9kVwSZoWy8Sn4SoG5J0UZBm9J57a5Ti9euJIq);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed
+    }</style>
+</head>
+<body class="bg-background text-on-surface min-h-screen">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface dark:bg-surface-dim shadow-[0_4px_20px_rgba(15,23,42,0.05)] h-16">
+<div class="max-w-container-max mx-auto px-gutter h-full flex justify-between items-center">
+<div class="flex items-center gap-8">
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">Traveloop</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-secondary dark:text-secondary-fixed-dim border-b-2 border-secondary dark:border-secondary-fixed-dim pb-1 font-label-md text-label-md" href="#">My Trips</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed font-label-md text-label-md transition-colors duration-200" href="#">Explore</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed font-label-md text-label-md transition-colors duration-200" href="#">Community</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden md:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-secondary text-label-md outline-none w-64" placeholder="Search trips..." type="text"/>
+</div>
+<button class="p-2 rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="notifications">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User profile photo" data-alt="A professional close-up portrait of a modern young traveler with a friendly smile, set against a softly blurred urban sunset background. The lighting is warm and cinematic, reflecting a high-end travel lifestyle aesthetic. The color palette is natural with soft teal and navy undertones, maintaining a sophisticated and clean light-mode visual identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMQ-yaqt0MToUAi8kZ1casoJsdO8F4enkp8hUVaMy0WLmR5EMCqB8tpS9GMNxCxIKIEGTLDlepihoeakkWvn-FYPyTl8NcBV6hT7UlPe9vTMjCI_d3WqhOxVNyFC8awiKLis-lgdR2F-achuOlFtmi_aoK8S3KyvfrsgqVs1L1DlTGj4zF1RKztuCLa44WGafBVs96lfRgwng9TrSLp2f-YMCmSfYwFmCD9UlvfaJ2vfuJ-HOIqYJlIC3kzHJbTDCKdDEO1JDv2vuH"/>
+</div>
+</div>
+</div>
+</header>
+<main class="hero-bg min-h-screen pt-24 pb-16 px-gutter flex flex-col items-center" data-alt="A breathtaking panoramic view of lush green mountain ranges partially covered by soft morning mist and dense evergreen forests. The lighting is radiant and optimistic, with golden sunlight filtering through the clouds to create a sense of wonder and adventure. The scene is majestic and serene, perfectly embodying the spirit of a premium modern travel platform.">
+<!-- Profile Container -->
+<div class="glass-panel w-full max-w-container-max rounded-xl shadow-2xl overflow-hidden border border-white/20">
+<!-- Navigation Tabs -->
+<div class="bg-white/40 px-gutter pt-8 flex items-center gap-8 border-b border-white/20">
+<button class="pb-4 font-label-md text-label-md text-on-surface-variant hover:text-primary border-b-2 border-transparent transition-all">Personal Details</button>
+<button class="pb-4 font-label-md text-label-md text-secondary border-b-2 border-secondary transition-all">Preplanned Trips</button>
+<button class="pb-4 font-label-md text-label-md text-on-surface-variant hover:text-primary border-b-2 border-transparent transition-all">Previous Trips</button>
+</div>
+<!-- Dashboard Content -->
+<div class="p-gutter md:p-margin-desktop">
+<!-- Toolbar Area -->
+<div class="flex flex-col md:flex-row gap-4 mb-8 justify-between items-start md:items-center">
+<h1 class="font-headline-lg text-headline-lg text-primary">My Adventures</h1>
+<div class="flex flex-wrap gap-3">
+<div class="flex items-center bg-white/80 rounded-lg px-4 py-2 border border-outline-variant shadow-sm">
+<span class="material-symbols-outlined text-on-surface-variant mr-2">filter_list</span>
+<span class="font-label-md text-label-md">Filter</span>
+</div>
+<div class="flex items-center bg-white/80 rounded-lg px-4 py-2 border border-outline-variant shadow-sm">
+<span class="material-symbols-outlined text-on-surface-variant mr-2">sort</span>
+<span class="font-label-md text-label-md">Sort by...</span>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-md text-label-md shadow-lg hover:opacity-90 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                            New Trip
+                        </button>
+</div>
+</div>
+<!-- Trip Listing Sections -->
+<div class="space-y-section-gap">
+<!-- Ongoing Section -->
+<section>
+<div class="flex items-center gap-4 mb-6">
+<span class="w-3 h-3 bg-error rounded-full animate-pulse"></span>
+<h2 class="font-headline-md text-headline-md text-primary">Ongoing</h2>
+</div>
+<div class="grid grid-cols-1 gap-gutter">
+<!-- Featured Ongoing Card -->
+<div class="group bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row border border-outline-variant hover:shadow-xl transition-all duration-300">
+<div class="md:w-1/3 h-64 md:h-auto overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A majestic ancient temple in North India, intricately carved from sandstone, glowing under the golden light of sunset. The atmosphere is vibrant and cultural, reflecting the rich heritage of the region. The image is crisp with high contrast and a warm, inviting color palette suitable for a luxury travel application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_XdiA0lMVB-ESClaYi5z-9wTd0Cjd2ezo4_2J-327ugFfT2UbhfsqRbsvJPrx-BxQB8GV6OGupCENwcjQuh-nsQWKh1QJ1eraa8FE_8h2rbff_4eBurJO2PaO6AiATAWAOLWqeJGBSvfm0K40bIJDZ5yfUiD8eiFDmBQ3QR3My2Vd6RqNoZXc8U2LU7wyNtuD1Rtu-gs7gbGV4Ey9TJiHzzNW84enydfCruldElLOsnj6kSQNOx4jYtL31kEkj7AqRhV9CzdffsYi"/>
+</div>
+<div class="flex-1 p-8 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-sm text-label-sm">Day 4 of 12</span>
+<span class="text-secondary font-label-md text-label-md font-bold">$2,450 Total</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg mb-4 text-primary">North India Adventure</h3>
+<p class="text-on-surface-variant font-body-md text-body-md line-clamp-2 mb-6">Exploring the mystical landscapes of Rajasthan and the architectural wonders of the Golden Triangle. Currently visiting the Pink City, Jaipur.</p>
+</div>
+<div class="flex items-center justify-between pt-6 border-t border-outline-variant">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-white bg-slate-200 flex items-center justify-center text-[10px] font-bold">JD</div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-slate-300 flex items-center justify-center text-[10px] font-bold">AS</div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-secondary-container text-on-secondary-container flex items-center justify-center text-[10px] font-bold">+2</div>
+</div>
+<button class="text-secondary font-label-md text-label-md flex items-center gap-1 hover:underline">
+                                            View Real-time Tracking <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Up-coming Section -->
+<section>
+<h2 class="font-headline-md text-headline-md mb-6 text-primary">Up-coming</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Upcoming Trip Card 1 -->
+<div class="bg-white rounded-xl shadow-sm border border-outline-variant overflow-hidden hover:shadow-md transition-all">
+<div class="h-48 relative">
+<img class="w-full h-full object-cover" data-alt="A serene landscape of the Sikkim Silk Route featuring winding mountain roads through dense pine forests under a clear blue sky. The visual style is crisp and modern with a teal and slate color grade. The mood is tranquil and inspiring, focused on high-altitude nature exploration." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPaiBGNJsvsOk4e_mAeCTgb5gHP4iUMn0GWIXNmpaE2sclK1Kef6LSGrcLAUzUoR3EtUhMLqnhR5ZudU6aGileIhpU9dUN7Nkj0y3IkIljZdO0TKD_G8i3-PTlAAgCD7scXPJwNsirXNwXN9K2kjON71Xjvaib1tZK1lj5sT6zK974suApFvfoaSS80Wbg973uWjyIS5R8Se6jRqoWv56q3Kv3CrmiHiqqf2feeR3wb3KqRWUBU7pyFxwvuAibfPu9geG0_tNeGSX4"/>
+<div class="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full font-label-sm text-label-sm">In 14 Days</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Sikkim Silk Route</h3>
+<div class="flex items-center gap-2 text-on-surface-variant mb-4">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span class="font-label-md text-label-md">Oct 15 - Oct 22</span>
+</div>
+<div class="w-full h-1 bg-surface-container-low rounded-full mb-6 overflow-hidden">
+<div class="w-3/4 h-full bg-secondary"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant">75% Planning Complete</span>
+<button class="text-secondary font-label-md text-label-md font-bold">Edit Plan</button>
+</div>
+</div>
+</div>
+<!-- Upcoming Trip Card 2 -->
+<div class="bg-white rounded-xl shadow-sm border border-outline-variant overflow-hidden hover:shadow-md transition-all">
+<div class="h-48 relative">
+<img class="w-full h-full object-cover" data-alt="A vibrant street scene in Chennai showing colorful colonial architecture and bustling local life with a focus on cultural textures. The lighting is bright and cheerful, highlighting a rich palette of terracotta, deep teal, and golden yellows. The composition is dynamic and clean, reflecting a professional urban travel guide style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgoyOjym37fzoXv0KLe1gb8w289xiVt4BFO8LcQZ_DivRZNtkEAmMSLQ1BWmqwgQIVqmWrH4ZJ8px6sukoGZ80M1u_GZHLW1WTL1bfyp1j6499mr69cnyUyfJ5TDdUhS1hFcQXaCNmbUB5eC2-MmYDsi9QG3uVGJ7MNaf2JyKysCncZZx7sg3MqmNgf9VyJtFpEuKYH4uP_AcTqtUqQseAkkI3h4AyEc_z3iC02TTIXjfO1u7BZV_NbXNSEnakiFGZ8x3L88A_gEPk"/>
+<div class="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full font-label-sm text-label-sm">In 42 Days</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Chennai Cultural Weekend</h3>
+<div class="flex items-center gap-2 text-on-surface-variant mb-4">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span class="font-label-md text-label-md">Nov 12 - Nov 14</span>
+</div>
+<div class="w-full h-1 bg-surface-container-low rounded-full mb-6 overflow-hidden">
+<div class="w-1/4 h-full bg-secondary"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant">25% Planning Complete</span>
+<button class="text-secondary font-label-md text-label-md font-bold">Continue</button>
+</div>
+</div>
+</div>
+<!-- Empty State Add Card -->
+<div class="border-2 border-dashed border-outline-variant rounded-xl flex flex-col items-center justify-center p-8 bg-white/20 hover:bg-white/40 cursor-pointer transition-all">
+<span class="material-symbols-outlined text-[48px] text-on-surface-variant mb-4">add_circle</span>
+<p class="font-headline-md text-headline-md text-on-surface-variant">New Adventure</p>
+<p class="font-label-md text-label-md text-on-surface-variant text-center mt-2">Start mapping out your next dream destination.</p>
+</div>
+</div>
+</section>
+<!-- Completed Section -->
+<section>
+<h2 class="font-headline-md text-headline-md mb-6 text-primary">Completed</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Completed Card 1 -->
+<div class="bg-white rounded-xl shadow-sm border border-outline-variant flex overflow-hidden hover:shadow-md transition-all h-32">
+<div class="w-32 h-full">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="A tranquil aerial view of the Taj Mahal at dawn, with soft pink and lavender hues reflecting in the Yamuna River. The atmosphere is peaceful and nostalgic, with a clean, high-end photographic finish. The image captures a sense of achievement and memory, perfect for a completed trip gallery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBg6O27JK6lFXZBp8CPGV59BKmPJtRTtlr1xa60RPc20-aFfIMGR8f0wNBkBpxa9glSzB5c3ECt3ytB_sVcL-76uMLq3tSzlHOvD2t6c2qlj1OnQ372JOfpVy-aav-c4ZnzHe4mrDNO0wg9L1iJsMbpQk4fT0kRePTHpQhY1KQsAE0rn2Qxamm0wpPin2gX_XQeLst3jSBaDgWBkKj6EcWVNrltCOQlZkMfunm9ZkkCud99Bl7TGFmXiB7cTxoilG7DHJrohzeUA6NZ"/>
+</div>
+<div class="flex-1 p-4 flex flex-col justify-center">
+<h4 class="font-label-md text-label-md font-bold text-primary">Heritage of Agra</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Completed Aug 2024</p>
+<div class="flex items-center gap-1 mt-2 text-secondary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+</div>
+</div>
+<div class="p-4 flex items-center">
+<button class="p-2 hover:bg-surface-container rounded-full text-on-surface-variant">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Completed Card 2 -->
+<div class="bg-white rounded-xl shadow-sm border border-outline-variant flex overflow-hidden hover:shadow-md transition-all h-32">
+<div class="w-32 h-full">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="The Gateway of India in Mumbai viewed through a professional lens during a hazy blue-hour morning. The lighting is soft and atmospheric, highlighting the historic structure against the Arabian Sea. The visual style is elegant and minimalist, conveying a quiet moment in a busy city." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLMLwSD4JH0pp-F9fPK62c5ricxSHZu-WQht8GpkXxSPmUpdwL5ZB4btmxEsV2LfMetiBhtOmR9YuWcsRE6Rl4Edz76XSN6F7bVPnRJy5gmmWsveG41VA4zb4TAK6HLgtV9nGwDKHjSmHiMWbP6Re-9sZyAlFXuQdwKpUeWSc4GToPSljx0KOqih7mlhR0NgLWEcGcORXR5HNKgBDjtK-UVmtgEe0OgyRVVoYtgHNax3aN41Xw2fDDZnoZg8EudDAoFd8AMZU9DsmJ"/>
+</div>
+<div class="flex-1 p-4 flex flex-col justify-center">
+<h4 class="font-label-md text-label-md font-bold text-primary">Gateway City Mumbai</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Completed June 2024</p>
+<div class="flex items-center gap-1 mt-2 text-secondary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<div class="p-4 flex items-center">
+<button class="p-2 hover:bg-surface-container rounded-full text-on-surface-variant">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline-variant dark:border-outline">
+<div class="w-full py-margin-desktop px-gutter max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-base">
+<span class="text-headline-md font-headline-md text-primary dark:text-primary-fixed">Traveloop</span>
+<div class="flex gap-8">
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors" href="#">About Us</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors" href="#">Help Center</a>
+</div>
+<p class="font-body-md text-body-md text-on-surface dark:text-inverse-on-surface opacity-60">© 2024 Traveloop Inc. All rights reserved.</p>
+</div>
+</footer>
+</body></html>

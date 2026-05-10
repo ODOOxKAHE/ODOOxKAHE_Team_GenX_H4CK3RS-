@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Traveloop - Explore India</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-tertiary-fixed-variant": "#891933",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdadc",
+                        "surface-container": "#eceef0",
+                        "background": "#f7f9fb",
+                        "surface-container-high": "#e6e8ea",
+                        "on-background": "#191c1e",
+                        "on-primary-fixed": "#131b2e",
+                        "surface-variant": "#e0e3e5",
+                        "secondary-fixed": "#89f5e7",
+                        "tertiary-fixed-dim": "#ffb2b9",
+                        "on-tertiary-container": "#da586c",
+                        "on-surface": "#191c1e",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-bright": "#f7f9fb",
+                        "primary-fixed": "#dae2fd",
+                        "outline": "#76777d",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#565e74",
+                        "inverse-surface": "#2d3133",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-container-low": "#f2f4f6",
+                        "on-primary-container": "#7c839b",
+                        "secondary-container": "#86f2e4",
+                        "surface": "#f7f9fb",
+                        "secondary-fixed-dim": "#6bd8cb",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#006f66",
+                        "tertiary-container": "#400010",
+                        "tertiary": "#000000",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed": "#00201d",
+                        "outline-variant": "#c6c6cd",
+                        "primary": "#000000",
+                        "on-tertiary-fixed": "#400010",
+                        "primary-container": "#131b2e",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary-fixed-variant": "#005049",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#45464d",
+                        "inverse-primary": "#bec6e0",
+                        "secondary": "#006a61",
+                        "error": "#ba1a1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "section-gap": "80px",
+                        "container-max": "1280px",
+                        "margin-desktop": "40px",
+                        "base": "8px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-search {
+            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.9);
+        }
+        .custom-shadow {
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+        }
+        .region-toggle-btn.active {
+            background-color: #006a61;
+            color: white;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface shadow-[0_4px_20px_rgba(15,23,42,0.05)] h-16 flex items-center">
+<div class="max-w-container-max mx-auto w-full px-gutter flex justify-between items-center">
+<div class="flex items-center gap-8">
+<span class="text-headline-md font-headline-md font-bold text-primary">Traveloop</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">My Trips</a>
+<a class="text-label-md font-label-md text-secondary border-b-2 border-secondary pb-1" href="#">Explore</a>
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Community</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-outline-variant">
+<img alt="User profile photo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjdIvsIdqM2LQQ5owCgGRhJ4hOz_-tTlJuORHCt2-BTZviqAZXm2xCiBX1aOYkKtCNUQfiDuEqpG649jzX7NbRad2gCGT58W9PdYxJ0Cf-HrnXGHSp_kK8mFHZjECdyuXSpuHQmDNHtpqJBVxQK8VPtwBb5xJxGva9OdG5ssnhmUIbiFKRgX3BgbMHtm0U1QjlmnAnacVZfupiurgf7xqAP_o-or21yNS3JTAshOTfvBADpaHWadItF10A2rC1PTlRLZH7GQnJCwGX"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative w-full h-[500px] overflow-hidden">
+<img alt="Marina Beach, Chennai" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnF5YcI3chmPA0tn4h5M6mSSt82920Jnef0XMKGXpILzC_oL3i3z0yg1MwskEkNSNaEqQyng9pDOxPGZAo8yhBVimsf3yD70IYzI9z-kFCbUy6Tnh5PsFwudV8toG0kFE5NLpTuL6IrPQGYq8PjGxVqIlgCzPSJ_caCOSHHNRFEBlkPtlueyat_vL3BeGB4se0tm9yhyPSeCdytQ8HXnkNkp50n-sgijUJjymZMGqhUFkpqxXtAUwqmYfWYQTD_7l9mzK37O8ov3WZ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-center items-center px-gutter text-center">
+<div class="flex bg-white/10 backdrop-blur-md p-1 rounded-full mb-6 border border-white/20">
+<button class="region-toggle-btn active px-6 py-2 rounded-full text-label-md transition-all">South India</button>
+<button class="region-toggle-btn px-6 py-2 rounded-full text-label-md text-white transition-all">North India</button>
+</div>
+<h1 class="text-headline-xl font-headline-xl text-white mb-4 drop-shadow-lg">Discover the Heart of <span id="region-title">South India</span></h1>
+<p class="text-body-lg font-body-lg text-white/90 max-w-2xl">From the historic temples of Tamil Nadu to the pristine peaks of Sikkim, start your journey here.</p>
+</div>
+</section>
+<!-- Enhanced Search and Filter Bar -->
+<section class="max-w-container-max mx-auto px-gutter -mt-12 relative z-10">
+<div class="bg-surface-container-lowest glass-search p-6 rounded-2xl shadow-xl border border-outline-variant/30">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
+<div class="md:col-span-1 relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface-container rounded-xl border-none focus:ring-2 focus:ring-secondary text-body-md" placeholder="Destination..." type="text"/>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">payments</span>
+<select class="w-full pl-12 pr-4 py-3 bg-surface-container rounded-xl border-none focus:ring-2 focus:ring-secondary text-body-md appearance-none">
+<option>Budget: Any</option>
+<option>Economy</option>
+<option>Mid-range</option>
+<option>Luxury</option>
+</select>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">schedule</span>
+<select class="w-full pl-12 pr-4 py-3 bg-surface-container rounded-xl border-none focus:ring-2 focus:ring-secondary text-body-md appearance-none">
+<option>Duration: Any</option>
+<option>1-3 Days</option>
+<option>4-7 Days</option>
+<option>7+ Days</option>
+</select>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">hiking</span>
+<select class="w-full pl-12 pr-4 py-3 bg-surface-container rounded-xl border-none focus:ring-2 focus:ring-secondary text-body-md appearance-none">
+<option>Activity: Any</option>
+<option>Beach</option>
+<option>Heritage</option>
+<option>Adventure</option>
+</select>
+</div>
+</div>
+<div class="flex justify-between items-center border-t border-outline-variant pt-4">
+<div class="flex gap-4">
+<span class="text-label-sm text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">trending_up</span> Popular right now: Sikkim, Goa, Varanasi</span>
+</div>
+<button class="bg-secondary text-white px-8 py-3 rounded-xl font-label-md hover:bg-on-secondary-container transition-colors shadow-md">Search Flights &amp; Hotels</button>
+</div>
+</div>
+</section>
+<!-- Best Offers Slider -->
+<section class="max-w-container-max mx-auto px-gutter pt-12 pb-6">
+<div class="flex justify-between items-end mb-6">
+<h2 class="text-headline-md text-primary">Best Offers for You</h2>
+<div class="flex gap-2">
+<button class="p-2 rounded-full border border-outline-variant hover:bg-surface-variant"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="p-2 rounded-full border border-outline-variant hover:bg-surface-variant"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+<div class="flex gap-6 overflow-x-auto hide-scrollbar pb-4">
+<div class="min-w-[320px] bg-white rounded-xl p-4 flex gap-4 border border-outline-variant/30 custom-shadow hover:border-secondary transition-all cursor-pointer">
+<div class="w-20 h-20 bg-secondary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container text-4xl">flight</span>
+</div>
+<div>
+<span class="text-label-sm font-bold text-secondary uppercase tracking-wider">Flight Deal</span>
+<h4 class="text-label-md font-bold mt-1">Flat 15% OFF on Indigo</h4>
+<p class="text-label-sm text-on-surface-variant">Use Code: TRAVELOOP15</p>
+</div>
+</div>
+<div class="min-w-[320px] bg-white rounded-xl p-4 flex gap-4 border border-outline-variant/30 custom-shadow hover:border-secondary transition-all cursor-pointer">
+<div class="w-20 h-20 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-fixed text-4xl">hotel</span>
+</div>
+<div>
+<span class="text-label-sm font-bold text-on-primary-container uppercase tracking-wider">Hotel Deal</span>
+<h4 class="text-label-md font-bold mt-1">Book 2 Nights, Get 1 Free</h4>
+<p class="text-label-sm text-on-surface-variant">On Heritage Stays</p>
+</div>
+</div>
+<div class="min-w-[320px] bg-white rounded-xl p-4 flex gap-4 border border-outline-variant/30 custom-shadow hover:border-secondary transition-all cursor-pointer">
+<div class="w-20 h-20 bg-tertiary-fixed rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant text-4xl">sell</span>
+</div>
+<div>
+<span class="text-label-sm font-bold text-on-tertiary-container uppercase tracking-wider">Bank Offer</span>
+<h4 class="text-label-md font-bold mt-1">₹2,000 Cashback on HDFC</h4>
+<p class="text-label-sm text-on-surface-variant">Valid on Intl. Trips</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Top Regional Selections -->
+<section class="max-w-container-max mx-auto px-gutter py-12">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="text-headline-lg font-headline-lg text-primary">Top Regional Selections</h2>
+<p class="text-body-md font-body-md text-on-surface-variant">Curated destinations for your next escape.</p>
+</div>
+<button class="text-secondary font-label-md flex items-center gap-1 hover:underline">View all <span class="material-symbols-outlined text-[18px]">arrow_forward</span></button>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-6" id="destination-grid">
+<!-- Selection Card 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden mb-3 custom-shadow relative">
+<img alt="Mylapore" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJIIQNhNPMa9KgZBn6588hbQ01soQBxEyaM6DOQOZrufxiZO7z5zFHRpjx9E9ZbN8fBpvFLmkHl2RsG9NoPAFkcOWnBZzGdcEiiSbtYvxZGbTdJPdpK5kBumyDa20Gu8Vs9Or__moGjP4ymb7poYbjoQGoRHXAVipSuCdb30DDQFV2mk8_y6pYmPxDF67OG9FmTwL_qxnfSI6aoc7n2kN19ElAJ18aus-_ahSGyYJepqg3B9EV_eM6TDG79hILTJLBftqqhC-UZ7vJ"/>
+<div class="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-2 py-1 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-orange-500 fill-1" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="text-[10px] font-bold">4.8</span>
+</div>
+<div class="absolute bottom-2 left-2 flex gap-1">
+<span class="bg-secondary text-white text-[9px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">verified</span> Verified
+                            </span>
+</div>
+</div>
+<h3 class="text-label-md font-label-md text-primary">Mylapore, Chennai</h3>
+<p class="text-label-sm font-label-sm text-secondary">Culture &amp; Heritage</p>
+</div>
+<!-- Selection Card 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden mb-3 custom-shadow relative">
+<img alt="Mahabalipuram" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDERI7vrdwUgb05JinpbSnDVHOH4sHOrw56r_oYmTetEWDMfqkJLgWwaNVFrTYA9AHfV5IiHnE0JG_G_9Uau-cl6HgtgAwZTZCVFdfSFBQVHsqs-AJm7NQtn2vPKij1NzwYRWAhRBbVpNik8GOgl35A4Mukg28ckSYNn53DJKs0zFZC49t4EAz2MTAq_ImTHvBFUdYwm__gVIWPpSCmkAMkLWZsK4GyEYjK143bYgXRgdP9VbMZkkqvgTM2n40sdYVhUJ8AU_oQS97q"/>
+<div class="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-2 py-1 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-orange-500" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="text-[10px] font-bold">4.9</span>
+</div>
+<div class="absolute bottom-2 left-2 flex gap-1">
+<span class="bg-secondary text-white text-[9px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">verified</span> Verified
+                            </span>
+</div>
+</div>
+<h3 class="text-label-md font-label-md text-primary">Mahabalipuram</h3>
+<p class="text-label-sm font-label-sm text-secondary">World Heritage Site</p>
+</div>
+<!-- Selection Card 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden mb-3 custom-shadow relative">
+<img alt="Ooty" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfUnUxUIXvAp2mTx80msMD_-8Ugz_wQI-NWFh3-cKgZ4LmNM27QYcwgUzUbE7jiUIlv9acSu_BUj6L-dYMkNHwC8erjBGy6z2rwXY70zDNAJuX3T3WxSL6-yipwB6nD7kOPVM-0mNN5pyYYXSGLxUT7PyeEFaWBGslM-8HGejWgvt2V5ggP_hYnsbFl2FiURM5EZZtp3INIYWrgtYppO_Rddxwetr_1YJF0Iat0NL0SOI37ryV8cY0tr6Go9oluu-UdHWT9nO6gU1p"/>
+<div class="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-2 py-1 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-orange-500" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="text-[10px] font-bold">4.7</span>
+</div>
+</div>
+<h3 class="text-label-md font-label-md text-primary">Ooty Hills</h3>
+<p class="text-label-sm font-label-sm text-secondary">Hill Station</p>
+</div>
+<!-- Selection Card 4 -->
+<div class="group cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden mb-3 custom-shadow relative">
+<img alt="Madurai" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfpojt35HbZZKxxGqTdXF26lueKLQVAqgNdJAPvvbxNEm-Mdkbst6X1XaQ58ZnUQ4c15KGn2kMEvhUlZvuK2cdcjMPEy2UX1LH6bjHtN2DAxsHzPFVBfHgHx-hWN1pmGa0dmZdxNg89GNunJyxtRi3jpnyuaKayw5Gtnt_YoVWuJs0imvnuH4haVSsedqdslcOxEe7mNFKbD8a2sB6LYSKJd2Ghy2FyAfbYsIfkdvZiWJC1PNym90X3vIJ5QP4uA5UHsyJylDtd8Jv"/>
+<div class="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-2 py-1 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-orange-500" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="text-[10px] font-bold">4.9</span>
+</div>
+<div class="absolute bottom-2 left-2 flex gap-1">
+<span class="bg-secondary text-white text-[9px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">verified</span> Verified
+                            </span>
+</div>
+</div>
+<h3 class="text-label-md font-label-md text-primary">Madurai City</h3>
+<p class="text-label-sm font-label-sm text-secondary">Temple Town</p>
+</div>
+<!-- Selection Card 5 -->
+<div class="group cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden mb-3 custom-shadow relative">
+<img alt="Pondicherry" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtB8LuoGV02QyGoE-By_ie5F3rQGLDrTomE9Ey-tJnXnQOEMIJEy6WfG1anAqx1D-Xt3h-ml02euefF1_xMBC68xWBCdRU1ANkvJWzrnXdpEmMnnkPlHwyZR_A-p6YXdIuhYeaix6INOwh7S0STA4tEhpJThjlqOLOP_5gCDxBvYKXP63IVt8Zrmvz23PwTX8xZ4wxM4wLhq6x-5RUyyYXx1nKmjYCJKI4iRO0g488Iw6tBdf3bDI6qSSxlqmP4vskvileNq8kv4j2"/>
+<div class="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-2 py-1 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-orange-500" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="text-[10px] font-bold">4.6</span>
+</div>
+</div>
+<h3 class="text-label-md font-label-md text-primary">Pondicherry</h3>
+<p class="text-label-sm font-label-sm text-secondary">Coastal Charm</p>
+</div>
+</div>
+</section>
+<!-- Trending Packages -->
+<section class="bg-surface-container py-16">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">
+<div>
+<h2 class="text-headline-lg font-headline-lg text-primary">Trending Packages</h2>
+<p class="text-body-md text-on-surface-variant">Top-rated itineraries loved by our community.</p>
+</div>
+<div class="flex gap-2">
+<button class="px-6 py-2 bg-white rounded-full text-label-sm font-bold shadow-sm border border-outline-variant hover:border-secondary transition-colors">Best Sellers</button>
+<button class="px-6 py-2 bg-transparent rounded-full text-label-sm font-bold hover:bg-white transition-colors">Newly Added</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Package Card 1 -->
+<div class="bg-white rounded-2xl overflow-hidden custom-shadow group border border-outline-variant/20">
+<div class="relative h-60 overflow-hidden">
+<img alt="Sikkim Package" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZWawPAsb9zebZ76TE4vBzmwk3878ALLSKzkikq5IM78n0Q_muMGHYlc1E7vEO-qkklvCatyK6ev5UWODbT86KHWZxNjxVx_QIjRuBZs208H5PGjlYzA9isKy3ArunEmsLzyawV_G-HulKKwBxJ44-gbvkoRVBbm7074v-nbU4IhPEDT3pfwt5LC3wLGFgIA_eZdqmiQL2c2BEUkqkZxSOcSYis4g4NQnJjO1qLqw6fNYneDyCsBSRqobWFJC65GLDj38VDvDSI-gV"/>
+<div class="absolute top-4 left-4 flex flex-col gap-2">
+<span class="bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Top Rated</span>
+</div>
+<div class="absolute bottom-4 left-4">
+<span class="bg-white/90 backdrop-blur-md text-primary px-3 py-1 rounded-lg text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span> 6 Days / 5 Nights
+                                </span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-headline-md font-bold text-primary">The Himalayan Odyssey</h3>
+<div class="text-right">
+<span class="block text-label-sm text-on-surface-variant line-through">₹45,000</span>
+<span class="text-headline-md font-bold text-secondary">₹38,999</span>
+</div>
+</div>
+<ul class="flex flex-wrap gap-2 mb-6">
+<li class="bg-surface-container-low px-3 py-1 rounded-full text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Hotels</li>
+<li class="bg-surface-container-low px-3 py-1 rounded-full text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Sightseeing</li>
+<li class="bg-surface-container-low px-3 py-1 rounded-full text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Transfers</li>
+</ul>
+<button class="w-full py-4 bg-secondary-container text-on-secondary-container font-label-md rounded-xl hover:bg-secondary hover:text-white transition-all flex items-center justify-center gap-2">
+                                View Full Itinerary <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Package Card 2 -->
+<div class="bg-white rounded-2xl overflow-hidden custom-shadow group border border-outline-variant/20">
+<div class="relative h-60 overflow-hidden">
+<img alt="Chennai Package" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMD_7ZwRgc5t2I3O7iq5rhK_vZHDbz5hLg7nX3CDGQrHFZ4hYfkI6rMfec_sfNLzaVKV8fKKR2fOFXCZb5XM2D0OiQlQI6z11ZiIDsTzFdOSRed25b8dVxBqxgTBqiV50Kx9CjK_ruIkQ3wBE2E1n3Gatqm_q9B4PvkYTMD3JhuvLvRQApQp0rMn-ETnnjazIvALEJLkMw9-wEtxfpuq6LPfE6vysTp6NkSBmqnmYneV3HDBYJvJg3_uw9D4Jm0CVdhLvFb17Hdhfg"/>
+<div class="absolute top-4 left-4">
+<span class="bg-error text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Limited Offer</span>
+</div>
+<div class="absolute bottom-4 left-4">
+<span class="bg-white/90 backdrop-blur-md text-primary px-3 py-1 rounded-lg text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span> 3 Days / 2 Nights
+                                </span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-headline-md font-bold text-primary">Chennai Heritage Walk</h3>
+<div class="text-right">
+<span class="text-headline-md font-bold text-secondary">₹12,499</span>
+</div>
+</div>
+<ul class="flex flex-wrap gap-2 mb-6">
+<li class="bg-surface-container-low px-3 py-1 rounded-full text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Guide</li>
+<li class="bg-surface-container-low px-3 py-1 rounded-full text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Breakfast</li>
+</ul>
+<button class="w-full py-4 bg-secondary-container text-on-secondary-container font-label-md rounded-xl hover:bg-secondary hover:text-white transition-all flex items-center justify-center gap-2">
+                                View Full Itinerary <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Package Card 3 -->
+<div class="bg-white rounded-2xl overflow-hidden custom-shadow group border border-outline-variant/20">
+<div class="relative h-60 overflow-hidden">
+<img alt="Puducherry Package" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7UyRjrtN5lSETmKu9GJHyBX1dWDe9O6G7tECQIBk7h-0YjBe4oh1nY_MgZY98z6J48DTeaF6EJ62sewcHXgOlwKiTlaSTYKG5iQTxCW8Xenc8oQ0tr68jJ7Ce9QWYIpvf22DaQ0Pp8u0cB8iIjgHId3er9DA0YnB0hfpTcNzolcOzXr30CxE6F4hWVpR9HgCVY-yupVpOtTXPOvMsfcsVdoQ09jX862SHrRb2K00rA4dzoGOVE5E1MWia6MWLybhuMqvkrOh14o0B"/>
+<div class="absolute bottom-4 left-4">
+<span class="bg-white/90 backdrop-blur-md text-primary px-3 py-1 rounded-lg text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span> 4 Days / 3 Nights
+                                </span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-headline-md font-bold text-primary">Coastal French Charm</h3>
+<div class="text-right">
+<span class="text-headline-md font-bold text-secondary">₹18,500</span>
+</div>
+</div>
+<ul class="flex flex-wrap gap-2 mb-6">
+<li class="bg-surface-container-low px-3 py-1 rounded-full text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Resort</li>
+<li class="bg-surface-container-low px-3 py-1 rounded-full text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Cycle Tour</li>
+</ul>
+<button class="w-full py-4 bg-secondary-container text-on-secondary-container font-label-md rounded-xl hover:bg-secondary hover:text-white transition-all flex items-center justify-center gap-2">
+                                View Full Itinerary <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Previous Trips -->
+<section class="bg-surface-container-low py-section-gap">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="flex justify-between items-center mb-8">
+<h2 class="text-headline-lg font-headline-lg text-primary">Your Travel History</h2>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface transition-colors">
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface transition-colors">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Trip Card 1 -->
+<div class="bg-surface rounded-xl overflow-hidden custom-shadow group">
+<div class="h-48 overflow-hidden">
+<img alt="Kodaikanal Trip" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC81W1DdfxV8eNUwYEgjApFUcLUTb5nOezkR8a7aS-t4WTvOnI4jkE78OYcfhJiXLk9WsQjfSulDNw5nwirR4rVWD0j3X3gOBwP6XW_JrEFd8VaB-1XdzNpamq2jI-dymhIhyGDOLh1fGBUsko0bZ8BQi59LF5Z1WV0114f9v-NvPEWppytnequYdN6yFcOr7kXUa6mHmRv4bk5gvVjxbsHeQy3JKkCBu7bO4JtWi21c9qMPUoLibIpiPwRxxa-hW2HcHPXV3NHNomp"/>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-headline-md font-headline-md text-primary">Misty Kodaikanal</h3>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-label-sm font-label-sm">Completed</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant mb-4">4 Days • Aug 2023</p>
+<div class="flex items-center justify-between">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-slate-300"></div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-slate-400"></div>
+<div class="w-8 h-8 rounded-full border-2 border-surface flex items-center justify-center bg-secondary text-white text-[10px] font-bold">+2</div>
+</div>
+<button class="text-secondary font-label-md hover:underline">Revisit Itinerary</button>
+</div>
+</div>
+</div>
+<!-- Trip Card 2 -->
+<div class="bg-surface rounded-xl overflow-hidden custom-shadow group">
+<div class="h-48 overflow-hidden">
+<img alt="Chennai Weekend" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXYaET57el64oLuNPtSK0FD9K1MxMSfAaMC3E2x5Dehflxj1McIZ0bjV9fykpRZN3JhXLYtiiOG036F9S00LZHNxBOVFwDfxTG4nImLjtGSnoPXbEWktGOCZ8u6mklgP9hL54hkpQqP1fUwOC6GOC0Jr6wjZr3PB89DZhwt6jrDnbnAHyvdfYZFa7acosluawQbrlClX5jT2ZEcWHjDP5bZdSL2ApUHsRgMSpR8nnupPkiAnoId1MS47sZHZXfVQtbUEnLaTUIbbam"/>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-headline-md font-headline-md text-primary">Chennai Cultural Weekend</h3>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-label-sm font-label-sm">Completed</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant mb-4">2 Days • June 2023</p>
+<div class="flex items-center justify-between">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-slate-300"></div>
+</div>
+<button class="text-secondary font-label-md hover:underline">Revisit Itinerary</button>
+</div>
+</div>
+</div>
+<!-- Trip Card 3 -->
+<div class="bg-surface rounded-xl overflow-hidden custom-shadow group">
+<div class="h-48 overflow-hidden">
+<img alt="Kanyakumari Trip" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDamoAZRo3hcMku9wYj4O079GMPyvzu9fjlIJQkEvunojgtrAOoxIdQ0OgnUeAoKJO60tiXT-348tdLPbIvNC0qmZvJYQ4X2MTCL4VtQF4rdgbmYyUg4A4auy80ebHaDy-o5EuCfdwq_u6lmhNvDu4ZmPVhBR_MdsPYn8yFORrb-ll_wTznG_oCTfG7bQTdLmDoYChbymvXcnz3qSfScH6_iMREMpZzmlIf8oSdUIYUiFPsSfXBm97OE2drZozjTf3ILTtMr2Xp649B"/>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-headline-md font-headline-md text-primary">Kanyakumari Odyssey</h3>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-label-sm font-label-sm">Completed</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant mb-4">5 Days • Jan 2023</p>
+<div class="flex items-center justify-between">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-slate-300"></div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-slate-400"></div>
+</div>
+<button class="text-secondary font-label-md hover:underline">Revisit Itinerary</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-8 right-8 bg-primary text-white flex items-center gap-3 px-6 py-4 rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined">add</span>
+<span class="font-label-md">Plan a trip</span>
+</button>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant w-full py-margin-desktop">
+<div class="max-w-container-max mx-auto px-gutter flex flex-col md:flex-row justify-between items-center gap-base">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="text-headline-md font-headline-md text-primary">Traveloop</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">© 2024 Traveloop Inc. All rights reserved.</span>
+</div>
+<div class="flex gap-8">
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">About Us</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Help Center</a>
+</div>
+<div class="flex gap-4">
+<button class="p-2 text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">language</span></button>
+<button class="p-2 text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">share</span></button>
+</div>
+</div>
+</footer>
+<script>
+        const southIndiaDests = [
+            { name: "Mylapore, Chennai", cat: "Culture & Heritage", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDJIIQNhNPMa9KgZBn6588hbQ01soQBxEyaM6DOQOZrufxiZO7z5zFHRpjx9E9ZbN8fBpvFLmkHl2RsG9NoPAFkcOWnBZzGdcEiiSbtYvxZGbTdJPdpK5kBumyDa20Gu8Vs9Or__moGjP4ymb7poYbjoQGoRHXAVipSuCdb30DDQFV2mk8_y6pYmPxDF67OG9FmTwL_qxnfSI6aoc7n2kN19ElAJ18aus-_ahSGyYJepqg3B9EV_eM6TDG79hILTJLBftqqhC-UZ7vJ", rating: 4.8, verified: true },
+            { name: "Mahabalipuram", cat: "World Heritage Site", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDERI7vrdwUgb05JinpbSnDVHOH4sHOrw56r_oYmTetEWDMfqkJLgWwaNVFrTYA9AHfV5IiHnE0JG_G_9Uau-cl6HgtgAwZTZCVFdfSFBQVHsqs-AJm7NQtn2vPKij1NzwYRWAhRBbVpNik8GOgl35A4Mukg28ckSYNn53DJKs0zFZC49t4EAz2MTAq_ImTHvBFUdYwm__gVIWPpSCmkAMkLWZsK4GyEYjK143bYgXRgdP9VbMZkkqvgTM2n40sdYVhUJ8AU_oQS97q", rating: 4.9, verified: true },
+            { name: "Ooty Hills", cat: "Hill Station", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCfUnUxUIXvAp2mTx80msMD_-8Ugz_wQI-NWFh3-cKgZ4LmNM27QYcwgUzUbE7jiUIlv9acSu_BUj6L-dYMkNHwC8erjBGy6z2rwXY70zDNAJuX3T3WxSL6-yipwB6nD7kOPVM-0mNN5pyYYXSGLxUT7PyeEFaWBGslM-8HGejWgvt2V5ggP_hYnsbFl2FiURM5EZZtp3INIYWrgtYppO_Rddxwetr_1YJF0Iat0NL0SOI37ryV8cY0tr6Go9oluu-UdHWT9nO6gU1p", rating: 4.7, verified: false },
+            { name: "Madurai City", cat: "Temple Town", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAfpojt35HbZZKxxGqTdXF26lueKLQVAqgNdJAPvvbxNEm-Mdkbst6X1XaQ58ZnUQ4c15KGn2kMEvhUlZvuK2cdcjMPEy2UX1LH6bjHtN2DAxsHzPFVBfHgHx-hWN1pmGa0dmZdxNg89GNunJyxtRi3jpnyuaKayw5Gtnt_YoVWuJs0imvnuH4haVSsedqdslcOxEe7mNFKbD8a2sB6LYSKJd2Ghy2FyAfbYsIfkdvZiWJC1PNym90X3vIJ5QP4uA5UHsyJylDtd8Jv", rating: 4.9, verified: true },
+            { name: "Pondicherry", cat: "Coastal Charm", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDtB8LuoGV02QyGoE-By_ie5F3rQGLDrTomE9Ey-tJnXnQOEMIJEy6WfG1anAqx1D-Xt3h-ml02euefF1_xMBC68xWBCdRU1ANkvJWzrnXdpEmMnnkPlHwyZR_A-p6YXdIuhYeaix6INOwh7S0STA4tEhpJThjlqOLOP_5gCDxBvYKXP63IVt8Zrmvz23PwTX8xZ4wxM4wLhq6x-5RUyyYXx1nKmjYCJKI4iRO0g488Iw6tBdf3bDI6qSSxlqmP4vskvileNq8kv4j2", rating: 4.6, verified: false }
+        ];
+
+        const northIndiaDests = [
+            { name: "Gangtok", cat: "Sikkim Hub", img: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=800", rating: 4.8, verified: true },
+            { name: "Pelling", cat: "Mountain Views", img: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&q=80&w=800", rating: 4.7, verified: true },
+            { name: "Nathula Pass", cat: "Adventure", img: "https://images.unsplash.com/photo-1610475357832-736021f8a846?auto=format&fit=crop&q=80&w=800", rating: 4.9, verified: true },
+            { name: "Lachung", cat: "Valley of Flowers", img: "https://images.unsplash.com/photo-1589733955941-5eeaf752f6dd?auto=format&fit=crop&q=80&w=800", rating: 4.8, verified: false },
+            { name: "Tsomgo Lake", cat: "Glacial Lake", img: "https://images.unsplash.com/photo-1632766324888-06ccb191e3e7?auto=format&fit=crop&q=80&w=800", rating: 4.9, verified: true }
+        ];
+
+        const toggleBtns = document.querySelectorAll('.region-toggle-btn');
+        const grid = document.getElementById('destination-grid');
+        const title = document.getElementById('region-title');
+
+        toggleBtns.forEach((btn, idx) => {
+            btn.addEventListener('click', () => {
+                toggleBtns.forEach(b => b.classList.remove('active', 'text-white'));
+                btn.classList.add('active');
+                if (!btn.classList.contains('active')) btn.classList.add('text-white');
+                
+                const region = btn.innerText;
+                title.innerText = region;
+                renderDestinations(region === 'South India' ? southIndiaDests : northIndiaDests);
+            });
+        });
+
+        function renderDestinations(dests) {
+            grid.innerHTML = dests.map(d => `
+                <div class="group cursor-pointer">
+                    <div class="aspect-square rounded-xl overflow-hidden mb-3 custom-shadow relative">
+                        <img alt="${d.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="${d.img}"/>
+                        <div class="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-2 py-1 rounded flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[14px] text-orange-500" style="font-variation-settings: 'FILL' 1">star</span>
+                            <span class="text-[10px] font-bold">${d.rating}</span>
+                        </div>
+                        ${d.verified ? `
+                        <div class="absolute bottom-2 left-2 flex gap-1">
+                            <span class="bg-secondary text-white text-[9px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+                                <span class="material-symbols-outlined text-[12px]">verified</span> Verified
+                            </span>
+                        </div>` : ''}
+                    </div>
+                    <h3 class="text-label-md font-label-md text-primary">${d.name}</h3>
+                    <p class="text-label-sm font-label-sm text-secondary">${d.cat}</p>
+                </div>
+            `).join('');
+        }
+    </script>
+</body></html>

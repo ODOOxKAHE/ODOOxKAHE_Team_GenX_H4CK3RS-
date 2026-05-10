@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Traveloop - Explore Chennai</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#891933",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-tint": "#565e74",
+                        "on-surface-variant": "#45464d",
+                        "on-error-container": "#93000a",
+                        "primary": "#000000",
+                        "surface-bright": "#f7f9fb",
+                        "outline": "#76777d",
+                        "surface": "#f7f9fb",
+                        "tertiary-fixed-dim": "#ffb2b9",
+                        "secondary": "#006a61",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#bec6e0",
+                        "secondary-fixed-dim": "#6bd8cb",
+                        "on-secondary-fixed": "#00201d",
+                        "inverse-surface": "#2d3133",
+                        "on-primary-container": "#7c839b",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "tertiary-container": "#400010",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#006f66",
+                        "on-secondary-fixed-variant": "#005049",
+                        "surface-dim": "#d8dadc",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary-container": "#86f2e4",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "tertiary": "#000000",
+                        "on-tertiary-container": "#da586c",
+                        "surface-variant": "#e0e3e5",
+                        "on-primary-fixed": "#131b2e",
+                        "on-background": "#191c1e",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#400010",
+                        "background": "#f7f9fb",
+                        "surface-container": "#eceef0",
+                        "secondary-fixed": "#89f5e7",
+                        "outline-variant": "#c6c6cd",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#bec6e0",
+                        "primary-container": "#131b2e",
+                        "inverse-on-surface": "#eff1f3",
+                        "primary-fixed": "#dae2fd",
+                        "surface-container-high": "#e6e8ea",
+                        "tertiary-fixed": "#ffdadc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "base": "8px",
+                        "margin-desktop": "40px",
+                        "container-max": "1280px",
+                        "section-gap": "80px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .nav-active { border-bottom: 2px solid #006a61; padding-bottom: 4px; color: #006a61; }
+        .glass-search {
+            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.85);
+        }
+        .custom-shadow {
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface shadow-[0_4px_20px_rgba(15,23,42,0.05)] h-16 flex items-center">
+<div class="max-w-container-max mx-auto w-full px-gutter flex justify-between items-center">
+<div class="flex items-center gap-8">
+<span class="text-headline-md font-headline-md font-bold text-primary">Traveloop</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">My Trips</a>
+<a class="text-label-md font-label-md text-secondary border-b-2 border-secondary pb-1" href="#">Explore</a>
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Community</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-outline-variant">
+<img alt="User profile photo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjdIvsIdqM2LQQ5owCgGRhJ4hOz_-tTlJuORHCt2-BTZviqAZXm2xCiBX1aOYkKtCNUQfiDuEqpG649jzX7NbRad2gCGT58W9PdYxJ0Cf-HrnXGHSp_kK8mFHZjECdyuXSpuHQmDNHtpqJBVxQK8VPtwBb5xJxGva9OdG5ssnhmUIbiFKRgX3BgbMHtm0U1QjlmnAnacVZfupiurgf7xqAP_o-or21yNS3JTAshOTfvBADpaHWadItF10A2rC1PTlRLZH7GQnJCwGX"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-16">
+<!-- Banner Hero Section -->
+<section class="relative w-full h-[500px] overflow-hidden">
+<img alt="Marina Beach, Chennai" class="w-full h-full object-cover" data-alt="A cinematic, wide-angle shot of the Marina Beach in Chennai at sunset. The sky is painted in soft coral and navy hues, with the historic lighthouse visible in the distance. The overall aesthetic is clean, professional, and adventurous, reflecting a high-end travel magazine style with soft ambient lighting and deep shadows. The composition is airy and modern, emphasizing the vastness of the coastline." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnF5YcI3chmPA0tn4h5M6mSSt82920Jnef0XMKGXpILzC_oL3i3z0yg1MwskEkNSNaEqQyng9pDOxPGZAo8yhBVimsf3yD70IYzI9z-kFCbUy6Tnh5PsFwudV8toG0kFE5NLpTuL6IrPQGYq8PjGxVqIlgCzPSJ_caCOSHHNRFEBlkPtlueyat_vL3BeGB4se0tm9yhyPSeCdytQ8HXnkNkp50n-sgijUJjymZMGqhUFkpqxXtAUwqmYfWYQTD_7l9mzK37O8ov3WZ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-center items-center px-gutter text-center">
+<h1 class="text-headline-xl font-headline-xl text-white mb-4 drop-shadow-lg">Discover the Heart of South India</h1>
+<p class="text-body-lg font-body-lg text-white/90 max-w-2xl">From the historic temples of Tamil Nadu to the bustling streets of Chennai, start your next adventure with Traveloop.</p>
+</div>
+</section>
+<!-- Search and Filter Bar -->
+<section class="max-w-container-max mx-auto px-gutter -mt-10 relative z-10">
+<div class="bg-surface-container-lowest glass-search p-4 rounded-xl custom-shadow flex flex-col md:flex-row gap-4 items-center">
+<div class="flex-1 w-full relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface-container rounded-lg border-none focus:ring-2 focus:ring-secondary text-body-md font-body-md" placeholder="Where do you want to go?" type="text"/>
+</div>
+<div class="flex gap-2 w-full md:w-auto">
+<button class="flex items-center gap-2 px-4 py-3 bg-surface-container rounded-lg text-label-md font-label-md text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]">group</span>
+                        Group by
+                    </button>
+<button class="flex items-center gap-2 px-4 py-3 bg-surface-container rounded-lg text-label-md font-label-md text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+                        Filter
+                    </button>
+<button class="flex items-center gap-2 px-4 py-3 bg-surface-container rounded-lg text-label-md font-label-md text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]">sort</span>
+                        Sort by
+                    </button>
+</div>
+</div>
+</section>
+<!-- Top Regional Selections -->
+<section class="max-w-container-max mx-auto px-gutter py-section-gap">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="text-headline-lg font-headline-lg text-primary">Top Regional Selections</h2>
+<p class="text-body-md font-body-md text-on-surface-variant">Curated destinations in Tamil Nadu for your next escape.</p>
+</div>
+<button class="text-secondary font-label-md flex items-center gap-1 hover:underline">View all <span class="material-symbols-outlined text-[18px]">arrow_forward</span></button>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+<!-- Selection Card 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden mb-3 custom-shadow relative">
+<img alt="Mylapore" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A vibrant daytime view of the Kapaleeshwarar Temple in Chennai, featuring intricate Dravidian architecture with colorful sculptures. The lighting is bright and clear, emphasizing the rich Teal and Navy accents of the design system. The atmosphere is professional yet culturally rich, presented as a high-quality destination card." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJIIQNhNPMa9KgZBn6588hbQ01soQBxEyaM6DOQOZrufxiZO7z5zFHRpjx9E9ZbN8fBpvFLmkHl2RsG9NoPAFkcOWnBZzGdcEiiSbtYvxZGbTdJPdpK5kBumyDa20Gu8Vs9Or__moGjP4ymb7poYbjoQGoRHXAVipSuCdb30DDQFV2mk8_y6pYmPxDF67OG9FmTwL_qxnfSI6aoc7n2kN19ElAJ18aus-_ahSGyYJepqg3B9EV_eM6TDG79hILTJLBftqqhC-UZ7vJ"/>
+</div>
+<h3 class="text-label-md font-label-md text-primary">Mylapore, Chennai</h3>
+<p class="text-label-sm font-label-sm text-secondary">Culture &amp; Heritage</p>
+</div>
+<!-- Selection Card 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden mb-3 custom-shadow relative">
+<img alt="Mahabalipuram" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A scenic view of the Shore Temple in Mahabalipuram against a clear blue sky. The ancient stone structures are illuminated by warm morning sunlight, casting soft shadows. The overall aesthetic is minimalist and airy, using a palette of earthy stone tones and crisp sky blues to convey a sense of historical wonder." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDERI7vrdwUgb05JinpbSnDVHOH4sHOrw56r_oYmTetEWDMfqkJLgWwaNVFrTYA9AHfV5IiHnE0JG_G_9Uau-cl6HgtgAwZTZCVFdfSFBQVHsqs-AJm7NQtn2vPKij1NzwYRWAhRBbVpNik8GOgl35A4Mukg28ckSYNn53DJKs0zFZC49t4EAz2MTAq_ImTHvBFUdYwm__gVIWPpSCmkAMkLWZsK4GyEYjK143bYgXRgdP9VbMZkkqvgTM2n40sdYVhUJ8AU_oQS97q"/>
+</div>
+<h3 class="text-label-md font-label-md text-primary">Mahabalipuram</h3>
+<p class="text-label-sm font-label-sm text-secondary">World Heritage Site</p>
+</div>
+<!-- Selection Card 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden mb-3 custom-shadow relative">
+<img alt="Ooty" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A lush green view of the Nilgiri hills in Ooty during a misty morning. The landscape is dotted with tea plantations and tall pine trees. The mood is serene and peaceful, with a soft-focus background that highlights the adventurous and fresh feel of the travel platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfUnUxUIXvAp2mTx80msMD_-8Ugz_wQI-NWFh3-cKgZ4LmNM27QYcwgUzUbE7jiUIlv9acSu_BUj6L-dYMkNHwC8erjBGy6z2rwXY70zDNAJuX3T3WxSL6-yipwB6nD7kOPVM-0mNN5pyYYXSGLxUT7PyeEFaWBGslM-8HGejWgvt2V5ggP_hYnsbFl2FiURM5EZZtp3INIYWrgtYppO_Rddxwetr_1YJF0Iat0NL0SOI37ryV8cY0tr6Go9oluu-UdHWT9nO6gU1p"/>
+</div>
+<h3 class="text-label-md font-label-md text-primary">Ooty Hills</h3>
+<p class="text-label-sm font-label-sm text-secondary">Hill Station</p>
+</div>
+<!-- Selection Card 4 -->
+<div class="group cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden mb-3 custom-shadow relative">
+<img alt="Madurai" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A majestic aerial view of the Meenakshi Amman Temple in Madurai. The gopurams are brilliantly colored under a mid-day sun, creating a high-contrast and vivid image. The style is professional architectural photography, showcasing the grandeur of Tamil architecture with a clear, modern light-mode perspective." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfpojt35HbZZKxxGqTdXF26lueKLQVAqgNdJAPvvbxNEm-Mdkbst6X1XaQ58ZnUQ4c15KGn2kMEvhUlZvuK2cdcjMPEy2UX1LH6bjHtN2DAxsHzPFVBfHgHx-hWN1pmGa0dmZdxNg89GNunJyxtRi3jpnyuaKayw5Gtnt_YoVWuJs0imvnuH4haVSsedqdslcOxEe7mNFKbD8a2sB6LYSKJd2Ghy2FyAfbYsIfkdvZiWJC1PNym90X3vIJ5QP4uA5UHsyJylDtd8Jv"/>
+</div>
+<h3 class="text-label-md font-label-md text-primary">Madurai City</h3>
+<p class="text-label-sm font-label-sm text-secondary">Temple Town</p>
+</div>
+<!-- Selection Card 5 -->
+<div class="group cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden mb-3 custom-shadow relative">
+<img alt="Pondicherry" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A serene view of the French Quarter in Pondicherry with its signature yellow colonial buildings and bougainvillea flowers. The lighting is soft and golden, evocative of a relaxed vacation. The visual style is minimalist and clean, aligning with the Traveloop aesthetic of discovery and freedom." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtB8LuoGV02QyGoE-By_ie5F3rQGLDrTomE9Ey-tJnXnQOEMIJEy6WfG1anAqx1D-Xt3h-ml02euefF1_xMBC68xWBCdRU1ANkvJWzrnXdpEmMnnkPlHwyZR_A-p6YXdIuhYeaix6INOwh7S0STA4tEhpJThjlqOLOP_5gCDxBvYKXP63IVt8Zrmvz23PwTX8xZ4wxM4wLhq6x-5RUyyYXx1nKmjYCJKI4iRO0g488Iw6tBdf3bDI6qSSxlqmP4vskvileNq8kv4j2"/>
+</div>
+<h3 class="text-label-md font-label-md text-primary">Pondicherry</h3>
+<p class="text-label-sm font-label-sm text-secondary">Coastal Charm</p>
+</div>
+</div>
+</section>
+<!-- Previous Trips -->
+<section class="bg-surface-container-low py-section-gap">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="flex justify-between items-center mb-8">
+<h2 class="text-headline-lg font-headline-lg text-primary">Previous Trips</h2>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface transition-colors">
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface transition-colors">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Trip Card 1 -->
+<div class="bg-surface rounded-xl overflow-hidden custom-shadow group">
+<div class="h-48 overflow-hidden">
+<img alt="Kodaikanal Trip" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A modern lifestyle photo of a traveler looking over the landscape of Kodaikanal. The image uses a cool navy and teal color grading to match the UI style. The lighting is early morning with soft fog rolling through the valley, creating a sense of professional adventure and trust." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC81W1DdfxV8eNUwYEgjApFUcLUTb5nOezkR8a7aS-t4WTvOnI4jkE78OYcfhJiXLk9WsQjfSulDNw5nwirR4rVWD0j3X3gOBwP6XW_JrEFd8VaB-1XdzNpamq2jI-dymhIhyGDOLh1fGBUsko0bZ8BQi59LF5Z1WV0114f9v-NvPEWppytnequYdN6yFcOr7kXUa6mHmRv4bk5gvVjxbsHeQy3JKkCBu7bO4JtWi21c9qMPUoLibIpiPwRxxa-hW2HcHPXV3NHNomp"/>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-headline-md font-headline-md text-primary">Misty Kodaikanal</h3>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-label-sm font-label-sm">Completed</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant mb-4">4 Days • Aug 2023</p>
+<div class="flex items-center justify-between">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-slate-300"></div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-slate-400"></div>
+<div class="w-8 h-8 rounded-full border-2 border-surface flex items-center justify-center bg-secondary text-white text-[10px] font-bold">+2</div>
+</div>
+<button class="text-secondary font-label-md hover:underline">Revisit Itinerary</button>
+</div>
+</div>
+</div>
+<!-- Trip Card 2 -->
+<div class="bg-surface rounded-xl overflow-hidden custom-shadow group">
+<div class="h-48 overflow-hidden">
+<img alt="Chennai Weekend" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A sophisticated shot of a luxury heritage resort in Chennai. The architecture features traditional South Indian elements with modern clean lines. The lighting is warm and inviting, using golden hour tones to highlight the premium quality of the travel experience provided by the platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXYaET57el64oLuNPtSK0FD9K1MxMSfAaMC3E2x5Dehflxj1McIZ0bjV9fykpRZN3JhXLYtiiOG036F9S00LZHNxBOVFwDfxTG4nImLjtGSnoPXbEWktGOCZ8u6mklgP9hL54hkpQqP1fUwOC6GOC0Jr6wjZr3PB89DZhwt6jrDnbnAHyvdfYZFa7acosluawQbrlClX5jT2ZEcWHjDP5bZdSL2ApUHsRgMSpR8nnupPkiAnoId1MS47sZHZXfVQtbUEnLaTUIbbam"/>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-headline-md font-headline-md text-primary">Chennai Cultural Weekend</h3>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-label-sm font-label-sm">Completed</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant mb-4">2 Days • June 2023</p>
+<div class="flex items-center justify-between">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-slate-300"></div>
+</div>
+<button class="text-secondary font-label-md hover:underline">Revisit Itinerary</button>
+</div>
+</div>
+</div>
+<!-- Trip Card 3 -->
+<div class="bg-surface rounded-xl overflow-hidden custom-shadow group">
+<div class="h-48 overflow-hidden">
+<img alt="Kanyakumari Trip" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A beautiful view of the sunset over the Kanyakumari sea where three oceans meet. The sky is a blend of intense coral and deep navy, reflecting the bold energy of the brand. The lighting is dramatic and evocative, capturing the sense of wonder and freedom that travel brings." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDamoAZRo3hcMku9wYj4O079GMPyvzu9fjlIJQkEvunojgtrAOoxIdQ0OgnUeAoKJO60tiXT-348tdLPbIvNC0qmZvJYQ4X2MTCL4VtQF4rdgbmYyUg4A4auy80ebHaDy-o5EuCfdwq_u6lmhNvDu4ZmPVhBR_MdsPYn8yFORrb-ll_wTznG_oCTfG7bQTdLmDoYChbymvXcnz3qSfScH6_iMREMpZzmlIf8oSdUIYUiFPsSfXBm97OE2drZozjTf3ILTtMr2Xp649B"/>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-headline-md font-headline-md text-primary">Kanyakumari Odyssey</h3>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-label-sm font-label-sm">Completed</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant mb-4">5 Days • Jan 2023</p>
+<div class="flex items-center justify-between">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-slate-300"></div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-slate-400"></div>
+</div>
+<button class="text-secondary font-label-md hover:underline">Revisit Itinerary</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-8 right-8 bg-primary text-white flex items-center gap-3 px-6 py-4 rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined">add</span>
+<span class="font-label-md">Plan a trip</span>
+</button>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant w-full py-margin-desktop">
+<div class="max-w-container-max mx-auto px-gutter flex flex-col md:flex-row justify-between items-center gap-base">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="text-headline-md font-headline-md text-primary">Traveloop</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">© 2024 Traveloop Inc. All rights reserved.</span>
+</div>
+<div class="flex gap-8">
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">About Us</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Help Center</a>
+</div>
+<div class="flex gap-4">
+<button class="p-2 text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">language</span></button>
+<button class="p-2 text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">share</span></button>
+</div>
+</div>
+</footer>
+</body></html>

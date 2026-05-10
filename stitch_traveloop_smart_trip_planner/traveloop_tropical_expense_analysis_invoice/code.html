@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Traveloop - Expense Invoice</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb2b9",
+                    "tertiary": "#000000",
+                    "surface-container-low": "#f2f4f6",
+                    "surface-bright": "#f7f9fb",
+                    "primary-container": "#131b2e",
+                    "on-surface-variant": "#45464d",
+                    "inverse-primary": "#bec6e0",
+                    "surface-variant": "#e0e3e5",
+                    "inverse-surface": "#2d3133",
+                    "on-tertiary-container": "#da586c",
+                    "on-tertiary-fixed-variant": "#891933",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#eceef0",
+                    "secondary-fixed-dim": "#6bd8cb",
+                    "primary-fixed-dim": "#bec6e0",
+                    "on-secondary-fixed": "#00201d",
+                    "outline-variant": "#c6c6cd",
+                    "on-error-container": "#93000a",
+                    "surface": "#f7f9fb",
+                    "on-background": "#191c1e",
+                    "surface-container-high": "#e6e8ea",
+                    "primary": "#000000",
+                    "outline": "#76777d",
+                    "on-secondary-fixed-variant": "#005049",
+                    "secondary": "#006a61",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-secondary-container": "#006f66",
+                    "secondary-fixed": "#89f5e7",
+                    "background": "#f7f9fb",
+                    "on-primary-fixed": "#131b2e",
+                    "error": "#ba1a1a",
+                    "on-surface": "#191c1e",
+                    "surface-tint": "#565e74",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#86f2e4",
+                    "on-tertiary-fixed": "#400010",
+                    "tertiary-container": "#400010",
+                    "surface-dim": "#d8dadc",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "primary-fixed": "#dae2fd",
+                    "on-primary-container": "#7c839b",
+                    "tertiary-fixed": "#ffdadc",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "margin-desktop": "40px",
+                    "section-gap": "80px",
+                    "container-max": "1280px",
+                    "base": "8px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "label-md": ["Plus Jakarta Sans"],
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "headline-xl": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .backdrop-blur-main {
+            backdrop-filter: blur(12px);
+            background-color: rgba(255, 255, 255, 0.85);
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface dark:bg-surface-dim shadow-[0_4px_20px_rgba(15,23,42,0.05)] h-16">
+<nav class="max-w-container-max mx-auto px-gutter flex justify-between items-center h-full">
+<div class="flex items-center gap-8">
+<span class="text-headline-md font-headline-md font-extrabold text-primary dark:text-primary-fixed">Traveloop</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">My Trips</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">Explore</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">Community</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<input class="bg-surface-container-low border-none rounded-full px-4 py-2 text-label-md w-64 focus:ring-2 focus:ring-secondary transition-all" placeholder="Search invoices..." type="text"/>
+</div>
+<button class="p-2 rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+<img alt="User profile photo" class="w-8 h-8 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmoMY_KNgCC-7w-1_-v7E28psxPn8PKatQP9R5i_pGlMLC3Ihti3QPdUlW07rNWQ-C67gOcj62I5rnPpsCKLNqHB7ohmYZAoG3EHz4GmF_2sfJaJl15HgJw5DPZyagCOczSViwZI609JHV7jtxArpzeaKyfA0j7TkVOOtQ1b-5-mS3dKbSBkMYb1P5x9JXaWKQNX8Vou0oC_vCv3Da73cgP8UPIYb83_tSHO89PJk0MN1CXoWviEtjV_osLKbKnLj81AG8d_suTzgw"/>
+</div>
+</nav>
+</header>
+<main class="pt-24 pb-20 min-h-screen relative overflow-hidden">
+<!-- Hero Background Section -->
+<div class="absolute inset-0 z-0 h-[500px]">
+<img class="w-full h-full object-cover" data-alt="A breathtaking view of the Kerala backwaters featuring a traditional luxury wooden houseboat floating on calm, reflective water under a clear blue sky. The scene is framed by lush, vibrant green palm trees and tropical foliage, bathed in warm, golden afternoon sunlight. The overall atmosphere is serene and premium, echoing a high-end travel experience with soft turquoise and deep emerald tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4XT1fjtL2m4JDPFi1hPRlW8H6Z87AjU7hsw8hf1ptps_dpX6KUo76m_tGEQ3kPzSyCMDBO1TH4PtNv6NQu6VBccWK9dXX-zuM45ARBew5bpqWkXRgILO9bgxtNyUnPhz5_MeCBaHIjqnDRpBZ4E_Er12mRms4chhr2IG_sI1WPjdcVSXtkHsw1AeUlpIsqo2Tk8V3VR_Qv5v5BBA3g9t0qHmwOrP0dt7WAjx_R_Ny-E2Jvi-m91t5OO-CfrnOYwbsAqwaPCEdr5Wp"/>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-surface"></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto px-gutter">
+<!-- Navigation Back Link -->
+<a class="inline-flex items-center gap-2 mb-8 text-white drop-shadow-md hover:translate-x-[-4px] transition-transform" href="#">
+<span class="material-symbols-outlined">arrow_back</span>
+<span class="font-label-md">back to My Trips</span>
+</a>
+<!-- Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Main Invoice Card -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-xl shadow-[0_4px_20px_rgba(15,23,42,0.05)] overflow-hidden">
+<!-- Invoice Header Section -->
+<div class="p-8 border-b border-outline-variant flex flex-col md:flex-row gap-8">
+<div class="w-40 h-40 rounded-lg overflow-hidden flex-shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A stunning architectural shot of the Eiffel Tower framed by classical Parisian buildings under a soft, painterly sunset sky. The colors are warm golds and cool lavenders, reflecting a romantic and upscale European travel aesthetic. The image is crisp and professional, serving as a placeholder for a premium adventure trip thumbnail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwq2undP3ks77IX5QOQ_R2-CiorwMkHeA1b3Vkti8sp4OlY9Be7h4ppzQC9B0siCNKxFtfimwoxzbEj5dzcyhLDSmVssblBbD5XrfN8ALEkNHjsAa26wY1XYI51W8akjhT3h5W00i4BoCh868Tj74xFIitRrLQUNRNaVhoNhjUiZMNsZTc6wrC2vMA_XiGNwQVkDDIWdTyD0bwztW68VlOhZWG8ORTTrn_EHnS04HBovMDKma2mQN-O6u01NHSQfIjA91jeUOL2ARD"/>
+</div>
+<div class="flex-grow grid grid-cols-1 md:grid-cols-2 gap-y-6">
+<div>
+<h1 class="font-headline-md text-headline-md text-primary mb-1">Trip to Europe Adventure</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+                                    May 35 - Jan 05, 2025 • 4 cities
+                                </p>
+<p class="font-label-sm text-label-sm text-secondary-fixed-dim mt-1 font-bold">created by James</p>
+</div>
+<div class="md:text-right">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Invoice Id</p>
+<p class="font-label-md text-label-md text-primary">INV-xyz-30290</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-4 uppercase tracking-wider">Generated date</p>
+<p class="font-label-md text-label-md text-primary">May 20, 2025</p>
+</div>
+<div class="pt-4 border-t border-dashed border-outline-variant md:border-none">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-2">Traveler Details:</p>
+<ul class="font-body-md text-primary space-y-0.5">
+<li>James</li>
+<li>Arjun</li>
+<li>Jerry</li>
+<li>Cristina</li>
+</ul>
+</div>
+<div class="md:text-right pt-4 border-t border-dashed border-outline-variant md:border-none">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Payment status</p>
+<div class="mt-1 flex md:justify-end">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-error-container text-on-error-container font-label-md">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+                                        pending
+                                    </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Expense Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant text-on-surface-variant font-label-md">
+<th class="py-4 px-6 w-12 text-center">#</th>
+<th class="py-4 px-6">Category</th>
+<th class="py-4 px-6">Description</th>
+<th class="py-4 px-6">Qty/details</th>
+<th class="py-4 px-6 text-right">Unit Cost</th>
+<th class="py-4 px-6 text-right">Amount</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30">
+<tr class="hover:bg-surface-container/50 transition-colors">
+<td class="py-5 px-6 text-center text-on-surface-variant">1</td>
+<td class="py-5 px-6">
+<span class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container text-label-sm">
+<span class="material-symbols-outlined text-[14px]">hotel</span>
+                                            hotel
+                                        </span>
+</td>
+<td class="py-5 px-6 font-body-md">hotel booking paris</td>
+<td class="py-5 px-6 text-on-surface-variant">3 nights</td>
+<td class="py-5 px-6 text-right font-body-md">3000</td>
+<td class="py-5 px-6 text-right font-headline-md text-primary">9000</td>
+</tr>
+<tr class="hover:bg-surface-container/50 transition-colors">
+<td class="py-5 px-6 text-center text-on-surface-variant">2</td>
+<td class="py-5 px-6">
+<span class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container text-label-sm">
+<span class="material-symbols-outlined text-[14px]">flight</span>
+                                            travel
+                                        </span>
+</td>
+<td class="py-5 px-6 font-body-md">flight bookings (DEL -&gt; PAR)</td>
+<td class="py-5 px-6 text-on-surface-variant">1</td>
+<td class="py-5 px-6 text-right font-body-md">12000</td>
+<td class="py-5 px-6 text-right font-headline-md text-primary">12000</td>
+</tr>
+<!-- Filler rows to match layout -->
+<tr class="h-20"><td colspan="6"></td></tr>
+</tbody>
+</table>
+</div>
+<!-- Totals Section -->
+<div class="p-8 bg-surface-container-lowest border-t border-outline-variant flex justify-end">
+<div class="w-full md:w-80 space-y-3">
+<div class="flex justify-between text-body-md text-on-surface-variant">
+<span>Subtotal</span>
+<span>$ 21000</span>
+</div>
+<div class="flex justify-between text-body-md text-on-surface-variant">
+<span>tax(5%)</span>
+<span>$ 1050</span>
+</div>
+<div class="flex justify-between text-body-md text-error">
+<span>Discount</span>
+<span>- $ 50</span>
+</div>
+<div class="pt-4 border-t border-outline-variant flex justify-between items-end">
+<span class="font-headline-md text-headline-md text-primary">Grand Total</span>
+<span class="font-headline-lg text-headline-lg text-secondary">$ 22000</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar Insights -->
+<aside class="lg:col-span-4 space-y-gutter">
+<!-- Budget Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_20px_rgba(15,23,42,0.05)] border border-outline-variant/20">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-6 flex items-center gap-2 uppercase tracking-wide">
+<span class="material-symbols-outlined text-[20px]">analytics</span>
+                            budget Insights
+                        </h3>
+<div class="flex flex-col items-center gap-8 py-4">
+<!-- SVG Donut Chart Simulation -->
+<div class="relative w-48 h-48">
+<svg class="w-full h-full transform -rotate-90">
+<circle cx="96" cy="96" fill="transparent" r="80" stroke="#f2f4f6" stroke-width="12"></circle>
+<circle class="transition-all duration-1000" cx="96" cy="96" fill="transparent" r="80" stroke="#006a61" stroke-dasharray="502" stroke-dashoffset="50" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-headline-lg font-headline-lg text-secondary">110%</span>
+<span class="text-label-sm text-error font-bold">Over Budget</span>
+</div>
+</div>
+<div class="w-full space-y-4">
+<div class="flex justify-between items-center p-3 rounded-lg bg-surface-container-low">
+<span class="text-label-md text-on-surface-variant">Total Budget</span>
+<span class="font-headline-md text-primary">20000</span>
+</div>
+<div class="flex justify-between items-center p-3 rounded-lg bg-surface-container-low border-l-4 border-secondary">
+<span class="text-label-md text-on-surface-variant">total spent</span>
+<span class="font-headline-md text-secondary">22000</span>
+</div>
+<div class="flex justify-between items-center p-3 rounded-lg bg-error-container/20 border-l-4 border-error">
+<span class="text-label-md text-error">Remaining</span>
+<span class="font-headline-md text-error">-2000</span>
+</div>
+</div>
+</div>
+<button class="w-full mt-4 py-3 border border-secondary text-secondary font-label-md rounded-lg hover:bg-secondary/5 transition-colors flex items-center justify-center gap-2">
+                            View Full Budget
+                            <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</button>
+</div>
+<!-- Floating Action Buttons for Action Bar (Sketch Layout) -->
+<div class="flex flex-col gap-3">
+<button class="w-full py-4 bg-primary text-on-primary rounded-lg font-label-md flex items-center justify-center gap-2 shadow-lg hover:opacity-90 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined">download</span>
+                            Download Invoice
+                        </button>
+<button class="w-full py-4 bg-surface-container-high text-primary rounded-lg font-label-md flex items-center justify-center gap-2 hover:bg-surface-container-highest transition-all">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+                            Export as PDF
+                        </button>
+<button class="w-full py-4 bg-tertiary-fixed text-on-tertiary-fixed rounded-lg font-label-md flex items-center justify-center gap-2 shadow-sm hover:opacity-90 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Mark as paid
+                        </button>
+</div>
+</aside>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-margin-desktop px-gutter bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline-variant dark:border-outline">
+<div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-base">
+<span class="text-headline-md font-headline-md text-primary dark:text-primary-fixed">Traveloop</span>
+<div class="flex gap-6">
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors" href="#">About Us</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors" href="#">Help Center</a>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant">© 2024 Traveloop Inc. All rights reserved.</p>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "tertiary": "#000000",
+                  "on-secondary-fixed": "#00201d",
+                  "surface-container-high": "#e6e8ea",
+                  "outline-variant": "#c6c6cd",
+                  "on-background": "#191c1e",
+                  "error-container": "#ffdad6",
+                  "surface": "#f7f9fb",
+                  "tertiary-container": "#400010",
+                  "on-surface-variant": "#45464d",
+                  "background": "#f7f9fb",
+                  "on-primary-container": "#7c839b",
+                  "surface-variant": "#e0e3e5",
+                  "surface-container-low": "#f2f4f6",
+                  "error": "#ba1a1a",
+                  "primary-fixed-dim": "#bec6e0",
+                  "on-surface": "#191c1e",
+                  "on-primary": "#ffffff",
+                  "outline": "#76777d",
+                  "on-error-container": "#93000a",
+                  "inverse-surface": "#2d3133",
+                  "tertiary-fixed-dim": "#ffb2b9",
+                  "on-tertiary-fixed": "#400010",
+                  "on-primary-fixed": "#131b2e",
+                  "on-tertiary-container": "#da586c",
+                  "primary-fixed": "#dae2fd",
+                  "surface-bright": "#f7f9fb",
+                  "on-secondary": "#ffffff",
+                  "secondary": "#006a61",
+                  "inverse-primary": "#bec6e0",
+                  "surface-container-highest": "#e0e3e5",
+                  "on-tertiary-fixed-variant": "#891933",
+                  "on-primary-fixed-variant": "#3f465c",
+                  "secondary-fixed-dim": "#6bd8cb",
+                  "primary": "#000000",
+                  "secondary-container": "#86f2e4",
+                  "tertiary-fixed": "#ffdadc",
+                  "primary-container": "#131b2e",
+                  "surface-dim": "#d8dadc",
+                  "surface-container-lowest": "#ffffff",
+                  "surface-container": "#eceef0",
+                  "on-tertiary": "#ffffff",
+                  "on-secondary-container": "#006f66",
+                  "inverse-on-surface": "#eff1f3",
+                  "surface-tint": "#565e74",
+                  "on-secondary-fixed-variant": "#005049",
+                  "secondary-fixed": "#89f5e7",
+                  "on-error": "#ffffff"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "margin-mobile": "16px",
+                  "section-gap": "80px",
+                  "container-max": "1280px",
+                  "margin-desktop": "40px",
+                  "base": "8px",
+                  "gutter": "24px"
+          },
+          "fontFamily": {
+                  "label-sm": ["Plus Jakarta Sans"],
+                  "headline-lg": ["Plus Jakarta Sans"],
+                  "headline-md": ["Plus Jakarta Sans"],
+                  "body-md": ["Plus Jakarta Sans"],
+                  "headline-lg-mobile": ["Plus Jakarta Sans"],
+                  "label-md": ["Plus Jakarta Sans"],
+                  "headline-xl": ["Plus Jakarta Sans"],
+                  "body-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+                  "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                  "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                  "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                  "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                  "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                  "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                  "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                  "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .masonry-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-auto-rows: 200px;
+      gap: 24px;
+    }
+    .masonry-item-tall { grid-row: span 3; }
+    .masonry-item-wide { grid-row: span 2; }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Top Navigation Shell -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface dark:bg-surface-dim shadow-[0_4px_20px_rgba(15,23,42,0.05)] h-16 flex justify-between items-center px-gutter max-w-container-max mx-auto">
+<div class="flex items-center gap-base">
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">Traveloop</span>
+</div>
+<nav class="hidden md:flex items-center gap-gutter h-full">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200 h-full flex items-center" href="#">My Trips</a>
+<a class="font-label-md text-label-md text-secondary dark:text-secondary-fixed-dim border-b-2 border-secondary dark:border-secondary-fixed-dim pb-1 h-full flex items-center mt-1" href="#">Explore</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200 h-full flex items-center" href="#">Community</a>
+</nav>
+<div class="flex items-center gap-gutter">
+<div class="hidden lg:flex items-center bg-surface-container-low dark:bg-surface-container-highest px-4 py-2 rounded-full border border-outline-variant">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-md font-label-md ml-2 w-48" placeholder="Search destinations..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-low p-2 rounded-full transition-colors">notifications</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User profile photo" data-alt="A professional headshot of a person with a warm expression, softly lit against a neutral studio background. The style is crisp and clean, reflecting a modern corporate yet friendly aesthetic with high-key lighting. The image has a slight depth of field, focusing on the eyes and features." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChFr_z4N-CV9u4jjnh45irmYgUcl7icgGHemSfX90tc7tvQpf-lG1Fp8Hj9K2zYIEu6c9FRu9N375no3Vrc60pyfwtaQWVr_-YCW2bstM9MXYgvH5SK9q1Auqx7ICr7u7haThYRZAVvZPo6mAHfumBUWsiPBgcoKpG1n0H71nKLn0q_mi0S_q3HzeJpyFlzeXY3HKHMJ8QIMW4IvL93YjNGUE7jEiFjtpE7FvdOgST-K0JAxK4thO0Dm7Hl_W3nJsRB_pKEx6Rj8eP"/>
+</div>
+</div>
+</header>
+<main class="pt-16 min-h-screen">
+<!-- Hero Section with Integrated Art & Landscape -->
+<section class="relative w-full h-[600px] overflow-hidden flex items-end px-gutter pb-12">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A breathtaking Maldives beachside resort at sunset, with golden orange light reflecting off calm turquoise waters. In the foreground, an artistic, semi-transparent double exposure features the striking, colorful makeup and ornate headgear of a Kuchipudi dance performer. The mood is mystical, blending traditional cultural art with luxurious tropical serenity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA751b2dO7qqOueEF6cVkms7sXTlHWOvzINaDTptKRHPHlF8HwWxU0WcN5KA80kyKZjmke-Fw_kj2nhmqmaHZF8BB6_bg-gjxrGm00YWSqUPqRKYLZP91FkcRMJ-SKfSkOxfmc21P3cXEpcXkukanc7arFLCYRHg-TJ6pEmXUaA5cOp6AH6hsDrYOwE2AOZgt-0dVPqiYQB1SGNKxJpbGiG8iE8pagUYpMKahvsMuZwwfkZNvvsjoROB6nqu7OOb4ZpUs9kukD5JNxr"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto w-full">
+<div class="flex flex-col gap-4">
+<span class="inline-flex items-center bg-secondary-container text-on-secondary-container px-4 py-1 rounded-full text-label-md font-label-md w-fit">
+<span class="material-symbols-outlined text-[18px] mr-2" data-weight="fill">auto_awesome</span>
+            Daily Inspiration
+          </span>
+<h1 class="font-headline-xl text-headline-xl text-white max-w-2xl leading-tight">
+            Discover the Soul of <span class="text-secondary-fixed">Kerala</span> &amp; the Serenity of <span class="text-secondary-fixed">Maldives</span>
+</h1>
+<p class="font-body-lg text-body-lg text-white/90 max-w-xl">
+            Explore authentic journeys shared by our community of wanderers. From the tranquil backwaters to coral reefs.
+          </p>
+</div>
+</div>
+</section>
+<!-- Content Section -->
+<section class="max-w-container-max mx-auto px-gutter py-section-gap">
+<!-- Filters and Actions -->
+<div class="flex flex-wrap items-center justify-between gap-gutter mb-12">
+<div class="flex items-center gap-4 overflow-x-auto pb-2 scrollbar-hide">
+<button class="px-6 py-2 rounded-full bg-primary text-on-primary font-label-md text-label-md shadow-lg hover:opacity-90 transition-all">All Stories</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant transition-colors flex items-center">
+<span class="material-symbols-outlined text-[18px] mr-2">waves</span> Kerala
+          </button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant transition-colors flex items-center">
+<span class="material-symbols-outlined text-[18px] mr-2">wb_sunny</span> Maldives
+          </button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant transition-colors flex items-center">
+<span class="material-symbols-outlined text-[18px] mr-2">videocam</span> Reels
+          </button>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 text-secondary font-label-md text-label-md border-2 border-secondary px-4 py-2 rounded-lg hover:bg-secondary/5 transition-colors">
+<span class="material-symbols-outlined">group_add</span> Collaborate
+          </button>
+</div>
+</div>
+<!-- Discovery Masonry Grid -->
+<div class="masonry-grid">
+<!-- Grid Item 1: Kerala Backwaters Tall -->
+<div class="relative masonry-item-tall rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(15,23,42,0.05)] group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A vertical shot of a traditional wooden houseboat slowly navigating the lush, palm-fringed backwaters of Alleppey, Kerala. The morning mist creates a serene, ethereal atmosphere with soft, diffused sunlight filtering through the dense tropical greenery. The color palette features deep emerald greens and warm earthy browns." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsrc1uBrFe4VirgmZjD0kWKrmwSXRLzEW-xa2gMAyHmGndlREuNJbe0c7Yu09vXQAvInxSqH5F87_biOv1Fi_VRpwvgFuIXKl_YHOOIEW44ikA2jB4r8gzpRLfhATCN0miJ7Kkoy1T-S3-YPLDzzvltELpeqU3vw4yAP_G-XdSj9jDP_34uFlHOIfim7XK_7I88zrvaPxK-CXWWBf_FM33WD2mYVa2Ob4oeZnJsM93MWAJQMM0fuQgArkczaldKIEURKQMRV9-bAI9"/>
+<div class="absolute bottom-4 left-4 right-4 glass-card p-4 rounded-lg flex justify-between items-center">
+<div>
+<p class="text-white font-label-md text-label-md">Alleppey, Kerala</p>
+<p class="text-white/70 text-label-sm font-label-sm">Shared by @amara_travels</p>
+</div>
+<button class="material-symbols-outlined text-white hover:text-secondary-fixed transition-colors">favorite</button>
+</div>
+<div class="absolute top-4 right-4 bg-white/20 backdrop-blur-md rounded-full p-2 text-white">
+<span class="material-symbols-outlined" data-weight="fill">play_circle</span>
+</div>
+</div>
+<!-- Grid Item 2: Maldives Resort Wide -->
+<div class="relative masonry-item-wide rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(15,23,42,0.05)] group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A wide angle view of an overwater bungalow resort in the Maldives. The crystal clear turquoise water allows the white sand and coral reefs below to be seen. The bright midday sun creates vibrant, saturated blues and pristine whites, capturing a luxurious and tranquil vacation vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBxOJApL4Ky9ftqdZtwy5Iwfs4ctxGtY2T-fxWh9o91gCdRD7qOieZSgsN8y3q5HfxJjOtSACs17HJX8gtVkyHtTyXAq0-aWESLvmmBHvTztaXjWP_4knAV50f3aR4Se0ETRUFQN8pcw4wY_9hR1oEisfhX-y_7edmc60qjgHg8nDqUWh7I_RzJQtoPbhv7ruMAl0vTsZd6cvUqxjrXU8eyaNH8lcNI8LsdcpAK2DrFkvh1Y3rrM-DW63_xE6MlM4O1k9EDuBPHMy4"/>
+<div class="absolute bottom-4 left-4 right-4 glass-card p-4 rounded-lg flex justify-between items-center">
+<div>
+<p class="text-white font-label-md text-label-md">Maafushi, Maldives</p>
+<p class="text-white/70 text-label-sm font-label-sm">High-end retreat</p>
+</div>
+<button class="material-symbols-outlined text-white hover:text-secondary-fixed transition-colors">bookmark</button>
+</div>
+</div>
+<!-- Grid Item 3: Kerala Food -->
+<div class="relative rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(15,23,42,0.05)] group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A vibrant, close-up food photography shot of a traditional Kerala Sadhya meal served on a bright green banana leaf. The image showcases various colorful curries, rice, and pickles with rich textures and deep warm tones. Soft, natural window lighting emphasizes the freshness and authenticity of the cuisine." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqN4kjs8FYgwCQu8FLKRCjGPyLwYVXrLdeMpRn_6J_CdxuWtLFHJa-M6eN4y4YG8fyrNDmvRdg7fsgFX1DSm8RjnYS7Fkhehzgxj9O9heHR8AWJ0TFegQxuSrT3sZW7qm046tvAPwCsZz1k7VFQ3DbVLt_wZUmpnG-M2nY037AQ3_8SQFNcpzipPnHu0mHHtkeCuN5LCm9-tSzLRqUwjA3n0vEB5SMa5RogbDVtEpOgryBsC71yzo1GBJSsvD7vFBB5DNObZHoG14G"/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-white text-primary px-4 py-2 rounded-full font-label-md text-label-md flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add_to_photos</span> Add to Plan
+            </button>
+</div>
+<div class="absolute bottom-2 left-4">
+<span class="text-white text-label-sm font-label-sm drop-shadow-md">Kochi, Kerala</span>
+</div>
+</div>
+<!-- Grid Item 4: Under water Maldives -->
+<div class="relative masonry-item-tall rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(15,23,42,0.05)] group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="An underwater shot of a diver swimming near a vibrant coral reef in the Maldives. Schools of colorful tropical fish dart through the clear blue water. Sunlight beams penetrate the surface, creating shimmering light rays that illuminate the marine life. The style is adventurous and awe-inspiring." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWTOX8hhVNGq1UoV0_qLCuquN-qUpzkY2xp5ntJoyB57JF-ux_JjNKHnBVIdU6GfrLEiMwAWkf_pCVspFHPcZuDS91mScMYu0Z0aRaK2Z03F2vi-IoN4Pn_bzao9paqPMkJL2tlrBinsw-5ksl0whxuVFykMuwrKO4J-swHaxrK56v5hb5aO4vqlqxeAJJrLWCo7tiPh9Om29KoVy2UIsH1x7OPSRsD4oN6knz6eq3W7Mygs5e1NHXE1rBlOK9V564gr5jBSw_sZ8b"/>
+<div class="absolute bottom-4 left-4 right-4 glass-card p-4 rounded-lg">
+<p class="text-white font-label-md text-label-md">Baa Atoll, Maldives</p>
+<p class="text-white/70 text-label-sm font-label-sm">Marine life discovery</p>
+<div class="flex mt-3 -space-x-2">
+<div class="w-6 h-6 rounded-full border-2 border-white/30 bg-slate-400"></div>
+<div class="w-6 h-6 rounded-full border-2 border-white/30 bg-slate-500"></div>
+<div class="w-6 h-6 rounded-full border-2 border-white/30 bg-slate-600"></div>
+<span class="text-[10px] text-white self-center ml-4">+24 others planning</span>
+</div>
+</div>
+</div>
+<!-- Grid Item 5: Munnar Tea Gardens -->
+<div class="relative masonry-item-wide rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(15,23,42,0.05)] group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A wide panoramic view of the rolling hills of Munnar, Kerala, covered in perfectly manicured, vibrant green tea plantations. The morning fog nestles in the valleys, creating a sense of depth and mystery. The landscape is peaceful and majestic, captured in the soft light of dawn with a cool, refreshing palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBS20g-4Zfv9RLcw2mKKXe8zJFQ75MSfNDOJ0Bi1D2Em7VXuC9uEUSesq_gD3bqiy-9NFwogJ3Hescdp788zF9PNC-UQeOXwk8kIZ147sKu1HneTdKsRwdh3XL_XM-0nyYiswGCFSHgF4OFqERFPFOFFaD2vXbxVMO7L9TXf3JKT_hZimJHiZhotA8A_rc5_dp8Q4f8PgMMVk-9RDYF7lO15BsbAP0aUrAxEj9dkA6UlUsQtNxrI5nkRdkizFnRA0cngSyMaJzkfilH"/>
+<div class="absolute bottom-4 left-4 right-4 glass-card p-4 rounded-lg flex justify-between items-center">
+<div>
+<p class="text-white font-label-md text-label-md">Munnar, Kerala</p>
+<p class="text-white/70 text-label-sm font-label-sm">Hiking trail #04</p>
+</div>
+<button class="bg-secondary text-white px-4 py-2 rounded-lg font-label-md text-label-md">View Trail</button>
+</div>
+</div>
+<!-- Grid Item 6: Resort Pool -->
+<div class="relative rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(15,23,42,0.05)] group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A luxury infinity pool overlooking the ocean in the Maldives. The water in the pool perfectly matches the blue of the sea beyond. Minimalist white lounge chairs sit on the deck under a clear blue sky. The lighting is bright and high-contrast, evoking a sense of ultimate relaxation and modern luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGQk4ZmYFQk7oheZ7VjP_PILqYCEE_1jIOq-iGhtzeIkCrp87943XzFdvv0FVN-oetVUtVHzHV0Wg1N4Fth9U4HaaCKdfnJIKU_eR72FpZmGe6qGkOMcNmtpp-ohc7k_03OncsX4O9WIbUYNpTrHelIMvnPqyCYOFqSnwuyU9K39KtLtRyzIlyPA-xmK61ctp5LaNfEK8tEBIKqWt4SnuYMo31t3qoWsz5Ulhs8jurFD16PRiUd--ASXtugbltHwXAX13y-yr_G_GJ"/>
+<div class="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t from-black/40 to-transparent">
+<p class="text-white font-label-md text-label-md">Veligandu, Maldives</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Collaborative Planning Section -->
+<section class="bg-surface-container-low py-section-gap">
+<div class="max-w-container-max mx-auto px-gutter grid lg:grid-cols-2 gap-gutter items-center">
+<div class="flex flex-col gap-6">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Plan your dream journey with friends</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+            Found something you like? Add it to a collaborative board and invite your travel companions to vote, comment, and build the perfect itinerary together.
+          </p>
+<div class="flex gap-4">
+<button class="bg-primary text-on-primary px-8 py-3 rounded-lg font-label-md text-label-md shadow-lg">Create New Board</button>
+<button class="bg-white border border-outline text-on-surface px-8 py-3 rounded-lg font-label-md text-label-md">Learn More</button>
+</div>
+</div>
+<div class="relative flex justify-center">
+<div class="bg-white p-6 rounded-xl shadow-xl w-full max-w-md rotate-3 relative z-10">
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-md text-label-md">Summer in Kerala</span>
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-white bg-blue-100 flex items-center justify-center text-[10px]">JD</div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-green-100 flex items-center justify-center text-[10px]">ML</div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-red-100 flex items-center justify-center text-[10px]">SK</div>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex items-center gap-3 p-2 bg-surface rounded-lg">
+<div class="w-12 h-12 rounded bg-slate-200 overflow-hidden">
+<img data-alt="Thumbnail of Munnar tea garden." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoY5kv-uJGqXKUtnwoZdhXugVUYiTUCD4-I9ngTTSDbq4hsCeKYSJSL5EspIH9Q3FguKg6VO6zhmvTUo5Ynbu3yreBFB0uIafLDuqlJbZPxWiDBwZztN8INkcRXISOFOYBv7t-a7d3Kt9_9KcTFbHA3b8leLnpBngzBzOrFwI3R6w0_Cl1MVscApJ-9NZzCmp3injaGv_fXZgHRfNg-UoafGLFIr888xJRlAPzi8wTM8PT5Sz9uHnTjAo3rYPdfRU152BD-qlMaMO7"/>
+</div>
+<div class="flex-1">
+<p class="text-label-sm font-label-sm">Munnar Tea Walk</p>
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-secondary text-[14px]" data-weight="fill">thumb_up</span>
+<span class="text-[10px] text-outline">3 votes</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 p-2 bg-surface rounded-lg opacity-60">
+<div class="w-12 h-12 rounded bg-slate-200"></div>
+<div class="flex-1">
+<p class="text-label-sm font-label-sm">Backwater Cruise</p>
+<p class="text-[10px] text-outline">Pending review...</p>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute top-0 left-0 w-full h-full bg-secondary/10 -rotate-3 rounded-xl"></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Shell -->
+<footer class="w-full py-margin-desktop px-gutter max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-base bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline-variant dark:border-outline">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="text-headline-md font-headline-md text-primary dark:text-primary-fixed">Traveloop</span>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant">© 2024 Traveloop Inc. All rights reserved.</p>
+</div>
+<div class="flex gap-gutter mt-6 md:mt-0">
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">About Us</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">Help Center</a>
+</div>
+</footer>
+<!-- FAB for Discovery Actions -->
+<button class="fixed bottom-8 right-8 bg-secondary text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-40">
+<span class="material-symbols-outlined text-[28px]">add</span>
+</button>
+</body></html>

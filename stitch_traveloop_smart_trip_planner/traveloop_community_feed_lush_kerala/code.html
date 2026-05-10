@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Traveloop | Explore Community</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#000000",
+                        "on-secondary-fixed": "#00201d",
+                        "surface-container-high": "#e6e8ea",
+                        "outline-variant": "#c6c6cd",
+                        "on-background": "#191c1e",
+                        "error-container": "#ffdad6",
+                        "surface": "#f7f9fb",
+                        "tertiary-container": "#400010",
+                        "on-surface-variant": "#45464d",
+                        "background": "#f7f9fb",
+                        "on-primary-container": "#7c839b",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-low": "#f2f4f6",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-surface": "#191c1e",
+                        "on-primary": "#ffffff",
+                        "outline": "#76777d",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2d3133",
+                        "tertiary-fixed-dim": "#ffb2b9",
+                        "on-tertiary-fixed": "#400010",
+                        "on-primary-fixed": "#131b2e",
+                        "on-tertiary-container": "#da586c",
+                        "primary-fixed": "#dae2fd",
+                        "surface-bright": "#f7f9fb",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#006a61",
+                        "inverse-primary": "#bec6e0",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-tertiary-fixed-variant": "#891933",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "secondary-fixed-dim": "#6bd8cb",
+                        "primary": "#000000",
+                        "secondary-container": "#86f2e4",
+                        "tertiary-fixed": "#ffdadc",
+                        "primary-container": "#131b2e",
+                        "surface-dim": "#d8dadc",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#eceef0",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#006f66",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-tint": "#565e74",
+                        "on-secondary-fixed-variant": "#005049",
+                        "secondary-fixed": "#89f5e7",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "section-gap": "80px",
+                        "container-max": "1280px",
+                        "margin-desktop": "40px",
+                        "base": "8px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+.glass-effect {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.3)
+    }
+.liquid-glass {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 100%);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px border-outline-variant
+    }
+.backwater-bg {
+    background-image: linear-gradient(rgba(25, 28, 30, 0.2), rgba(25, 28, 30, 0.1)), url(https://lh3.googleusercontent.com/aida-public/AB6AXuDdHSswkG6xBXFrf0TaifERrZlyD1ekIwF7snGOZXgLjMfeWqr-MGvmKXlC5qW_ldvi-pQu6cLicbFeQZhZvEz5HR-jxXrYsMb2wEzs6N7yMtJw5alk6voLPsf99iOpJAoaMwRJ2sDsDN5bZ0dCBBqhJGIe0qWB55FzIf_Ou2PytR7FrrV4J8VIf_5I2gnAanusy1x3_PxGvR-CvbTELmPe3dEQb0f5gMQUOcBlB1Knkf0_GpE6b9CqiZbDxZ6Ih4zthAyjfZfQ0q3u);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center
+    }
+.kuchipudi-motif {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuACSidL6PVSQtS_10HSrUTDm8x44Dmw3nlGcFF-lsTqfMLXF_hHIYVL-B8FG2k7aQfCNttKULrShiGY9R1abfpRmFX80izrzZNQJtwTvep-O3ppaoeh2Zw6K0UuzGW6uydXBb6-aNURdpSot21MxGClaX7T7nJTgIVDXCN7EpnxIQ35JktdjjxKHOAj9RW11zXoYeC6wajSw1Y-ZYpeY5JmVk2W0FbEnVH9Z-1ynXtJ0e2z5aaUmfcIHp5MpvQDHq0fJQKMHlD-BGNc);
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.05;
+    mix-blend-mode: multiply
+    }</style>
+</head>
+<body class="bg-surface backwater-bg min-h-screen font-body-md text-on-surface">
+<!-- Top Navigation Shell -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-md shadow-[0_4px_20px_rgba(15,23,42,0.05)] h-16">
+<div class="max-w-container-max mx-auto px-gutter h-full flex justify-between items-center">
+<div class="flex items-center gap-base">
+<span class="font-headline-md text-headline-md font-bold text-primary">Traveloop</span>
+</div>
+<nav class="hidden md:flex items-center gap-gutter">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">My Trips</a>
+<a class="font-label-md text-label-md text-secondary border-b-2 border-secondary pb-1" href="#">Explore</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Community</a>
+</nav>
+<div class="flex items-center gap-gutter">
+<div class="hidden md:flex items-center bg-surface-container-low rounded-full px-4 py-2 border border-outline-variant">
+<span class="material-symbols-outlined text-outline" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-md ml-2 w-48" placeholder="Search destinations..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User profile photo" data-alt="A professional headshot of a smiling young man with a modern hairstyle, outdoors in soft evening golden hour light. He is wearing a minimalist dark shirt. The background is a blurred urban park, creating a high-end lifestyle aesthetic that fits a modern travel application UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuALblhSeBgXKJ0VyHasEih32dey615mnAyMsER0Z41NJkiENGcJjnEejNrmZ-dGDakCryCC6-A1TsVlddt7NnhOllnR1jdmiW5PaOPbtPbGhz_p-H1X-7hgCtPa4XbK5g3ZqoM29XvRqe3oZQ_8q23fOMylJgmKTPFVdM87cYHR9Mio7qKpmSg3k7Ew5oiDOj0oyU-lbiDPvn7_EzcexBeP39LIyfzgJP_3HohCTpurDYo2rNeePDleD68WepWOiFEsRWTd1PrqiXkF"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-margin-desktop px-margin-mobile md:px-gutter max-w-container-max mx-auto relative">
+<!-- Subtle Motif Overlay -->
+<div class="fixed inset-0 kuchipudi-motif pointer-events-none z-0"></div>
+<!-- Community Content Wrapper -->
+<div class="relative z-10">
+<!-- Header Tabs -->
+<div class="flex justify-center mb-10">
+<div class="glass-effect p-1.5 rounded-full flex items-center gap-1">
+<button class="px-8 py-2.5 rounded-full bg-primary text-on-primary font-label-md text-label-md transition-all shadow-lg">Feed</button>
+<button class="px-8 py-2.5 rounded-full text-on-surface-variant hover:bg-surface-container-high font-label-md text-label-md transition-all">Trending</button>
+<button class="px-8 py-2.5 rounded-full text-on-surface-variant hover:bg-surface-container-high font-label-md text-label-md transition-all">Groups</button>
+</div>
+</div>
+<!-- Bento Feed Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Main Feed Column -->
+<div class="md:col-span-8 flex flex-col gap-gutter">
+<!-- Post Card 1 -->
+<article class="liquid-glass rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
+<div class="relative aspect-[16/10] overflow-hidden">
+<img alt="Kerala backwaters" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A cinematic wide-angle shot of a traditional luxury Kerala houseboat floating on the calm, emerald-green backwaters of Alleppey. Dense groves of lush coconut palm trees line the horizon under a soft, hazy tropical sunset. The water reflects the vibrant greens and the golden sky, creating a serene and mystical travel atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3N1yvrU4F75vwRiWlLbFGAvqYl8Gl7eQXytSle9HGUVxlteJCBZGrshn-INPQbBeJMwkTXkYEzwFkwkZrg3MJC6Be3T3Z4ulxpw53dG6GEUnq_8dRdujgolLKXTCjsFnJMkazf4PnvTcpsHJB1-8A7b861NV6mcHiACV1jmw5zus27hAiaMWaFrx3fAMSpyqA2snU-zDgprfK889D21qzl5ExOnqO5L2wkADKC0Lkzyor0K7Z3MA6noaJmQcmvvAusbgph9hVFXeh"/>
+<div class="absolute top-4 left-4">
+<span class="glass-effect px-4 py-1.5 rounded-full text-label-sm font-label-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="location_on">location_on</span>
+                                    Alleppey, Kerala
+                                </span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<img alt="Traveler avatar" class="w-10 h-10 rounded-full border-2 border-white" data-alt="A close-up portrait of a female traveler with a radiant smile, wearing a stylish straw hat and a light linen dress. The background is a soft-focus tropical beach. The image is bright and professional, embodying the adventurous and trustworthy spirit of a high-end travel community." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDooDWtclSCOoIG3GcsFaoqpU-GQ9pvKHCeTrxIGdP6jx2ndmxHU638igx-xpwBHBYx7AjM0koRci-t0JTsiLrxL1eYWRfW6n0s4avvZBROQYPSSipun4figKh1E8lLvCeTsfXaZKgeZzoXcK9t4mfgpMlsOjv70h-FdLOGrNs25UccSf_vHvEXkZlLsFMi8u3LlNSUsx1woE-taapYMtzu1WCdM3Eey4Q3Sxv3BbMJognzvS5QLKdlm6t4t_-LMK4UFKDyDkVw0tZO"/>
+<div>
+<h4 class="font-label-md text-label-md text-primary">Aria Thompson</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">2 hours ago</p>
+</div>
+</div>
+<button class="material-symbols-outlined text-outline hover:text-primary transition-colors" data-icon="more_horiz">more_horiz</button>
+</div>
+<p class="font-body-md text-body-md mb-6 text-on-surface/90 leading-relaxed">
+                                Waking up to the sound of ripples against the teak hull. There's something spiritual about the backwaters that words can't capture. If you're planning a trip to India, this is non-negotiable. 🌿✨
+                            </p>
+<div class="flex items-center justify-between pt-4 border-t border-white/20">
+<div class="flex items-center gap-6">
+<button class="flex items-center gap-1.5 group/btn">
+<span class="material-symbols-outlined text-outline group-hover/btn:text-error transition-colors" data-icon="favorite">favorite</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">1.2k</span>
+</button>
+<button class="flex items-center gap-1.5 group/btn">
+<span class="material-symbols-outlined text-outline group-hover/btn:text-primary transition-colors" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">48</span>
+</button>
+<button class="flex items-center gap-1.5 group/btn">
+<span class="material-symbols-outlined text-outline group-hover/btn:text-secondary transition-colors" data-icon="share">share</span>
+</button>
+</div>
+<button class="material-symbols-outlined text-secondary" data-icon="bookmark" data-weight="fill" style="font-variation-settings: 'FILL' 1;">bookmark</button>
+</div>
+</div>
+</article>
+<!-- Post Card 2 -->
+<article class="liquid-glass rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
+<div class="relative aspect-[16/9] overflow-hidden">
+<img alt="Varkala beach" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A stunning aerial view of Varkala Cliff in Kerala at golden hour. The red laterite cliffs stand tall against the deep blue Arabian Sea, with white waves crashing at the base. Small beach shacks with straw roofs are visible, and the sky is a masterpiece of orange and purple hues. The lighting is dramatic and luxurious." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkzG-89u7zlWcX9HCOIyzsmeNtUYehUp5uGh9_57OjxjS7i31dyBmV2GSvtA7jDAvmY_03AdBS3Laz8krMkwD5qrKG0jgLc9V1xjE-pQLZ2_Zfo156EDcOBms79Z2yZG9xnXjcVJrMfdOgPdVbUvimrbSTwtS0SS0tkofrxgA65SRHChCSk1OCjwJFkmBmlf7KVKYjnrEYFvVqS_LD3Gv5pqKBHDaMR1M-5uzIUjihcooa2CrKx3E7zDViy6r7iCrCSSFeNNvuuX5u"/>
+<div class="absolute top-4 left-4">
+<span class="glass-effect px-4 py-1.5 rounded-full text-label-sm font-label-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="location_on">location_on</span>
+                                    Varkala Cliff, Kerala
+                                </span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<img alt="Traveler avatar" class="w-10 h-10 rounded-full border-2 border-white" data-alt="A professional portrait of a male photographer in his late 20s, holding a high-end camera. He is standing against a backdrop of a misty mountain range. The style is rugged yet sophisticated, using a cool color palette with high contrast, fitting for a modern travel influencer." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBb8MppugSZDlKKA0OOATpx6L5SHk9uasq_Wi8yxokG_3bXQX7u1YgZTAHgItyFj85D6sTv_P33c475ROajjnl00vGpA9AZbgHNwyZm8MmAFd_3kUGhs19fRwEJFkaOfn-qq3HlzJoF7vvMcI65mo3VMx-veMVjGL78V89QvsOFuR2lEjoLq_LA8yjYD2uPggrCALIbwwZOqKjCdzqrA9y8p0LWgoOdy8LyIieG6cn5bRETHQTtAM67CeSSUwqWOqYezyuN4_WYCPi6"/>
+<div>
+<h4 class="font-label-md text-label-md text-primary">Julian Marek</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">5 hours ago</p>
+</div>
+</div>
+<button class="material-symbols-outlined text-outline hover:text-primary transition-colors" data-icon="more_horiz">more_horiz</button>
+</div>
+<p class="font-body-md text-body-md mb-6 text-on-surface/90 leading-relaxed">
+                                Golden hour at the cliffs. The contrast between the red soil and the turquoise Arabian sea is just peak Kerala. 🌊🙌
+                            </p>
+<div class="flex items-center justify-between pt-4 border-t border-white/20">
+<div class="flex items-center gap-6">
+<button class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-outline" data-icon="favorite">favorite</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">856</span>
+</button>
+<button class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-outline" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">22</span>
+</button>
+</div>
+<button class="material-symbols-outlined text-outline hover:text-secondary transition-colors" data-icon="bookmark">bookmark</button>
+</div>
+</div>
+</article>
+</div>
+<!-- Sidebar / Trending Column -->
+<aside class="md:col-span-4 flex flex-col gap-gutter">
+<!-- Trending Destinations -->
+<section class="glass-effect rounded-xl p-6 shadow-sm">
+<h3 class="font-headline-md text-headline-md text-primary mb-6">Trending Near You</h3>
+<div class="space-y-4">
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-16 h-16 rounded-lg overflow-hidden shrink-0">
+<img alt="Munnar tea gardens" class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="A lush green panorama of the tea plantations in Munnar, Kerala. Rolling hills are covered in perfectly manicured tea bushes, with thin veils of morning mist floating between the valleys. The lighting is soft and diffused, creating a fresh, tranquil, and high-end nature aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwUqA4X3J09zHjalPaj084TfjTJI20jOeKpV33flOQDmY6z7V3UkgMjvXfKGxyPh1AxUvahvinRebdxKePpQWj18qO2HDJ5aOGMu_GjbumJ0ZfiQEiOurwKUkQw3c8wcd2dWdoAHGpC5ZPQ80m9kOp1rhS6FoUAgX9eXAXUakEI_WNwJImXWUuauBWcNjw5nYmYewtythZ1ZcyAeAgAbTNEuxO1tMD10y-93NF7xUmrYRMwFb9o9m9JvLwDhQblTr2KZyqEsi4fAbC"/>
+</div>
+<div>
+<h5 class="font-label-md text-label-md text-primary group-hover:text-secondary transition-colors">Munnar Tea Hills</h5>
+<p class="font-label-sm text-label-sm text-on-surface-variant">15.4k travelers this week</p>
+</div>
+</div>
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-16 h-16 rounded-lg overflow-hidden shrink-0">
+<img alt="Kochi fort" class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="A heritage street in Fort Kochi, Kerala, featuring colorful colonial-era buildings with blooming bougainvillea hanging from balconies. The ground is paved with ancient cobblestones, and the sunlight filters through massive rain trees. The mood is nostalgic, cultured, and upscale." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSoSRzp7ERef3i0MCIGPmSKxURlkVT25Q2rg8-KG8KlrnthWGL3hqC6H3KPdW4l_Dy3Sd89am_kuVIWx5Ie9jNQ9YcAhxQH3k-pLpAzdqucii6lTbPiSwlKLCZ3VLwGBfq21AHAPOVOeT6zsPf5p3T0Zk_tb_Y-HYHkYYU0zF4SUuWPyI6PpCIOxT4vOx0nMwyjriSWgmU3f-WJ4ExLToM1GKysLaDHZJoL9PNQheKxDHWz0c6xk9aI4aTPZ3JnWtEk_ZciB7S02-O"/>
+</div>
+<div>
+<h5 class="font-label-md text-label-md text-primary group-hover:text-secondary transition-colors">Fort Kochi Heritage</h5>
+<p class="font-label-sm text-label-sm text-on-surface-variant">8.2k travelers this week</p>
+</div>
+</div>
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-16 h-16 rounded-lg overflow-hidden shrink-0">
+<img alt="Periyar forest" class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="A peaceful lake scene in Periyar National Park, Kerala. Dried tree stumps emerge from the still water, surrounded by dense, deep green rainforest. A distant elephant herd is barely visible at the water's edge. The lighting is moody and atmospheric, emphasizing wildlife and conservation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANli3IAbVRZb9CZSCgdVV7meN2ITF1cT3KtLQr1pXXakpr0q_6pcuq3H47cYtpfV7Ilkoim_8m3q2WpEprdsIuVP30ksxPqi7QKj-N_owkS2UPmCFeU3aonFE_zo5dBU0B6yqD5Ogdg5VBjeUuDr5k0M7ReG5CLsKCFYHjO5VXQIfSMgoaHe_rF7j-S6arlVpr0XyG0PRBGHsZYQbw349QhMzHHuLkwtVnA7jlt_5gqxHkLaW_qwBbifE3XenUK2WFppuVk57vE7C2"/>
+</div>
+<div>
+<h5 class="font-label-md text-label-md text-primary group-hover:text-secondary transition-colors">Periyar Wildlife Sanctuary</h5>
+<p class="font-label-sm text-label-sm text-on-surface-variant">6.1k travelers this week</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-3 rounded-lg border border-secondary text-secondary font-label-md text-label-md hover:bg-secondary/5 transition-colors">View All Trends</button>
+</section>
+<!-- Active Communities -->
+<section class="glass-effect rounded-xl p-6 shadow-sm">
+<h3 class="font-headline-md text-headline-md text-primary mb-6">Your Groups</h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="photo_camera">photo_camera</span>
+</div>
+<span class="font-label-md text-label-md text-primary">Kerala Photographers</span>
+</div>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined" data-icon="hiking">hiking</span>
+</div>
+<span class="font-label-md text-label-md text-primary">Western Ghats Trekkers</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Promotional Card -->
+<div class="relative rounded-xl overflow-hidden aspect-square shadow-lg">
+<img alt="Ayurveda retreat" class="w-full h-full object-cover" data-alt="A serene outdoor Ayurvedic treatment setting in a lush Kerala garden. Wooden massage tables are laid with white linens, and copper bowls filled with jasmine petals and herbal oils sit nearby. Soft dappled sunlight filters through tropical leaves. The aesthetic is extremely high-end, clean, and wellness-focused." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmXvS_Y90utFGXOA9wbz8851wJ-5hHBRA_wv0Uo6r5dbAX96L3uJUDT6scG1PDzGBXIVGw8I_i9d9KX4eJ4Dn4gMO5gAFZ8O1LsnzSyGRSKZyzVPBxbOMHQSHSifjq4ailyI_TKQq1sAu-RPKUQ6jttLRAf-VYLjHp9nDy_nwWYchMdhitmk3Lu676495_KF7b70qs-NAMqajys5p_j0WX2DNz0_rxqyo7Q2BiCJy2_3WFTv1eLcOvw0GD5QYuRKCFkGV0fcP39mro"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
+<span class="text-secondary-fixed text-label-sm font-label-sm mb-2">SPONSORED</span>
+<h4 class="text-white font-headline-md text-headline-md mb-2">Ayurveda Wellness Retreat</h4>
+<p class="text-white/80 font-label-sm text-label-sm mb-4">Rejuvenate your soul in the heart of God's Own Country. 7-day packages starting now.</p>
+<button class="bg-secondary text-on-secondary py-2.5 rounded-lg font-label-md text-label-md">Learn More</button>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant py-margin-desktop">
+<div class="max-w-container-max mx-auto px-gutter flex flex-col md:flex-row justify-between items-center gap-base">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="text-headline-md font-headline-md text-primary">Traveloop</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 Traveloop Inc. All rights reserved.</p>
+</div>
+<nav class="flex gap-gutter">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">About Us</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Help Center</a>
+</nav>
+</div>
+</footer>
+<!-- FAB for adding post (Contextual to Community) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center group hover:scale-110 transition-all z-50">
+<span class="material-symbols-outlined text-[28px]" data-icon="add">add</span>
+</button>
+</body></html>

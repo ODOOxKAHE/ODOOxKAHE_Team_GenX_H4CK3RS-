@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Traveloop - Package Discovery</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#00201d",
+                        "inverse-surface": "#2d3133",
+                        "secondary-fixed": "#89f5e7",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#7c839b",
+                        "primary-fixed": "#dae2fd",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-container-low": "#f2f4f6",
+                        "on-secondary-fixed-variant": "#005049",
+                        "on-background": "#191c1e",
+                        "surface-bright": "#f7f9fb",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#400010",
+                        "primary-container": "#131b2e",
+                        "outline-variant": "#c6c6cd",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#86f2e4",
+                        "outline": "#76777d",
+                        "on-secondary-container": "#006f66",
+                        "surface-dim": "#d8dadc",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "background": "#f7f9fb",
+                        "on-primary-fixed": "#131b2e",
+                        "tertiary": "#000000",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-container": "#eceef0",
+                        "secondary": "#006a61",
+                        "on-tertiary-fixed-variant": "#891933",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "surface": "#f7f9fb",
+                        "secondary-fixed-dim": "#6bd8cb",
+                        "on-tertiary-container": "#da586c",
+                        "on-surface": "#191c1e",
+                        "primary-fixed-dim": "#bec6e0",
+                        "inverse-primary": "#bec6e0",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#565e74",
+                        "on-surface-variant": "#45464d",
+                        "error": "#ba1a1a",
+                        "primary": "#000000",
+                        "tertiary-fixed": "#ffdadc",
+                        "tertiary-fixed-dim": "#ffb2b9",
+                        "tertiary-container": "#400010",
+                        "surface-container-high": "#e6e8ea"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "base": "8px",
+                        "margin-desktop": "40px",
+                        "gutter": "24px",
+                        "section-gap": "80px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface dark:bg-surface-dim shadow-[0_4px_20px_rgba(15,23,42,0.05)] h-16">
+<div class="max-w-container-max mx-auto px-gutter h-full flex justify-between items-center">
+<div class="flex items-center gap-base">
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">Traveloop</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">My Trips</a>
+<a class="font-label-md text-label-md text-secondary dark:text-secondary-fixed-dim border-b-2 border-secondary dark:border-secondary-fixed-dim pb-1" href="#">Explore</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">Community</a>
+</nav>
+<div class="flex items-center gap-gutter">
+<div class="relative hidden sm:block">
+<input class="bg-surface-container-low border-none rounded-full px-5 py-2 text-label-md w-64 focus:ring-2 focus:ring-secondary" placeholder="Search experiences..." type="text"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-surface-container-low rounded-full" data-icon="notifications">notifications</button>
+<img alt="User profile photo" class="w-8 h-8 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFEn18fzRS788V253ZLnccUAqLTJ2Vrdtjqvid_ZaaGaVk3iPfPDNWkeNYD5sBVd9Koc_V_ksvAqsjfLkZmKmHQHAMBt6HtDPkj4AWUrcjPVkAVkicfvRSdD1_6_-Xkk9v1M1tJoulj-jfnGUeBaU7LmocMSmK0B_BtSkLnrJ_TFa6CJls0-W1RwWOD-2UP-Tdosix5yHYzOE9NiWCXUb91NoH610GFRt1k9GfA8xe7ugWKBW4S25M5t19Xq97KWdojbYfSj1kKU-S"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-16 min-h-screen">
+<!-- Hero Section with Tropical Vibe -->
+<section class="relative h-[400px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A panoramic, wide-angle shot of a serene Hawaiian beach at sunrise. The soft golden light glimmers off the crystal clear teal water while gently lapping against the pristine white sand. Towering, elegant palm trees with vibrant green fronds sway in a light tropical breeze against a pastel sky. The overall atmosphere is modern, airy, and premium, evoking a sense of calm luxury and wonder." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvOhHCjiWnaRa7gy8L2Fpws_tbsXKIreT93cmGO_4yhB8M0LS4An7NT2mX-sp9L4SflfnR_D4y0_DQQwkcIgMnFz_vOZ9euwQChY2Uk6OCbqeB8VM35fb8HKiIk_y4DojPUBwe4w5e-ocqmnC-n6ZPfaJdoIYjOzYS01cUYWeq09uoqJ87qhe8RM3IXt79zKBJ-53ttdSe1OqrAcgjxXrAF53kKrtT219W7rvriC2EOzV9eYbMPHd5Ywpdnpn454OjHGE7dm9IxapT"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface-container-lowest/80 via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto px-gutter w-full">
+<div class="max-w-2xl">
+<span class="inline-flex items-center px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm mb-6">
+<span class="material-symbols-outlined mr-2 text-[18px]" data-icon="sunny">sunny</span>
+                        New Discovery Packages
+                    </span>
+<h1 class="font-headline-xl text-headline-xl text-primary mb-4">Discover Hawaii Your Way</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Curated experiences designed for every type of explorer. From serene honeymoons to high-energy student adventures.</p>
+</div>
+</div>
+</section>
+<!-- Bento Discovery Grid -->
+<section class="py-section-gap max-w-container-max mx-auto px-gutter">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary">Featured Collections</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Our most-loved itineraries, hand-picked for quality.</p>
+</div>
+<div class="flex gap-4">
+<button class="p-2 rounded-full border border-outline hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="p-2 rounded-full border border-outline hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Honeymoon Special (Large Card) -->
+<div class="md:col-span-8 group relative overflow-hidden rounded-xl shadow-[0_4px_20px_rgba(15,23,42,0.05)] bg-white">
+<div class="aspect-[16/9] md:aspect-auto md:h-full relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A luxurious, romantic picnic setup on a secluded Hawaiian beach during a warm golden hour. Two elegant wooden beach chairs face a crystal teal ocean, with a woven basket filled with tropical fruits and chilled champagne between them. The scene is framed by soft, out-of-focus palm leaves and lit by the vibrant orange and pink hues of a setting sun, creating a premium, romantic, and tranquil minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBld2VAl07Xxr2TcohJfZPEYCmN_8TPW7z7B6ODK-1nOPNVlg231nfzmFSjduYs8Ix9ULQ_A4SMfXgrpXK8J5BthiBxFbTOX5gtHM8q44ibSpFuVeNCS6A_vCxvzcR0bpQhq-ZgwMHNspGWF3X8PYnFZ9ybClWAJevyuQBSNTb13uyeMdFzVCnnD4-xpFbiWxya-kfxMwL8miPg7IAZ5vPJxk55H407ILgJRblyd3-8ARHINA6ePzDZrZo_bf8xa-dEO6OCI1NID5yE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full flex justify-between items-end">
+<div>
+<span class="bg-secondary-fixed text-on-secondary-fixed px-3 py-1 rounded-full font-label-sm text-label-sm mb-3 inline-block">Honeymoon Special</span>
+<h3 class="text-white font-headline-lg text-headline-lg mb-2">Oceanfront Romance</h3>
+<p class="text-white/80 font-body-md text-body-md max-w-md">Private dinners, sunset picnics, and exclusive beach access for two.</p>
+</div>
+<div class="glass-card p-4 rounded-xl hidden lg:block">
+<div class="text-center">
+<p class="text-primary font-label-sm text-label-sm">Starting at</p>
+<p class="text-secondary font-headline-md text-headline-md">$2,499</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Small Cards Column -->
+<div class="md:col-span-4 flex flex-col gap-gutter">
+<!-- Children's Splash Park -->
+<div class="bg-white rounded-xl shadow-[0_4px_20px_rgba(15,23,42,0.05)] overflow-hidden group">
+<div class="h-48 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A vibrant, sun-drenched water park in Hawaii featuring modern water slides and interactive splash pads with palm tree shapes. Happy children are captured in a blur of motion through shimmering water droplets and turquoise pools. The lighting is bright and cheerful, highlighting the saturated colors of the tropical landscape against a clear blue sky. The style is professional, high-energy, and family-oriented." src="https://lh3.googleusercontent.com/aida-public/AB6AXuArj_IAMsoduggFdx3DGCvb-fDrXPA5YEqSYF94TPD2smZImZKIyqo3w5CDQ1I8qBvPO9z4-sBpIrrd2tCH58GkLfIUZLZ_OcT2cWw25fDHGEvxJW4x6jOUsUbIjcnnHsZby9ucFsK9_o1_yFYvowolYHykF2YA3n7wv4x_eV7AXGCaBglrND7R3mOC3mzcR0GfkZsqe_hIJ6RB08SMaCk-T2D1nGy8So4E7gUN1vDSXlhSbMn-ylgcausIRdfgmQ3CxOCkfI4szZ26"/>
+<div class="absolute top-4 right-4 bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full font-label-sm text-label-sm">Kids Choice</div>
+</div>
+<div class="p-6">
+<h4 class="font-headline-md text-headline-md text-primary mb-2">Splash Park Discovery</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">A week of aquatic joy for the little explorers.</p>
+<div class="flex justify-between items-center">
+<span class="font-label-md text-label-md text-secondary">7 Days / 6 Nights</span>
+<button class="text-secondary flex items-center font-label-md">
+                                    View <span class="material-symbols-outlined ml-1 text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Student History Pass -->
+<div class="bg-white rounded-xl shadow-[0_4px_20px_rgba(15,23,42,0.05)] overflow-hidden group">
+<div class="h-48 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A group of diverse university students exploring a historical Hawaiian site with ancient stone structures and lush jungle foliage. They are holding maps and cameras, looking thoughtfully at the heritage plaques under the soft, dappled light of the forest canopy. The mood is inquisitive, academic, and adventurous, using a natural color palette of deep greens and earthy browns with clean, modern photographic clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAf9oMB-LF1WT1qfRjavudhrYVypBjVrRWST9Mhwu-JlcNSPzaKTWDnIQWIKTq0M1DHhUjd66j1opXV5_vlQHjw4-UUBJAXjCYNTL4-DqANUN9NKtcsYW3LNP1spJ6bFca4Q2Jow3lANl_l-RvP-m0z-enltkfpACo56zl8m913FthonYQHJfc8QEPd_lxRrEWSTXCPUyPcWZYcDm4UIYR3EozqNgZw-Rm9WhJjY0qjHS8AA3DGcRLK8GOfPTWUL0Jb8MMW7A-v3pbj"/>
+<div class="absolute top-4 right-4 bg-primary-container text-white px-3 py-1 rounded-full font-label-sm text-label-sm">Student Pass</div>
+</div>
+<div class="p-6">
+<h4 class="font-headline-md text-headline-md text-primary mb-2">Heritage Discovery</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Trace the ancient paths of Polynesian kings.</p>
+<div class="flex justify-between items-center">
+<span class="font-label-md text-label-md text-secondary">4 Days / 3 Nights</span>
+<button class="text-secondary flex items-center font-label-md">
+                                    View <span class="material-symbols-outlined ml-1 text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Itinerary Breakdown & Budget Visualization -->
+<section class="bg-surface-container-low py-section-gap">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="flex flex-col lg:flex-row gap-section-gap">
+<!-- Trip Timelines (70%) -->
+<div class="flex-1">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-12">Itinerary Preview: Hawaiian Shores</h2>
+<div class="space-y-gutter relative before:content-[''] before:absolute before:left-4 before:top-2 before:bottom-2 before:w-[2px] before:bg-secondary/20">
+<!-- Day 1 -->
+<div class="relative pl-12">
+<div class="absolute left-0 top-1.5 w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white font-label-md z-10">1</div>
+<div class="bg-white p-gutter rounded-xl shadow-[0_4px_20px_rgba(15,23,42,0.05)] border-l-4 border-secondary">
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="text-secondary font-label-md uppercase tracking-wider">Arrival &amp; Sunset Picnic</span>
+<h4 class="font-headline-md text-headline-md mt-1">Diamond Head Check-in</h4>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Est. Expense</p>
+<p class="font-headline-md text-headline-md text-primary">$120</p>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-base">
+<div class="bg-surface-container rounded-lg p-3 flex items-center gap-base">
+<span class="material-symbols-outlined text-secondary" data-icon="surfing">surfing</span>
+<span class="font-label-sm text-label-sm">Surf Intro</span>
+</div>
+<div class="bg-surface-container rounded-lg p-3 flex items-center gap-base">
+<span class="material-symbols-outlined text-secondary" data-icon="restaurant">restaurant</span>
+<span class="font-label-sm text-label-sm">Beach Dining</span>
+</div>
+<div class="bg-surface-container rounded-lg p-3 flex items-center gap-base">
+<span class="material-symbols-outlined text-secondary" data-icon="directions_car">directions_car</span>
+<span class="font-label-sm text-label-sm">Private Car</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Day 2 -->
+<div class="relative pl-12">
+<div class="absolute left-0 top-1.5 w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white font-label-md z-10">2</div>
+<div class="bg-white p-gutter rounded-xl shadow-[0_4px_20px_rgba(15,23,42,0.05)]">
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="text-secondary font-label-md uppercase tracking-wider">Adventure &amp; Discovery</span>
+<h4 class="font-headline-md text-headline-md mt-1">Snorkeling at Hanauma Bay</h4>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Est. Expense</p>
+<p class="font-headline-md text-headline-md text-primary">$280</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="h-24 w-1/3 rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A close-up action shot of a person snorkeling in crystal clear, turquoise Hawaiian waters. Schools of vibrant tropical fish in yellows and blues dart around colorful coral reefs. The sunlight pierces through the water surface in shimmering rays, illuminating the underwater wonderland with a high-key, modern, and exciting aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAB9tOelZmg7XJ9iJ2mrh0Cnj_MhTCE3rRy4QtmqF57ZL4MweQJavPayY1QH1L3QTftRlZLvR5HPKyE9Tnf2lpKNecyI6p-_yx3OOfq_1iLOmhF3sFWaSlH-x67P-vZUsT9SHQDjwTQI-ct2tkEpIP229BcqtntXARF2sbV7PVdpfaQ8onUfDCPsocGz0hrIw-bnKk6iHHza9TXfaYVx4eOrcElEkVCXNzHpFBxsmjsEWz5llTKZYGAogLNlmD_JK8sFK9v9EbYZfB2"/>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3">Explore the most famous snorkeling spot in Hawaii. Professional guides and high-end equipment included in this morning session.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Budget & Visual Calendar (30%) -->
+<div class="lg:w-80 space-y-gutter">
+<!-- Budget Card -->
+<div class="bg-white p-6 rounded-xl shadow-[0_4px_20px_rgba(15,23,42,0.05)]">
+<h5 class="font-label-md text-label-md text-primary mb-6">Budget Allocation</h5>
+<div class="flex justify-center mb-6">
+<!-- Donut Chart SVG -->
+<div class="relative w-32 h-32">
+<svg class="w-full h-full" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="none" r="15.9" stroke="#e0e3e5" stroke-width="3"></circle>
+<circle cx="18" cy="18" fill="none" r="15.9" stroke="#00201d" stroke-dasharray="40 100" stroke-dashoffset="25" stroke-width="3"></circle>
+<circle cx="18" cy="18" fill="none" r="15.9" stroke="#006a61" stroke-dasharray="30 100" stroke-dashoffset="85" stroke-width="3"></circle>
+<circle cx="18" cy="18" fill="none" r="15.9" stroke="#da586c" stroke-dasharray="30 100" stroke-dashoffset="115" stroke-width="3"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Total</p>
+<p class="font-headline-md text-headline-md text-primary">$3.2k</p>
+</div>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm">Flights &amp; Stay</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold">40%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm">Experiences</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold">30%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary-container"></span>
+<span class="font-label-sm text-label-sm">Food &amp; Dining</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold">30%</span>
+</div>
+</div>
+</div>
+<!-- Visual Calendar Preview -->
+<div class="bg-white p-6 rounded-xl shadow-[0_4px_20px_rgba(15,23,42,0.05)]">
+<h5 class="font-label-md text-label-md text-primary mb-4">Availability</h5>
+<div class="grid grid-cols-7 gap-1 text-center mb-2">
+<span class="text-[10px] font-bold text-on-surface-variant">S</span>
+<span class="text-[10px] font-bold text-on-surface-variant">M</span>
+<span class="text-[10px] font-bold text-on-surface-variant">T</span>
+<span class="text-[10px] font-bold text-on-surface-variant">W</span>
+<span class="text-[10px] font-bold text-on-surface-variant">T</span>
+<span class="text-[10px] font-bold text-on-surface-variant">F</span>
+<span class="text-[10px] font-bold text-on-surface-variant">S</span>
+</div>
+<div class="grid grid-cols-7 gap-1">
+<div class="h-8 flex items-center justify-center text-label-sm text-outline-variant">28</div>
+<div class="h-8 flex items-center justify-center text-label-sm text-outline-variant">29</div>
+<div class="h-8 flex items-center justify-center text-label-sm text-outline-variant">30</div>
+<div class="h-8 flex items-center justify-center text-label-sm text-primary">1</div>
+<div class="h-8 flex items-center justify-center text-label-sm text-primary">2</div>
+<div class="h-8 flex items-center justify-center text-label-sm text-primary">3</div>
+<div class="h-8 flex items-center justify-center text-label-sm text-primary">4</div>
+<!-- Selected Range -->
+<div class="h-8 bg-secondary/10 flex items-center justify-center text-label-sm text-secondary rounded-l-full font-bold">5</div>
+<div class="h-8 bg-secondary/10 flex items-center justify-center text-label-sm text-secondary font-bold">6</div>
+<div class="h-8 bg-secondary/10 flex items-center justify-center text-label-sm text-secondary font-bold">7</div>
+<div class="h-8 bg-secondary/10 flex items-center justify-center text-label-sm text-secondary font-bold">8</div>
+<div class="h-8 bg-secondary/10 flex items-center justify-center text-label-sm text-secondary font-bold">9</div>
+<div class="h-8 bg-secondary/10 flex items-center justify-center text-label-sm text-secondary font-bold">10</div>
+<div class="h-8 bg-secondary/10 flex items-center justify-center text-label-sm text-secondary rounded-r-full font-bold">11</div>
+<!-- Continued -->
+<div class="h-8 flex items-center justify-center text-label-sm text-primary">12</div>
+<div class="h-8 flex items-center justify-center text-label-sm text-primary">13</div>
+<div class="h-8 flex items-center justify-center text-label-sm text-primary">14</div>
+<div class="h-8 flex items-center justify-center text-label-sm text-primary">15</div>
+<div class="h-8 flex items-center justify-center text-label-sm text-primary">16</div>
+<div class="h-8 flex items-center justify-center text-label-sm text-primary">17</div>
+<div class="h-8 flex items-center justify-center text-label-sm text-primary">18</div>
+</div>
+<button class="w-full mt-6 bg-primary text-white py-3 rounded-lg font-label-md text-label-md hover:bg-opacity-90 transition-all active:scale-[0.98]">
+                                Select Dates
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA Section -->
+<section class="py-section-gap max-w-container-max mx-auto px-gutter text-center">
+<div class="relative bg-primary-container p-gutter md:p-20 rounded-3xl overflow-hidden shadow-2xl">
+<!-- Tropical Silhouette Decoration -->
+<div class="absolute bottom-0 right-0 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[320px]" data-icon="forest">forest</span>
+</div>
+<div class="relative z-10">
+<h2 class="font-headline-xl text-headline-xl text-white mb-6">Start Your Hawaiian Story</h2>
+<p class="font-body-lg text-body-lg text-white/70 max-w-2xl mx-auto mb-10">Don't just travel. Discover something that stays with you forever. Our experts are ready to personalize your next adventure.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-base">
+<button class="bg-[#da586c] text-white px-8 py-4 rounded-full font-label-md text-label-md hover:shadow-lg transition-all">Book Honeymoon Special</button>
+<button class="bg-transparent border-2 border-white/30 text-white px-8 py-4 rounded-full font-label-md text-label-md hover:bg-white/10 transition-all">Explore All Packages</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-margin-desktop px-gutter max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-base border-t border-outline-variant dark:border-outline bg-surface-container-lowest dark:bg-inverse-surface">
+<div class="flex flex-col gap-2">
+<span class="text-headline-md font-headline-md text-primary dark:text-primary-fixed">Traveloop</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant">© 2024 Traveloop Inc. All rights reserved.</p>
+</div>
+<nav class="flex gap-8">
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">About Us</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">Help Center</a>
+</nav>
+</footer>
+<!-- Mobile Navigation Bar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface border-t border-outline-variant h-16 flex justify-around items-center z-50">
+<button class="flex flex-col items-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-[10px]">Home</span>
+</button>
+<button class="flex flex-col items-center text-secondary">
+<span class="material-symbols-outlined" data-icon="explore" data-weight="fill" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-label-sm text-[10px]">Explore</span>
+</button>
+<button class="flex flex-col items-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-label-sm text-[10px]">My Trips</span>
+</button>
+<button class="flex flex-col items-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="font-label-sm text-[10px]">Community</span>
+</button>
+</nav>
+</body></html>

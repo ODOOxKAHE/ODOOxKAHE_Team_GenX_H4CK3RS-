@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Traveloop - Community Hawaiian Picnic</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#00201d",
+                    "inverse-surface": "#2d3133",
+                    "secondary-fixed": "#89f5e7",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#7c839b",
+                    "primary-fixed": "#dae2fd",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-container-low": "#f2f4f6",
+                    "on-secondary-fixed-variant": "#005049",
+                    "on-background": "#191c1e",
+                    "surface-bright": "#f7f9fb",
+                    "surface-variant": "#e0e3e5",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed": "#400010",
+                    "primary-container": "#131b2e",
+                    "outline-variant": "#c6c6cd",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#86f2e4",
+                    "outline": "#76777d",
+                    "on-secondary-container": "#006f66",
+                    "surface-dim": "#d8dadc",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "background": "#f7f9fb",
+                    "on-primary-fixed": "#131b2e",
+                    "tertiary": "#000000",
+                    "surface-container-highest": "#e0e3e5",
+                    "surface-container": "#eceef0",
+                    "secondary": "#006a61",
+                    "on-tertiary-fixed-variant": "#891933",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "surface": "#f7f9fb",
+                    "secondary-fixed-dim": "#6bd8cb",
+                    "on-tertiary-container": "#da586c",
+                    "on-surface": "#191c1e",
+                    "primary-fixed-dim": "#bec6e0",
+                    "inverse-primary": "#bec6e0",
+                    "on-primary": "#ffffff",
+                    "surface-tint": "#565e74",
+                    "on-surface-variant": "#45464d",
+                    "error": "#ba1a1a",
+                    "primary": "#000000",
+                    "tertiary-fixed": "#ffdadc",
+                    "tertiary-fixed-dim": "#ffb2b9",
+                    "tertiary-container": "#400010",
+                    "surface-container-high": "#e6e8ea"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "base": "8px",
+                    "margin-desktop": "40px",
+                    "gutter": "24px",
+                    "section-gap": "80px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "label-md": ["Plus Jakarta Sans"],
+                    "headline-xl": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface dark:bg-surface-dim shadow-[0_4px_20px_rgba(15,23,42,0.05)] h-16">
+<nav class="max-w-container-max mx-auto px-gutter flex justify-between items-center h-full">
+<div class="flex items-center gap-8">
+<span class="text-headline-md font-headline-md font-extrabold text-primary dark:text-primary-fixed">Traveloop</span>
+<div class="hidden md:flex gap-6">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">My Trips</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">Explore</a>
+<a class="font-label-md text-label-md text-secondary dark:text-secondary-fixed-dim border-b-2 border-secondary dark:border-secondary-fixed-dim pb-1" href="#">Community</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<input class="bg-surface-container-low border-none rounded-full py-2 px-6 w-64 focus:ring-2 focus:ring-secondary text-body-md" placeholder="Search experiences..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-surface-container-low rounded-full">notifications</button>
+<img alt="User profile photo" class="w-10 h-10 rounded-full border-2 border-secondary" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJzEOkY5m8WlKDjxWtoY4e-lPk7xN9Y15CrzNqjZxY4PGLvXf5VA3QX1vsonTbX2ZOG3eptW0LU-w-5QA-NJvMMjZe78v9I45UNOVnIsF2tdw6GzkoRkeTUGxNy4U701UDMl6CWsVJNd1RXkrDUPRlBDD6e9d22QlpL_X_t9j6JQQ7oUY_CIz_W4T7dIkdJzo1CAqwpbgHC9ZYakhUQ-Ty8aw70ADHGby9UUZCDTfVtzLcdiIhkjz5zaUAX1mD3LisbxGoZvd64EQI"/>
+</div>
+</nav>
+</header>
+<main class="pt-16">
+<!-- Hero Section: Hawaiian Picnic Backdrop -->
+<section class="relative h-[614px] w-full overflow-hidden flex items-center justify-center">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A wide-angle, cinematic view of a sun-drenched Hawaiian beach during a golden hour picnic. Crystal-clear turquoise water laps onto pristine white sand, while tall coconut palm trees sway gently in the breeze. The scene is bathed in warm, optimistic light, with vibrant tropical greenery and a clear blue sky. The aesthetic is modern, high-energy, and evokes a premium sense of wonder and travel freedom." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQEz9kzilyir2tn656t7wAx5TTU7c_cZhTtTUHnElJGiaxt44GaPN0PsO2kujkwW2ES-kRztyTgApJDvXPzBUpzSvTsh-TdFFB1YXBGxLNYstaC2FKcr0Hzru7CHqgGka3gaSv-LM01jqwJyGSPJ801YcmOO6EfihE9d3f4lv8treMHCGlgUpVguzOHyQyHQ4skOZun4rJ7Ha55EvD6Vo6rBNbXYdFxSnA8ewauSB7KlLQKkIDMcrfCcLMuGej_bZFAMpFHfFdTOnJ"/>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-surface"></div>
+<div class="relative z-10 text-center px-gutter max-w-3xl">
+<h1 class="font-headline-xl text-headline-xl text-white drop-shadow-lg mb-4">Community Picnic</h1>
+<p class="font-body-lg text-body-lg text-white drop-shadow-md mb-8">Feast on visual journeys from explorers around the globe. Clone, collaborate, and share your own slice of paradise.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<div class="flex items-center gap-2 glass-card px-4 py-2 rounded-full border border-white/20">
+<span class="material-symbols-outlined text-secondary">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-on-surface-variant w-40 sm:w-64" placeholder="Search community..." type="text"/>
+</div>
+<button class="glass-card px-6 py-2 rounded-full border border-white/20 font-label-md text-label-md flex items-center gap-2 hover:bg-white/40 transition-all">
+<span class="material-symbols-outlined">filter_list</span> Filter
+                    </button>
+<button class="glass-card px-6 py-2 rounded-full border border-white/20 font-label-md text-label-md flex items-center gap-2 hover:bg-white/40 transition-all">
+<span class="material-symbols-outlined">sort</span> Sort by...
+                    </button>
+</div>
+</div>
+</section>
+<!-- Main Content Area -->
+<div class="max-w-container-max mx-auto px-gutter -mt-20 relative z-20 pb-section-gap">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Sidebar: Live Dive Section -->
+<aside class="lg:col-span-4 flex flex-col gap-gutter">
+<div class="bg-primary-container text-white p-gutter rounded-xl shadow-xl overflow-hidden relative min-h-[400px] flex flex-col justify-end">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60" data-alt="An immersive underwater view of a vibrant coral reef teeming with animated-looking tropical fish. Sunlight beams through the clear blue water from above, creating ethereal rays. The coral is incredibly detailed and colorful, featuring shades of pink, orange, and purple. The scene is designed to look like a high-end 360-degree paragliding or snorkeling clip capture, full of energy and aquatic life." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7YcdmY6Pg41Q4nVK2MLMjYGJHiFenlbrmrbUVdRAo-UzEk83JkvdGi6meWp7_bj6poDd3Jt-icpt2RhvMwMV94D4WgTaAs3s_EypbVWZhQR1DWVOfkobWE_dKn8Sf3XVAI4ftEvOY4rHOlfyb_Dv3z71oENUw3CmDZgcZss4X3CSdmC0MOrN9zGgTwdrBc4CPi7Uq-u-SKoe6V5-diW4Iw4Ao2HRX0RodGWdrlbHcGFOBZIZ0oHbhRVoUIjkRNGiANxJJGhdOjWRE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container via-transparent to-transparent"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-2">
+<span class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest">Live Dive</span>
+</div>
+<h2 class="font-headline-md text-headline-md mb-4">Snorkeling with Sea Turtles at Lanikai</h2>
+<div class="flex items-center gap-4">
+<button class="bg-secondary text-white px-6 py-3 rounded-full font-label-md text-label-md flex items-center gap-2 hover:bg-on-secondary-container transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_circle</span> Watch Now
+                                </button>
+<div class="flex -space-x-3">
+<img alt="viewer" class="w-8 h-8 rounded-full border-2 border-primary-container" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlApSw1aMlz2Qd0iwT9uvYNCPxsp3_D18RzPe-5OY7yPg0xzGdeOfKK0FNiI1Pun0BU9QdsI0ZGW1Z2nkNzSbn0R_nLNMyWfk3H3YYdBXt5KSpulIVhp3Fi9DkYotLyPnC-1h08hjREWFXtWJKvR2ES3mNveE8cirgz2B641gcXZ1xek3Qtl6RWJWQaNEICWe0m7agVry4uwXRNthtyfAUHGxaLx9mRiXpp0D3H38BQ9jpIheXbZfrlTgsml6rXOL_WvtgdDBQMTyN"/>
+<img alt="viewer" class="w-8 h-8 rounded-full border-2 border-primary-container" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9F3UDzSQ8o13MFZf_KshgzPWDi2BsKcUXoT0QnZumlUXQjx8yBigF2j3j0AlK7Wd31gnJamWmri6PNJWLB3V_0TIirr4TnaTXmvtTRwQF2X7oJka17kKFLukKAS9GK9zOGHzTaladPwuZREXbwcQdnLPXbQ5qZCcXJWE1iJOD_iukJ0loRgFPODaePPUokuvTwHefWXzGlKUkUR3T1L8LCr6NTEAC1gBUGBEFcHS2LQsB0S2OVZWo7qYfhh3pZOel9pCCFXpS7PEL"/>
+<div class="w-8 h-8 rounded-full border-2 border-primary-container bg-secondary-container text-on-secondary-container flex items-center justify-center text-[10px] font-bold">+1.2k</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Category Chips -->
+<div class="bg-surface-container p-gutter rounded-xl">
+<h3 class="font-label-md text-label-md mb-4 text-on-surface-variant uppercase tracking-wider">Top Destinations</h3>
+<div class="flex flex-wrap gap-2">
+<span class="bg-secondary-fixed text-on-secondary-fixed px-4 py-1.5 rounded-full font-label-sm text-label-sm cursor-pointer hover:bg-secondary-fixed-dim transition-colors">#Oahu</span>
+<span class="bg-surface-container-highest text-on-surface-variant px-4 py-1.5 rounded-full font-label-sm text-label-sm cursor-pointer hover:bg-outline-variant transition-colors">#MauiAdventures</span>
+<span class="bg-surface-container-highest text-on-surface-variant px-4 py-1.5 rounded-full font-label-sm text-label-sm cursor-pointer hover:bg-outline-variant transition-colors">#SoloTravel</span>
+<span class="bg-surface-container-highest text-on-surface-variant px-4 py-1.5 rounded-full font-label-sm text-label-sm cursor-pointer hover:bg-outline-variant transition-colors">#TropicalBudget</span>
+<span class="bg-secondary-fixed text-on-secondary-fixed px-4 py-1.5 rounded-full font-label-sm text-label-sm cursor-pointer hover:bg-secondary-fixed-dim transition-colors">#HikingTrails</span>
+</div>
+</div>
+</aside>
+<!-- Feed Content: Visual Journeys -->
+<section class="lg:col-span-8 flex flex-col gap-gutter">
+<!-- Itinerary Card 1 -->
+<div class="bg-white rounded-xl shadow-[0_4px_20px_rgba(15,23,42,0.05)] overflow-hidden flex flex-col md:flex-row border border-surface-variant group">
+<div class="md:w-1/3 relative h-64 md:h-auto overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A luxurious tropical breakfast spread on a balcony overlooking the lush green mountains of Kauai. The image features exotic fruits like dragonfruit and papaya, freshly squeezed juice, and artisanal pastries. The morning light is soft and hazy, creating a serene and high-end luxury travel magazine aesthetic. The colors are dominated by vibrant greens and warm tropical hues." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfdRr9XlYD2Spv3Wq5US0ej7DJoG66rWTAXcsTL44fU8IxQt9suxwkp4Yx_iiVYPsKHvgb6RBSEvan8MGL-A2FhKP77b18Syj6sLvrMfYk9Kcy6IFXdePGf596MNUHQb-rGs1JcOTUc7NQk0gJqVxr4BUWWTVJZpA98OiT1TxlejiL3QP6_wbIV1ETkr5ynlWcOfPHHH0BCfmP7GfCGQl4v7NTqqsOH6yp2CpA6nRBLTF2GsxTYo62noqPLMrjM9x6myMlStaBcAnP"/>
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-on-secondary-container text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-surface">4.9</span>
+</div>
+</div>
+<div class="md:w-2/3 p-6 flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<img alt="Author" class="w-10 h-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7QRRGyjAh2aLDzIbatMcPtJBoOsGBffoXch_bXUMzef7xyrGVTqPDsSBv9XapcSkr8pl6DIdMtaBB9NaC02xqDmiZJqz97gSHpe7hEF0BpwZWK6xiQQpknGaO7vT0Nq7azKRLtsN-hG39DhMijn9pRSXsAodbaowjVUypW3mxgMYsUO7cdLytF1amMFsxBqdmYfE88hQmQMv4EricPOskAxqr2WB8e98cV9vQkNJcfY-wWr0ch2swyznOrXsnOmsm9tkbz569tU2M"/>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface">Kai's Kauai Hidden Gems</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Posted 2 hours ago • 5 Days</p>
+</div>
+</div>
+<button class="material-symbols-outlined text-outline hover:text-error transition-colors">favorite</button>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Exploring the Napali coast from a secret trail and finding the best shaved ice in Hanalei. This journey is perfect for those who want to avoid crowds.</p>
+<div class="mt-auto pt-6 border-t border-surface-variant flex items-center justify-between">
+<div class="flex gap-2">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-sm text-label-sm">Budget Friendly</span>
+<span class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-full font-label-sm text-label-sm">Hiking</span>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 border border-secondary text-secondary rounded-lg font-label-md text-label-md hover:bg-secondary/10 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">content_copy</span> Clone
+                                    </button>
+<button class="px-4 py-2 bg-primary text-white rounded-lg font-label-md text-label-md hover:bg-primary/90 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">group_add</span> Collaborate
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Itinerary Card 2: Bento Style Layout within Feed -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="bg-white rounded-xl shadow-[0_4px_20px_rgba(15,23,42,0.05)] overflow-hidden border border-surface-variant flex flex-col">
+<img class="w-full h-48 object-cover" data-alt="A modern surfer catching a wave at sunset on a North Shore beach in Hawaii. The water is a deep, rich blue, and the sky is filled with streaks of orange, pink, and purple. The lighting is dramatic and high-contrast, emphasizing the spray of the water and the silhouette of the surfer. It’s an energetic, professional-quality action shot with a clean, minimalist focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGycB2yKeJIKREqHWcOX4t2y0aIe2u8Gwo2JDKrgFBq5Q9OG8MuREeLBuLY-TkjhDs3gbQDDuIILcm0brUtxPu2MXioiUaDmk7dTmtbJfAKwuwlfep7rmuVdMq3hGwLxSX7o2Puo_dyjfIYCkqDTUDwtdYl8axJSHsGVlCH6LEJSi33Eo4ryi9grmwcPd9uIXBLtqr3TgmBGHWKjxKzbuIPNvmTHAOxE_XnvXg56eujhZLo2vF3CAK5rFJp_w-yFveI7B3UiGeSyFG"/>
+<div class="p-6 flex flex-col flex-grow">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2">North Shore Surf Tour</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">A complete guide to the best breaks and beach huts for the ultimate surf week.</p>
+<div class="mt-auto flex justify-between items-center">
+<span class="font-label-md text-label-md text-secondary">32 Clones</span>
+<button class="text-primary font-label-md text-label-md flex items-center gap-1 hover:underline">
+                                        View Details <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_20px_rgba(15,23,42,0.05)] overflow-hidden border border-surface-variant flex flex-col">
+<div class="p-6 bg-secondary text-white">
+<span class="font-label-sm text-label-sm uppercase tracking-tighter opacity-80">Featured Experience</span>
+<h4 class="font-headline-md text-headline-md mt-1">Volcano Trekking Guide</h4>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-4 mb-6">
+<div class="bg-surface-container-high p-3 rounded-lg">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">landscape</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Big Island Trails</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Expert difficulty • 12.5 km</p>
+</div>
+</div>
+<button class="w-full py-3 bg-on-secondary-fixed text-white rounded-lg font-label-md text-label-md hover:opacity-90 transition-all flex justify-center items-center gap-2">
+                                    Add to My Trip <span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Itinerary Card 3 -->
+<div class="bg-white rounded-xl shadow-[0_4px_20px_rgba(15,23,42,0.05)] overflow-hidden flex flex-col md:flex-row border border-surface-variant group">
+<div class="md:w-1/3 relative h-64 md:h-auto overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A vibrant table setting for a tropical picnic on a grass field overlooking the ocean. A colorful woven mat is covered with fresh fruit, artisanal bread, and wooden bowls filled with local delicacies. In the background, clear blue waves crash against volcanic rocks. The lighting is bright and cheerful, highlighting the high-energy, sun-drenched aesthetic of a Hawaiian afternoon." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUV5akqlUdo9N-Y-J575sHmCzXptjvvTtfnBtStzEQeLnP-pPs5q4mGzSb4R8VMKRJ9-zekDWoZCr3vRmFtSOF3JLvDqQt0thR_SPZ8a_uV76n-4MDoXkCCvewPbQtKUgmySAVIExQyxkU2LPqMps5_4y7frPj2_MzyTXiglSWtywfDe5IjL5hrY49_q3BertVb2qXOLaSGTpKvV8-d-kVG7SMKHBktfI42b5noBW5qEvzCIJzkOLmpyYS20wLKdfIJp6RhVe0ryRN"/>
+</div>
+<div class="md:w-2/3 p-6 flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<img alt="Author" class="w-10 h-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByvXR2panwg0s_NHfghqne_-T3QILcx6te1tmtsLXjL_pQMsIL6t5dBmkXq-sdb1tTwLryzxdl-bmp-BPn-f8cRSok8MLGRYdx2ClmINRMASXOwv4y1FSpzBShI5ZvvzQ9d1LCH4gM7vQKtKRhgHWr52awPa2jxHcyljuXjGW8YKoBtQxmOpbiFykvHJ-5lQBxsSRapovOUJqm19AqnIkTNYklWJB83yqzDJTcN7uC6fJCZanAkcs11p2gk0Xn7nDqs6l-7A9h49EE"/>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface">Maui Picnic &amp; Sunset spots</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Posted Yesterday • 3 Days</p>
+</div>
+</div>
+<button class="material-symbols-outlined text-outline hover:text-error transition-colors">favorite</button>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">The definitive guide to the most romantic picnic spots on the island of Maui, including secret beach access points.</p>
+<div class="mt-auto pt-6 border-t border-surface-variant flex items-center justify-between">
+<div class="flex gap-2">
+<span class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-full font-label-sm text-label-sm">Romantic</span>
+<span class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-full font-label-sm text-label-sm">Sunset</span>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 border border-secondary text-secondary rounded-lg font-label-md text-label-md hover:bg-secondary/10 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">content_copy</span> Clone
+                                    </button>
+<button class="px-4 py-2 bg-primary text-white rounded-lg font-label-md text-label-md hover:bg-primary/90 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">group_add</span> Collaborate
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline-variant dark:border-outline py-margin-desktop px-gutter">
+<div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-base">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="text-headline-md font-headline-md text-primary dark:text-primary-fixed">Traveloop</span>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant">© 2024 Traveloop Inc. All rights reserved.</p>
+</div>
+<div class="flex gap-8 mt-6 md:mt-0">
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">About Us</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">Help Center</a>
+</div>
+</div>
+</footer>
+<!-- FAB for Create (Contextual to Community) -->
+<button class="fixed bottom-8 right-8 bg-secondary text-white w-14 h-14 rounded-full shadow-xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</body></html>

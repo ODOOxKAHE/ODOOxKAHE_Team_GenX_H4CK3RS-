@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Traveloop - Budget &amp; Savings Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary": "#ffffff",
+                      "on-surface": "#191c1e",
+                      "primary-fixed-dim": "#bec6e0",
+                      "on-tertiary-fixed": "#400010",
+                      "error": "#ba1a1a",
+                      "inverse-primary": "#bec6e0",
+                      "tertiary": "#000000",
+                      "surface-container": "#eceef0",
+                      "secondary-fixed": "#89f5e7",
+                      "surface-dim": "#d8dadc",
+                      "surface-container-low": "#f2f4f6",
+                      "secondary": "#006a61",
+                      "inverse-surface": "#2d3133",
+                      "on-tertiary": "#ffffff",
+                      "background": "#f7f9fb",
+                      "primary-container": "#131b2e",
+                      "inverse-on-surface": "#eff1f3",
+                      "outline-variant": "#c6c6cd",
+                      "on-primary-fixed": "#131b2e",
+                      "tertiary-fixed": "#ffdadc",
+                      "on-tertiary-fixed-variant": "#891933",
+                      "tertiary-container": "#400010",
+                      "on-error": "#ffffff",
+                      "surface": "#f7f9fb",
+                      "surface-tint": "#565e74",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-highest": "#e0e3e5",
+                      "tertiary-fixed-dim": "#ffb2b9",
+                      "primary-fixed": "#dae2fd",
+                      "on-surface-variant": "#45464d",
+                      "on-secondary-container": "#006f66",
+                      "error-container": "#ffdad6",
+                      "on-secondary": "#ffffff",
+                      "primary": "#000000",
+                      "on-error-container": "#93000a",
+                      "on-background": "#191c1e",
+                      "on-primary-container": "#7c839b",
+                      "secondary-container": "#86f2e4",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "surface-variant": "#e0e3e5",
+                      "on-secondary-fixed-variant": "#005049",
+                      "on-secondary-fixed": "#00201d",
+                      "on-tertiary-container": "#da586c",
+                      "surface-container-high": "#e6e8ea",
+                      "surface-bright": "#f7f9fb",
+                      "secondary-fixed-dim": "#6bd8cb",
+                      "outline": "#76777d"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "section-gap": "80px",
+                      "container-max": "1280px",
+                      "base": "8px",
+                      "margin-desktop": "40px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Plus Jakarta Sans"],
+                      "label-sm": ["Plus Jakarta Sans"],
+                      "body-lg": ["Plus Jakarta Sans"],
+                      "headline-xl": ["Plus Jakarta Sans"],
+                      "body-md": ["Plus Jakarta Sans"],
+                      "headline-lg": ["Plus Jakarta Sans"],
+                      "label-md": ["Plus Jakarta Sans"]
+              },
+              "fontSize": {
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar Navigation Shell -->
+<header class="bg-surface dark:bg-surface-dim shadow-[0_4px_20px_rgba(15,23,42,0.05)] fixed top-0 left-0 w-full z-50 flex justify-between items-center px-gutter h-16">
+<div class="flex items-center gap-8 max-w-container-max mx-auto w-full">
+<span class="text-headline-md font-headline-md font-extrabold text-primary dark:text-primary-fixed">Traveloop</span>
+<nav class="hidden md:flex gap-8 items-center h-full">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">My Trips</a>
+<a class="font-label-md text-label-md text-secondary dark:text-secondary-fixed-dim border-b-2 border-secondary dark:border-secondary-fixed-dim pb-1" href="#">Explore</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">Community</a>
+</nav>
+<div class="flex-grow flex justify-end items-center gap-4">
+<div class="hidden md:flex items-center bg-surface-container rounded-full px-4 py-2 w-64 border border-outline-variant">
+<span class="material-symbols-outlined text-outline text-[20px]">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-md w-full" placeholder="Search experiences..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-low p-2 rounded-full transition-colors">notifications</button>
+<img alt="User profile photo" class="w-8 h-8 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEnpr_bAHjFm328o2xbWTIO_IuF2hczBvXjNVg61XmVm_rbP81ANB7fUNzK5CMqWWt0wQaIJHscZa8w2WbFfF7KQ3n3GEl-Jy2e99gmTVuvxhbcdSQDHuhDySnToaozrfsRSTfuijJ-6phDBgnK20H0aZpgSFX1XAcDk2H1ntzHVu085IP7upKLO2iNvnNznDtDUqwXBL06Sx5xh4fuJubOz2YKansVEKS1PWCueInShPj0Fide54wRdzlBowtromrJRbqRn7vUXwp"/>
+</div>
+</div>
+</header>
+<main class="relative min-h-screen pt-24 pb-section-gap">
+<!-- Background Hero with Soft Focus Beach -->
+<div class="fixed inset-0 z-[-1]">
+<div class="absolute inset-0 bg-black/10 z-10"></div>
+<img class="w-full h-full object-cover blur-[2px]" data-alt="A breathtaking, cinematic wide-angle shot of a secluded Hawaiian beach during the golden hour. The sky is filled with soft hues of orange, pink, and lavender, casting a warm and tranquil glow across the gently rolling turquoise waves. The foreground features fine white sand, while lush green tropical palms are softly blurred in the periphery, creating a high-end, luxury travel magazine aesthetic that provides a serene, airy backdrop for the UI elements." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrH1OgQ1cyXgHCwTIeR6iOZkJcowT7qsqlhgGN9MK_ZPPV7PsjUEub4c67HeuuHCk3Pqq88mbwlGQcqC7-8-6JLv2AwZMEPAZAJZu6IHqrMKZc_y8itgie4ntS1vIEmK2Cw9QsrF_sbn8WfPlopcaem_nhVFxS9ECTT-AB5FDdzCp0rHVZQuX1O1nho2fp9RZTHYMaDhIz6WuX_perqRWtb5Us4z1KuZUVvcJCCePvi_AScZRTxRqN9NexhutNmMn9sVa3ogmxFMe3"/>
+</div>
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-12 gap-gutter">
+<!-- Left & Center Content -->
+<div class="col-span-12 lg:col-span-8 flex flex-col gap-gutter">
+<!-- Page Title -->
+<div>
+<h1 class="font-headline-xl text-headline-xl text-on-primary">Oahu Itinerary Budget</h1>
+<p class="font-body-lg text-body-lg text-on-primary/90 mt-2">Financial breakdown and smart optimization for your Hawaiian getaway.</p>
+</div>
+<!-- Budget Health Progress -->
+<section class="glass-card rounded-xl p-8 shadow-lg border border-white/20">
+<div class="flex justify-between items-end mb-4">
+<div>
+<span class="font-label-md text-label-md text-on-surface-variant block mb-1 uppercase tracking-wider">Total Budget Health</span>
+<h2 class="font-headline-lg text-headline-lg text-primary">$2,460 <span class="text-on-surface-variant font-normal">/ $3,000</span></h2>
+</div>
+<span class="font-headline-md text-headline-md text-secondary">82% Utilized</span>
+</div>
+<div class="w-full h-4 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 82%"></div>
+</div>
+<div class="mt-4 flex gap-4">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Spent &amp; Committed</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-outline-variant"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Remaining Runway ($540)</span>
+</div>
+</div>
+</section>
+<!-- Cost Distribution Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="glass-card rounded-xl p-8 shadow-lg border border-white/20 flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-6">Cost Distribution</h3>
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[20px]">flight</span>
+</div>
+<div>
+<span class="font-label-md text-label-md block">Transport</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Flights &amp; Car Rental</span>
+</div>
+</div>
+<span class="font-headline-md text-headline-md">$1,200</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[20px]">hotel</span>
+</div>
+<div>
+<span class="font-label-md text-label-md block">Luxury Stays</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Waikiki Beach Resort</span>
+</div>
+</div>
+<span class="font-headline-md text-headline-md">$850</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-[20px]">restaurant</span>
+</div>
+<div>
+<span class="font-label-md text-label-md block">Dining</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Poke &amp; Luaus</span>
+</div>
+</div>
+<span class="font-headline-md text-headline-md">$260</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[20px]">surfing</span>
+</div>
+<div>
+<span class="font-label-md text-label-md block">Activities</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Hiking &amp; Surfing</span>
+</div>
+</div>
+<span class="font-headline-md text-headline-md">$150</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-gutter">
+<!-- Savings Card: Student Benefits -->
+<div class="bg-secondary-container text-on-secondary-container rounded-xl p-6 shadow-lg flex flex-col gap-4 relative overflow-hidden">
+<div class="absolute -right-4 -top-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]">school</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined">verified</span>
+<span class="font-label-md text-label-md uppercase tracking-widest">Active Saving</span>
+</div>
+<h4 class="font-headline-md text-headline-md">Student Benefits</h4>
+<p class="font-body-md text-body-md">Your ISIC card saved you <span class="font-bold">-$240</span> on round-trip flights to Honolulu.</p>
+<div class="mt-2 inline-flex items-center gap-2 font-label-md">
+<span class="material-symbols-outlined">check_circle</span>
+                                Applied to Hawaiian Airlines booking
+                            </div>
+</div>
+<!-- Savings Card: Culture Pass -->
+<div class="bg-tertiary-fixed text-on-tertiary-fixed-variant rounded-xl p-6 shadow-lg flex flex-col gap-4 relative overflow-hidden">
+<div class="absolute -right-4 -top-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]">museum</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined">local_activity</span>
+<span class="font-label-md text-label-md uppercase tracking-widest">Culture Pass</span>
+</div>
+<h4 class="font-headline-md text-headline-md">Museum Perks</h4>
+<p class="font-body-md text-body-md">Free entries to Bishop Museum and Pearl Harbor Memorial via the Culture Pass.</p>
+<div class="mt-2 inline-flex items-center gap-2 font-label-md">
+<span class="material-symbols-outlined">sell</span>
+                                Total Value: $65 Saved
+                            </div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Sidebar -->
+<aside class="col-span-12 lg:col-span-4 flex flex-col gap-gutter">
+<!-- Share Your Plan Widget -->
+<section class="glass-card rounded-xl p-8 shadow-lg border border-white/20">
+<h3 class="font-headline-md text-headline-md text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">share</span>
+                        Collaborators
+                    </h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-3">
+<img alt="Collaborator" class="w-10 h-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgBahyW-imzQiZ6FprlBTX16iKXzixqX-tcX8TjbqXcdYFiHNcX_KOvJmxILgncMfwc5IEh2C0sE7To5fYwkVOXDqGyj9T9WnbhLPsAc0vP2Tsws4ar6R6jTMVNqn7TDjHh-onAL-4mVbJqFIu3-ReKm-DGH0ObjeEFf9CjoQPyFOI3FdcUj1xKDP88u3SAxENVXFD1ISFFm6-jX3z2P4wuO30xOBzGysv0vJhrj3FJT76EJWWeYiGlGK3emeARsEbnUILr_yMX8CO"/>
+<div>
+<span class="font-label-md text-label-md block">Alex Rivera</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Owner</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary cursor-pointer">more_vert</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-3">
+<img alt="Collaborator" class="w-10 h-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBygukolaPIzmjRM06NDycp7sUmJP4WIaUKw--rLKoRCG556cm6rVXwGbnIPFJLclbF6nAqa1EPJV30mNwAakYsOeMsjpVNmIjwr1MHvuzV5yha88ehYv_84SucaeYb0ASGlZSiN5rd4FrwgCTOJKo8XAC-y4GGMImRq-nuENzaOog6CJcDW_jrH37ZjzySo0S6psTIchFeR4PU8W3q5kpww8MxU4j7T5a04t3xDARsy3umpG2ydB-JfaqzfdY8QPOcry2l25pn3yeQ"/>
+<div>
+<span class="font-label-md text-label-md block">Sarah Chen</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Editor</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary cursor-pointer">more_vert</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-3">
+<img alt="Collaborator" class="w-10 h-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaI8VhKs3JTXzt5gSVjSFxAWTGuFG5grtr2aRMKb3ZQtOzoQnCVoMW8OwWTyLvkh5fDGCcJpi6mir7qU0Evhdyq58KN4DAQNK5634mQNavQKEGF90tz15AmBVp1SdHrnH7KCbXrf2EdTRpyKKr2Fln51M-yBIU3YzqK3MFxLNqiIf8C_Lnf3mVkOFw6vk43u0DnNgshfTgqMr8rH_Y7aFywFKt093QG8ZGbsHIHTdWu0Qd7wo4TYDd5CcoIyId1GLk5Rzi6Impu55q"/>
+<div>
+<span class="font-label-md text-label-md block">Jordan Smith</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Viewer</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary cursor-pointer">more_vert</span>
+</div>
+</div>
+<button class="w-full mt-6 flex items-center justify-center gap-2 py-3 border-2 border-dashed border-outline-variant rounded-xl text-on-surface-variant font-label-md hover:bg-surface-container-lowest hover:border-secondary transition-all">
+<span class="material-symbols-outlined">add</span>
+                        Invite New Collaborator
+                    </button>
+<div class="mt-8">
+<button class="w-full py-4 bg-primary text-on-primary rounded-xl font-label-md flex items-center justify-center gap-2 shadow-lg active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined" data-weight="fill">ios_share</span>
+                            Export Financial PDF
+                        </button>
+</div>
+</section>
+<!-- Small Activity Feed -->
+<section class="glass-card rounded-xl p-8 shadow-lg border border-white/20">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-4">Recent Adjustments</h3>
+<div class="space-y-4">
+<div class="flex gap-4">
+<div class="relative">
+<div class="w-2 h-2 rounded-full bg-secondary mt-2"></div>
+<div class="absolute top-4 left-[3px] w-[2px] h-full bg-outline-variant"></div>
+</div>
+<div>
+<p class="font-body-md text-body-md text-on-surface">Sarah added <span class="font-bold">Helicopter Tour</span></p>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2 hours ago</span>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="relative">
+<div class="w-2 h-2 rounded-full bg-secondary mt-2"></div>
+</div>
+<div>
+<p class="font-body-md text-body-md text-on-surface">Budget limit updated to $3,000</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Yesterday</span>
+</div>
+</div>
+</div>
+</section>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline-variant dark:border-outline py-margin-desktop w-full">
+<div class="max-w-container-max mx-auto px-gutter flex flex-col md:flex-row justify-between items-center gap-base">
+<span class="text-headline-md font-headline-md text-primary dark:text-primary-fixed">Traveloop</span>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors" href="#">About Us</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors" href="#">Help Center</a>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant">© 2024 Traveloop Inc. All rights reserved.</p>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login - Traveloop</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#891933",
+                    "surface-container-highest": "#e0e3e5",
+                    "surface-tint": "#565e74",
+                    "on-surface-variant": "#45464d",
+                    "on-error-container": "#93000a",
+                    "primary": "#000000",
+                    "surface-bright": "#f7f9fb",
+                    "outline": "#76777d",
+                    "surface": "#f7f9fb",
+                    "tertiary-fixed-dim": "#ffb2b9",
+                    "secondary": "#006a61",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#ba1a1a",
+                    "inverse-primary": "#bec6e0",
+                    "secondary-fixed-dim": "#6bd8cb",
+                    "on-secondary-fixed": "#00201d",
+                    "inverse-surface": "#2d3133",
+                    "on-primary-container": "#7c839b",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "tertiary-container": "#400010",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#006f66",
+                    "on-secondary-fixed-variant": "#005049",
+                    "surface-dim": "#d8dadc",
+                    "surface-container-low": "#f2f4f6",
+                    "secondary-container": "#86f2e4",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#191c1e",
+                    "tertiary": "#000000",
+                    "on-tertiary-container": "#da586c",
+                    "surface-variant": "#e0e3e5",
+                    "on-primary-fixed": "#131b2e",
+                    "on-background": "#191c1e",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed": "#400010",
+                    "background": "#f7f9fb",
+                    "surface-container": "#eceef0",
+                    "secondary-fixed": "#89f5e7",
+                    "outline-variant": "#c6c6cd",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#bec6e0",
+                    "primary-container": "#131b2e",
+                    "inverse-on-surface": "#eff1f3",
+                    "primary-fixed": "#dae2fd",
+                    "surface-container-high": "#e6e8ea",
+                    "tertiary-fixed": "#ffdadc"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "base": "8px",
+                    "margin-desktop": "40px",
+                    "container-max": "1280px",
+                    "section-gap": "80px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "label-md": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "headline-xl": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .ambient-shadow { shadow-[0_4px_20px_rgba(15,23,42,0.05)]; }
+        .glass-effect { backdrop-filter: blur(12px); background-color: rgba(255, 255, 255, 0.8); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col md:flex-row items-center justify-center">
+<!-- Transactional suppression of Nav Bars as per guidelines -->
+<div class="flex w-full min-h-screen flex-col md:flex-row">
+<!-- Left Side: Login Form -->
+<div class="flex-1 flex flex-col items-center justify-center p-gutter z-10 md:bg-surface/40 md:backdrop-blur-xl">
+<div class="w-full max-w-[440px] flex flex-col gap-base">
+<!-- Logo Header -->
+<div class="flex flex-col items-center mb-8 gap-2">
+<h1 class="text-headline-lg font-headline-lg text-primary tracking-tight">Traveloop</h1>
+<p class="text-on-surface-variant font-body-md text-body-md">Your journey begins here.</p>
+</div>
+<!-- Login Card -->
+<main class="bg-surface-container-lowest/80 backdrop-blur-md rounded-xl p-8 shadow-2xl border border-white/20 flex flex-col gap-gutter">
+<!-- User Avatar Anchor -->
+<div class="flex justify-center -mt-16">
+<div class="relative group">
+<div class="absolute inset-0 bg-secondary/10 rounded-full blur-xl group-hover:bg-secondary/20 transition-all duration-300"></div>
+<img alt="User Profile" class="w-24 h-24 rounded-full object-cover border-4 border-surface-container-lowest shadow-md relative z-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCk5NREeWCEHXXPphwJHV4jA-VwRu29UqTPa-Otbv0nsi16rSJdsX5OXq3mQxlEuo0yPv9pHbQCAEJ832EeIzjPiMwrGMeT5FgxtDCiOI0klpuenL7QIUcuh00Je41vIwOEaSME9qAt9n5sxpz-BxMXirGCdpv1eCceZHeG58hdGXUM5K9vSOwrunSMsawJAySSz0oHKC2v0QZuyIIZiXvI0HEMJi0rgd0PUKI7ikekBvHL9KoRMIrcHowpQViDM8_WJNovB2ZinjMq"/>
+</div>
+</div>
+<div class="flex flex-col gap-6 mt-2">
+<!-- Inputs Section -->
+<div class="flex flex-col gap-5">
+<!-- Username Field -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant px-1" for="username">Username or Email</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant group-focus-within:text-primary transition-colors">person</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container/50 border border-outline-variant rounded-lg font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all placeholder:text-outline-variant" id="username" placeholder="Enter your username" type="text"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="flex flex-col gap-1.5">
+<div class="flex justify-between items-center px-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="password">Password</label>
+<a class="text-label-sm font-label-sm text-secondary hover:underline transition-all" href="#">Forgot Password?</a>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant group-focus-within:text-primary transition-colors">lock</span>
+<input class="w-full pl-10 pr-12 py-3 bg-surface-container/50 border border-outline-variant rounded-lg font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all placeholder:text-outline-variant" id="password" placeholder="••••••••" type="password"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-outline-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Remember Me & Login CTA -->
+<div class="flex flex-col gap-6">
+<label class="flex items-center gap-2 cursor-pointer w-fit">
+<input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Keep me signed in</span>
+</label>
+<button class="w-full bg-primary text-on-primary py-4 rounded-lg font-headline-md text-headline-md hover:opacity-90 active:scale-[0.98] transition-all shadow-lg shadow-primary/10">
+              Login to Account
+            </button>
+</div>
+</div>
+<!-- Signup Redirect -->
+<div class="flex flex-col items-center gap-4 pt-4 border-t border-outline-variant/30">
+<p class="font-body-md text-body-md text-on-surface-variant">
+            New to Traveloop? 
+            <a class="text-secondary font-label-md text-label-md ml-1 hover:underline underline-offset-4" href="#">Create an account</a>
+</p>
+<div class="flex items-center gap-4 w-full px-8">
+<div class="h-px bg-outline-variant/30 flex-grow"></div>
+<span class="font-label-sm text-label-sm text-outline">OR</span>
+<div class="h-px bg-outline-variant/30 flex-grow"></div>
+</div>
+<div class="flex gap-4 w-full">
+<button class="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg border border-outline-variant hover:bg-surface-container-low transition-colors font-label-md text-label-md">
+<img alt="Google" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBe0bUd66ivbtvx2r7i6hvAgeCv8V-YgY3FsjKhYH7CIqN9gztM-cOU8H7eVfZ3sm9TWRxv5YwpekHARLNjpqFxoc9SaGW9CGMahaM6zGgNspeyuVe1B773FJhcI3VRZ9vOcYE4TcWPbt3NHUbGWRi6Q-cHXBUchU0GQa3lx7uGLUye_0mfNp6FdQCLGAfVkqjGQMAhkSN2RIDLlaIulifQnuLjqEdzWSh1Eg3ZzvetXtWlHV4ap-D8zPtmhtwVRUIZ2txChVVNadEX"/>
+              Google
+            </button>
+<button class="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg border border-outline-variant hover:bg-surface-container-low transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">ios</span>
+              Apple ID
+            </button>
+</div>
+</div>
+</main>
+<!-- Secondary Footer Links -->
+<div class="mt-8 flex justify-center gap-6 text-outline font-label-sm text-label-sm">
+<a class="hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-secondary transition-colors" href="#">Help Center</a>
+</div>
+</div>
+</div>
+<!-- Right Side: Hero Section -->
+<div class="hidden md:block flex-[1.5] relative overflow-hidden group"><div class="absolute inset-0 z-10 bg-gradient-to-tr from-transparent via-transparent to-orange-200/20 pointer-events-none mix-blend-overlay"></div><div class="absolute inset-0 z-10 bg-[radial-gradient(circle_at_100%_0%,rgba(255,220,150,0.4)_0%,transparent_60%)] pointer-events-none"></div>
+<img alt="Serene mountain landscape" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnNtf3t-S4U6xcZdau2lHRfLKTXuN3mSvqSA2cLkEOETcon43AnRwIC9Oj5i-VLORIXlWApMrhtOIHqgliJr6hadwUNrbKWrntyj-WaDltaj1Cke6b72T4DfjEYyIRbasyCh7AKmwugW06audsmFkt8Q8J9baupMM109YPIHQZ0r7Dd46JoNFawzTyjKIduhmtvCtS7HEdoMr6UapC64mR2RkQw-5FzGu7Q-diKLUSrulDrLDo2X_px81SM2T4Uz8O_Co3GTM-wY2r"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface via-transparent to-transparent"></div>
+<div class="absolute bottom-12 left-12 right-12 z-10 text-white">
+<h2 class="text-headline-xl font-headline-xl mb-4 drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)]">Explore the Unknown</h2>
+<p class="text-body-lg font-body-lg max-w-md opacity-90 drop-shadow-[0_1px_8px_rgba(0,0,0,0.5)]">Discover breathtaking destinations and create memories that last a lifetime with Traveloop's premium travel concierge.</p>
+</div>
+</div>
+</div>
+<!-- Decorative Elements (Asymmetric Modernism) -->
+</body></html>

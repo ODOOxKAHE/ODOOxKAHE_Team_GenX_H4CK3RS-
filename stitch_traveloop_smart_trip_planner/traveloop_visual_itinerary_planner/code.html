@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Traveloop - Build Your Itinerary</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed": "#00201d",
+            "inverse-surface": "#2d3133",
+            "secondary-fixed": "#89f5e7",
+            "on-secondary": "#ffffff",
+            "on-primary-container": "#7c839b",
+            "primary-fixed": "#dae2fd",
+            "inverse-on-surface": "#eff1f3",
+            "surface-container-low": "#f2f4f6",
+            "on-secondary-fixed-variant": "#005049",
+            "on-background": "#191c1e",
+            "surface-bright": "#f7f9fb",
+            "surface-variant": "#e0e3e5",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed": "#400010",
+            "primary-container": "#131b2e",
+            "outline-variant": "#c6c6cd",
+            "on-error": "#ffffff",
+            "secondary-container": "#86f2e4",
+            "outline": "#76777d",
+            "on-secondary-container": "#006f66",
+            "surface-dim": "#d8dadc",
+            "on-error-container": "#93000a",
+            "error-container": "#ffdad6",
+            "background": "#f7f9fb",
+            "on-primary-fixed": "#131b2e",
+            "tertiary": "#000000",
+            "surface-container-highest": "#e0e3e5",
+            "surface-container": "#eceef0",
+            "secondary": "#006a61",
+            "on-tertiary-fixed-variant": "#891933",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed-variant": "#3f465c",
+            "surface": "#f7f9fb",
+            "secondary-fixed-dim": "#6bd8cb",
+            "on-tertiary-container": "#da586c",
+            "on-surface": "#191c1e",
+            "primary-fixed-dim": "#bec6e0",
+            "inverse-primary": "#bec6e0",
+            "on-primary": "#ffffff",
+            "surface-tint": "#565e74",
+            "on-surface-variant": "#45464d",
+            "error": "#ba1a1a",
+            "primary": "#000000",
+            "tertiary-fixed": "#ffdadc",
+            "tertiary-fixed-dim": "#ffb2b9",
+            "tertiary-container": "#400010",
+            "surface-container-high": "#e6e8ea"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "container-max": "1280px",
+            "base": "8px",
+            "margin-desktop": "40px",
+            "gutter": "24px",
+            "section-gap": "80px",
+            "margin-mobile": "16px"
+          },
+          "fontFamily": {
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+            "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+            "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .timeline-spine {
+      position: absolute;
+      left: 11px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #89f5e7; /* secondary-fixed */
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen relative">
+<!-- Hero Background Image (Sunlit Beach Resort) -->
+<div class="fixed inset-0 z-0 overflow-hidden">
+<img class="w-full h-full object-cover opacity-30" data-alt="A luxurious sunlit beach resort in the Maldives featuring clear turquoise waters, pristine white sand, and elegant overwater bungalows. The lighting is warm and golden, evoking a sense of ultimate relaxation and premium travel. The overall aesthetic is clean and airy, perfectly aligning with a modern high-end concierge interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPS7RYhTbND3dmajV8-hnrYBLXg29szZW5xb7IGgddNIfnNW33u3IMgjqy1zBZfsd_0MrE5E7-L_BsCoHoZc3DswkO_7N1y6YEuSx87KvenyPzkqScwpax6ameD6k93l3VdQIh0CoEVKEpdZ7DNwVomToxrEg7XU9FFFNJHqNrPH7xfaGrah7ZBl-t1zE4Ciaw3KkXcJodIAHB6iUJX81XDg-DbPEx44HqdzAJxWTNOew8GeNHODOR3iTJbsr9UIWHJIixL2WzPOOQ"/>
+</div>
+<!-- Shared Component: TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-gutter max-w-container-max mx-auto h-16 bg-surface/80 backdrop-blur-md shadow-[0_4px_20px_rgba(15,23,42,0.05)]">
+<div class="flex items-center gap-base">
+<span class="text-headline-md font-headline-md font-bold text-primary">Traveloop</span>
+</div>
+<div class="hidden md:flex items-center gap-gutter">
+<a class="text-secondary border-b-2 border-secondary pb-1 font-label-md text-label-md" href="#">My Trips</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="#">Explore</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="#">Community</a>
+</div>
+<div class="flex items-center gap-base">
+<div class="relative hidden sm:block">
+<input class="bg-surface-container-low border-none rounded-full px-4 py-2 text-label-md w-64 focus:ring-2 focus:ring-secondary/20" placeholder="Search experiences..." type="text"/>
+</div>
+<button class="p-2 rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border-2 border-secondary-fixed">
+<img alt="User profile photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBov86ZAatqt9u-OhcKKQ2pQ1-o8H7XRbdMLZflDqLQizfs9LyQHsQU9FsBCaN4qQuzQTsC6AcgB-0ImunXTUpHK2RBSpWpSKVYTOQqeyt0fHH6iT4now0RzbYEqOYWeHr4A-atmcpFzNV_ZnL-Esp3PDPvRf-p4wYPCWkQz1m5IYItMsaM9snEceP7NwOMJkUzcC8H2xCiwi_yv5yM2lU1L3GdYf1_SeEWsKx3Os0jhLqJAeDLodclexgbX-fBrh8rSh6LPuPX0RON"/>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="relative z-10 pt-24 pb-section-gap px-gutter max-w-container-max mx-auto">
+<header class="mb-gutter flex flex-col md:flex-row md:items-end justify-between gap-base">
+<div>
+<h1 class="font-headline-xl text-headline-xl text-primary">Maldives Getaway</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">7 Days in North Malé Atoll • Oct 12 - Oct 19</p>
+</div>
+<div class="flex items-center gap-base">
+<button class="px-6 py-3 bg-surface border border-outline-variant rounded-lg font-label-md text-label-md hover:bg-surface-container-low transition-all">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined" data-icon="map">map</span> View Map</span>
+</button>
+<button class="px-6 py-3 bg-primary text-on-primary rounded-lg font-label-md text-label-md shadow-lg hover:opacity-90 active:scale-95 transition-all">
+          Finalize Itinerary
+        </button>
+</div>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Itinerary Timeline -->
+<section class="lg:col-span-8 space-y-gutter">
+<!-- Day 1 -->
+<div class="relative pl-gutter">
+<div class="timeline-spine"></div>
+<div class="flex items-center gap-base mb-6 relative">
+<div class="absolute -left-[30px] w-4 h-4 rounded-full bg-secondary border-2 border-white"></div>
+<h2 class="font-headline-md text-headline-md text-primary">Day 1: Arrival &amp; Ocean Thrills</h2>
+<span class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed rounded-full text-label-sm font-label-sm">Arrival Day</span>
+</div>
+<div class="space-y-gutter">
+<!-- Activity Card -->
+<div class="glass-panel rounded-xl p-gutter shadow-[0_4px_20px_rgba(15,23,42,0.05)] border border-white/40 flex gap-gutter">
+<div class="w-32 h-32 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A first-person perspective of scuba diving in clear turquoise water, with vibrant coral reefs and schools of tropical fish swimming by. The lighting is ethereal and bright, capturing the magic of an underwater adventure in a high-end luxury setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhk_gmcj_CespUKksl9dqqdaM6byLRu6lSorwIEjMSeJM_IiVfv0Rh6nqVVx0TgVFpL-EW7jdBxBHZd3iasdfOYv7QlbtRMXuOBzvOkDCL_FOQgLbVkd6LUKWT-_1Sj7oGFvElOBXqRD0KhOWcK_qilaHBmKdpaWJLX_-AXUdN-51VVu8oLJ18F7SrCcaQkG5qM6PX5u2shIKAw4WsLEUs45kPyhKdfhveowU6ecvMKN_jlx5Yrvdf95E7L4biIDigVwhTUHAf6Va_"/>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">Scuba Diving at Banana Reef</h3>
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded text-label-sm font-label-sm">Offer Applied: Welcome Pack -10%</span>
+</div>
+<div class="flex gap-4 mb-4">
+<span class="flex items-center gap-1 text-on-surface-variant text-label-md"><span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span> 09:00 AM • 3h</span>
+<span class="flex items-center gap-1 text-on-surface-variant text-label-md"><span class="material-symbols-outlined text-sm" data-icon="fitness_center">fitness_center</span> High Activity</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-secondary font-bold text-headline-md">$145.00</span>
+<div class="flex gap-base">
+<button class="p-2 text-outline hover:text-primary transition-colors"><span class="material-symbols-outlined" data-icon="edit">edit</span></button>
+<button class="p-2 text-outline hover:text-error transition-colors"><span class="material-symbols-outlined" data-icon="delete">delete</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Activity Card 2 -->
+<div class="glass-panel rounded-xl p-gutter shadow-[0_4px_20px_rgba(15,23,42,0.05)] border border-white/40 flex gap-gutter">
+<div class="w-32 h-32 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A sleek modern speed boat cutting through calm ocean waves during a sunny day. The style is minimalist and high-end, focusing on the freedom and luxury of private travel in a coastal setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBI9kL4MmccosHI3nMj3aSfyGMFUDXlS_b-qz-_M9sE254ng_iDbXucnEohw7nls2VNtg36js9VbIFk3Vcr6366U0Wazh08tEV49AS74NVsUBbjWTNAjUetIZ8_V80vwKyGEnJkbo2QVhHz94ki4lzcVpFMsZbeB8pLMoXozA8YkEqId5vQ3FnANlgSsPjr32qQrA3jJwkNamhMCpzPzylvJvthOM9Xh6TRIv19HWsSukmHFEjsAlKrNclJpOp-MX8MOKE64OnR8LJP"/>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">River Rafting Expedition</h3>
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded text-label-sm font-label-sm">Student Museum Discount applied</span>
+</div>
+<div class="flex gap-4 mb-4">
+<span class="flex items-center gap-1 text-on-surface-variant text-label-md"><span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span> 02:30 PM • 2h</span>
+<span class="flex items-center gap-1 text-on-surface-variant text-label-md"><span class="material-symbols-outlined text-sm" data-icon="water_drop">water_drop</span> Moderate Activity</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-secondary font-bold text-headline-md">$85.00</span>
+<div class="flex gap-base">
+<button class="p-2 text-outline hover:text-primary transition-colors"><span class="material-symbols-outlined" data-icon="edit">edit</span></button>
+<button class="p-2 text-outline hover:text-error transition-colors"><span class="material-symbols-outlined" data-icon="delete">delete</span></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Day 2 -->
+<div class="relative pl-gutter mt-section-gap">
+<div class="timeline-spine"></div>
+<div class="flex items-center gap-base mb-6 relative">
+<div class="absolute -left-[30px] w-4 h-4 rounded-full bg-secondary border-2 border-white"></div>
+<h2 class="font-headline-md text-headline-md text-primary">Day 2: Coastal Exploration</h2>
+</div>
+<div class="space-y-gutter">
+<!-- Activity Card -->
+<div class="glass-panel rounded-xl p-gutter shadow-[0_4px_20px_rgba(15,23,42,0.05)] border border-white/40 flex gap-gutter">
+<div class="w-32 h-32 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A person snorkeling in crystal clear ocean water over a vibrant coral reef. Sunbeams penetrate the surface, creating beautiful light patterns on the sea floor. The mood is adventurous and serene, with a high-fidelity photographic style typical of luxury travel journals." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhblrDIS5J9zjVsYF1nQeqap2xl-OqZI4YZZ_s79fg280N-QQWU5nyFftA6dF4WNjqKcWNQLzaZ2HU0IKyXrB6yCF-IXyxt08QT8wAfWlbUW34wsRgbAsPGQemIWykUN99tDWJCZ33wEZOhSIL7iwtvpVqF9WqyiqqjtCveW4zo3hTH6o2aZWT7is8TsV-Tg5Nd1yzX1tdCe8DOh8_M9nCi0NM4_2CYEu8YQF2JYH50unZ_-sGdHLAnGKhYgyfh9HljgiN0b33-QPw"/>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">Snorkeling at Manta Point</h3>
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded text-label-sm font-label-sm">Flash Deal: 15% OFF</span>
+</div>
+<div class="flex gap-4 mb-4">
+<span class="flex items-center gap-1 text-on-surface-variant text-label-md"><span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span> 10:00 AM • 4h</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-secondary font-bold text-headline-md">$110.00</span>
+<button class="px-4 py-2 border border-secondary text-secondary rounded-lg font-label-md hover:bg-secondary-fixed transition-colors">Change Slot</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Column: Budget Intelligence & Packages -->
+<aside class="lg:col-span-4 space-y-gutter">
+<!-- Budget Intelligence Card -->
+<div class="bg-primary-container text-on-primary-container p-gutter rounded-xl shadow-xl">
+<h2 class="font-headline-md text-white mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+            Budget Intelligence
+          </h2>
+<div class="mb-6">
+<div class="flex justify-between text-label-md text-white/70 mb-2">
+<span>Remaining Budget</span>
+<span>$1,240 / $2,500</span>
+</div>
+<div class="w-full h-2 bg-white/10 rounded-full overflow-hidden">
+<div class="w-[49.6%] h-full bg-secondary-fixed rounded-full"></div>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center p-3 bg-white/5 rounded-lg border border-white/10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary-fixed" data-icon="flight">flight</span>
+<span class="text-label-md text-white">Fixed Costs</span>
+</div>
+<span class="font-bold text-white">$850.00</span>
+</div>
+<div class="flex justify-between items-center p-3 bg-white/5 rounded-lg border border-white/10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary-fixed" data-icon="restaurant">restaurant</span>
+<span class="text-label-md text-white">Est. Food &amp; Drink</span>
+</div>
+<span class="font-bold text-white">$420.00</span>
+</div>
+</div>
+</div>
+<!-- Package Toggles -->
+<div class="glass-panel p-gutter rounded-xl shadow-lg border border-white/60">
+<h3 class="font-label-md text-primary mb-4 uppercase tracking-wider">Optimize with Packages</h3>
+<div class="space-y-3">
+<button class="w-full flex items-center justify-between p-4 rounded-lg bg-surface hover:bg-surface-container-high border border-outline-variant transition-all text-left">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<div>
+<div class="font-label-md text-primary">Honeymoon Bliss</div>
+<div class="text-label-sm text-on-surface-variant">Luxury dining &amp; private tours</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="chevron_right">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 rounded-lg bg-secondary/10 border-2 border-secondary transition-all text-left">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="family_restroom">family_restroom</span>
+<div>
+<div class="font-label-md text-primary">Family Explorer</div>
+<div class="text-label-sm text-on-surface-variant">Kids free &amp; grouped activities</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 rounded-lg bg-surface hover:bg-surface-container-high border border-outline-variant transition-all text-left">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="backpack">backpack</span>
+<div>
+<div class="font-label-md text-primary">Student Backpacker</div>
+<div class="text-label-sm text-on-surface-variant">Maximize value &amp; hostelling</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Map Mini-View (contextual placeholder) -->
+<div class="rounded-xl overflow-hidden shadow-lg border border-white/60 h-48 relative">
+<div class="absolute inset-0 bg-secondary-fixed/20 flex items-center justify-center">
+<img class="w-full h-full object-cover grayscale opacity-50" data-alt="A top-down stylized map view of the Maldives islands, rendered in a modern minimal aesthetic with subtle teal and slate tones. The map highlights key travel routes and activity pins with elegant circular markers." data-location="Maldives" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2lHdtGHNGEDT6SMPvPPfH51tLOEF7uM6HZHKCxQ3wQ_X0YYIP3k9KKj9Y_-HOnYWrpHaYX77JZK6fvbTrSIhWPSeOpnYGqE7cOr7_CIEU1L6rnV81AUItRcVQ5Ygl-P0v4Zfx-2SbNBl3fZAN0P5Obwz67HS11I4r5fON6_UADX4dAf3I30cyT0BbPG1kvbMlKMp6L4Hxmoh7lCbeZIdXlgYoM8CLM9JtMZ6t76noyyxIutXnhi4tq1QyvCzh3aCdCRbSY_6oNk0o"/>
+<div class="absolute bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full font-label-md text-primary shadow-sm">
+              Interactive Route View
+            </div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Shared Component: Footer -->
+<footer class="w-full py-margin-desktop px-gutter max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-base bg-surface-container-lowest border-t border-outline-variant mt-section-gap relative z-10">
+<div class="flex flex-col gap-2 items-center md:items-start">
+<span class="text-headline-md font-headline-md text-primary">Traveloop</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 Traveloop Inc. All rights reserved.</p>
+</div>
+<div class="flex gap-gutter">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">About Us</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Help Center</a>
+</div>
+<div class="flex gap-base">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="language">language</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="settings">settings</span>
+</button>
+</div>
+</footer>
+<!-- FAB for Adding New Activity (Contextual for Home/Itinerary) -->
+<button class="fixed bottom-gutter right-gutter w-14 h-14 bg-secondary text-on-secondary rounded-full flex items-center justify-center shadow-xl hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-[32px]" data-icon="add">add</span>
+</button>
+</body></html>

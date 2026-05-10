@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Traveloop - Previous Trips</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#400010",
+                        "on-surface-variant": "#45464d",
+                        "on-secondary-fixed-variant": "#005049",
+                        "secondary-fixed-dim": "#6bd8cb",
+                        "outline": "#76777d",
+                        "surface-container": "#eceef0",
+                        "on-surface": "#191c1e",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "primary-container": "#131b2e",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary-container": "#86f2e4",
+                        "on-primary-container": "#7c839b",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#bec6e0",
+                        "outline-variant": "#c6c6cd",
+                        "tertiary-fixed": "#ffdadc",
+                        "on-error-container": "#93000a",
+                        "background": "#f7f9fb",
+                        "on-primary-fixed": "#131b2e",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-bright": "#f7f9fb",
+                        "surface-variant": "#e0e3e5",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#bec6e0",
+                        "secondary": "#006a61",
+                        "primary": "#000000",
+                        "surface": "#f7f9fb",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "surface-container-high": "#e6e8ea",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#2d3133",
+                        "surface-container-highest": "#e0e3e5",
+                        "secondary-fixed": "#89f5e7",
+                        "on-tertiary-fixed-variant": "#891933",
+                        "on-tertiary-fixed": "#400010",
+                        "tertiary-fixed-dim": "#ffb2b9",
+                        "surface-tint": "#565e74",
+                        "primary-fixed": "#dae2fd",
+                        "on-tertiary-container": "#da586c",
+                        "on-secondary-fixed": "#00201d",
+                        "tertiary": "#000000",
+                        "on-secondary-container": "#006f66",
+                        "surface-dim": "#d8dadc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "base": "8px",
+                        "section-gap": "80px",
+                        "margin-mobile": "16px",
+                        "container-max": "1280px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #f7f9fb;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-md flex justify-between items-center px-gutter max-w-full h-16 shadow-[0_4px_20px_rgba(15,23,42,0.05)]">
+<div class="flex items-center gap-base">
+<span class="text-headline-md font-headline-md font-bold text-primary">Traveloop</span>
+</div>
+<div class="hidden md:flex items-center gap-8 h-full">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-200 h-full flex items-center px-2" href="#">Explore</a>
+<a class="font-label-md text-label-md text-secondary border-b-2 border-secondary pb-1 h-full flex items-center px-2" href="#">My Trips</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-200 h-full flex items-center px-2" href="#">Community</a>
+</div>
+<div class="flex items-center gap-gutter">
+<div class="relative hidden sm:block">
+<input class="bg-surface-container-low border-none rounded-lg py-2 pl-10 pr-4 text-body-md w-64 focus:ring-2 focus:ring-secondary/20" placeholder="Search experiences..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]" data-icon="search">search</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-low p-2 rounded-full transition-all" data-icon="notifications">notifications</button>
+<img alt="User profile photo" class="w-8 h-8 rounded-full border-2 border-surface-container-high object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXvS_PC5K48evz72wUXgSY2mVGI_PciTqGKap-m0jDvnQ4mHRTzCQbR0OTndmOzq8lwVdwOqCA2wBNyFJvhTkw2WsktYNOhQQFYz19MK18JIbZpLsDikBHvQEerOOpwq5ds41QYUQu-IuHz47pniu2_upSVC0ftW3Y7iBNEpWumxUg_87H6GYtncimYx5vKXoJ5Kn1g9HMtdL3mrX9jykWldsLkq6onEKkO2btNccXQOYJQ6V5v1dwGmru7IX56MUr5GctqoGqRF4S"/>
+</div>
+</div>
+</nav>
+<!-- Main Content Area with Background -->
+<main class="hero-bg min-h-screen pt-24 pb-section-gap px-gutter">
+<div class="max-w-container-max mx-auto">
+<!-- Glassmorphic Container -->
+<div class="glass-card rounded-xl p-margin-desktop shadow-xl">
+<!-- Search & Filters Header (Based on Screen 8 Sketch) -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-gutter mb-section-gap">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-primary mb-2">Previous Trips</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Relive your most unforgettable memories from around the globe.</p>
+</div>
+<div class="flex flex-wrap items-center gap-4">
+<div class="flex items-center bg-white border border-outline-variant rounded-lg px-3 py-2 w-full md:w-80">
+<span class="material-symbols-outlined text-on-surface-variant mr-2" data-icon="history">history</span>
+<input class="bg-transparent border-none p-0 focus:ring-0 text-body-md w-full" placeholder="Search your memories..." type="text" value="Paragliding"/>
+</div>
+<button class="flex items-center gap-2 bg-white border border-outline-variant rounded-lg px-4 py-2 hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined text-label-md" data-icon="group">group</span>
+<span class="font-label-md text-label-md">Group by</span>
+</button>
+<button class="flex items-center gap-2 bg-white border border-outline-variant rounded-lg px-4 py-2 hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined text-label-md" data-icon="filter_list">filter_list</span>
+<span class="font-label-md text-label-md">Filter</span>
+</button>
+<button class="flex items-center gap-2 bg-white border border-outline-variant rounded-lg px-4 py-2 hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined text-label-md" data-icon="sort">sort</span>
+<span class="font-label-md text-label-md">Sort by...</span>
+</button>
+</div>
+</div>
+<!-- Memories List (The "Results") -->
+<div class="space-y-gutter">
+<h2 class="font-headline-md text-headline-md text-primary mb-base">Results</h2>
+<!-- Memory Card 1 -->
+<div class="flex flex-col md:flex-row bg-white rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(15,23,42,0.05)] hover:shadow-[0_10px_30px_rgba(15,23,42,0.1)] transition-all group">
+<div class="w-full md:w-64 h-48 md:h-auto overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A cinematic, low-angle shot of a colorful paraglider soaring through crisp Himalayan air above the mist-covered valleys of Gangtok. The lighting is warm golden-hour glow, casting long shadows across the lush green mountain slopes. The style is professional travel photography with high contrast and vibrant teal and navy accents in the sky and foliage." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOFX8-aN2vFtJK5Vwpi-oZTZnn3I06sTQPAgFiTxVrGkfXLn8ttBlmS3WX_4WFMhFBgDMcO27gl_6NPgWbKWN_E-lRwE7MMtg1Jq_p91shmnZA8D_vYzrPVYLrAyYa9zURi9dYN3dfLzvsZZCmyhIF-NLuJMs8h8GnMqkXW_ddOZavOl7r-umAJxBlVBKMl5SVFmKzkfCMIVpJlpcWgupfE9IwYbHwQATETEBgbXpN2w6uX1Gk_AItu8dzNw_H9Qvth_EhTAj2SQ8L"/>
+</div>
+<div class="flex-1 p-gutter flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">Paragliding in Gangtok</h3>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary-container/20 px-2 py-1 rounded-full">Oct 2023</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Sailing above the clouds with a panoramic view of the Kanchenjunga range. Truly a soul-stirring experience of pure freedom and adrenaline.</p>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm rounded-full">#Adventure</span>
+<span class="px-3 py-1 bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm rounded-full">#SoloTrip</span>
+<span class="px-3 py-1 bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm rounded-full">#BucketList</span>
+</div>
+</div>
+<div class="p-gutter flex flex-row md:flex-col justify-center gap-4 bg-surface-container-lowest md:border-l border-outline-variant">
+<button class="material-symbols-outlined text-secondary hover:scale-110 transition-transform" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="share">share</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="more_vert">more_vert</button>
+</div>
+</div>
+<!-- Memory Card 2 -->
+<div class="flex flex-col md:flex-row bg-white rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(15,23,42,0.05)] hover:shadow-[0_10px_30px_rgba(15,23,42,0.1)] transition-all group">
+<div class="w-full md:w-64 h-48 md:h-auto overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A peaceful, wide-angle shot of a family silhouette standing at the edge of the ocean in Kanyakumari during a dramatic sunset. The sky is painted in deep corals, oranges, and teals, with the three oceans meeting in a gentle surge of foam. The aesthetic is serene and emotional, using a soft-focus background and high-key lighting for a premium travel magazine feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqnC00fSZ8UIMwMKmmWRpWMC8b_C0tr7bjwx613S-s3OAtoMcfWbO49ntlRQWHEYMJuk05WD-HyTDMAJAIZYhSx-g3vw7sS6XrXpVAdSQkXiOj8lH1B2rDWgFZ9KZypzaugDRviS1oT61RAl5WPStHfNCMEDI2lzolK8kVEVqSd5SSylDYSdQXzUWxRddgXaD5FSWQfk23XwEVDf4mgDnO-JIolHCWQwzy9WzbpaZ8LUklRkmlY1mbpLH8Z6RNBpznkxob_fFBRdAr"/>
+</div>
+<div class="flex-1 p-gutter flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">Family Sunset at Kanyakumari</h3>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary-container/20 px-2 py-1 rounded-full">Jan 2024</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Watching the sun dip below the horizon where three oceans meet. A quiet moment of togetherness that stayed with all of us long after the trip.</p>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm rounded-full">#Family</span>
+<span class="px-3 py-1 bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm rounded-full">#Coastal</span>
+<span class="px-3 py-1 bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm rounded-full">#Peaceful</span>
+</div>
+</div>
+<div class="p-gutter flex flex-row md:flex-col justify-center gap-4 bg-surface-container-lowest md:border-l border-outline-variant">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-secondary transition-colors" data-icon="favorite">favorite</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="share">share</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="more_vert">more_vert</button>
+</div>
+</div>
+<!-- Memory Card 3 -->
+<div class="flex flex-col md:flex-row bg-white rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(15,23,42,0.05)] hover:shadow-[0_10px_30px_rgba(15,23,42,0.1)] transition-all group">
+<div class="w-full md:w-64 h-48 md:h-auto overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A vertical composition featuring a hiker on a narrow trail winding through the snow-capped peaks of Manali. The air looks crisp and cold, with bright white snow reflecting the midday sun. Deep navy shadows and teal-tinted ice create a professional, adventurous look. The atmosphere is quiet, majestic, and focused on the solitude of trekking." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAilZg0OeHh5arV1HV3JVGk4oE9PX6ueCebZSVFuuPZD2yeahpSkcLTPKLUCXBYXoFqfwfd2tGY2sat-kj8p2AKXVOf_TMWsMZtOzg5c2_IFZ43WWsVDmWLw4c3yKXnudtkY23yYpTkOUz9tQwHwuGpTlU2RqzOxzJukmxsqAXLDwoVEEYrem2vvdPLzLay1Gl83qaj7TMNPbsFIa6qJCzc7W7BekUdd7z8_rnKBrI1PcPpCTVjrM-Xo9vxIZ1w9RdZkstnj9r0Sxes"/>
+</div>
+<div class="flex-1 p-gutter flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">Manali Trekking Expedition</h3>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary-container/20 px-2 py-1 rounded-full">May 2023</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">A challenging climb through pine forests and rocky ridges. Reaching the Beas Kund summit was a test of endurance and a celebration of nature.</p>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm rounded-full">#Hiking</span>
+<span class="px-3 py-1 bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm rounded-full">#Mountains</span>
+<span class="px-3 py-1 bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm rounded-full">#Fitness</span>
+</div>
+</div>
+<div class="p-gutter flex flex-row md:flex-col justify-center gap-4 bg-surface-container-lowest md:border-l border-outline-variant">
+<button class="material-symbols-outlined text-secondary hover:scale-110 transition-transform" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="share">share</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="more_vert">more_vert</button>
+</div>
+</div>
+<!-- Memory Card 4 (Placeholder style based on sketch) -->
+<div class="flex flex-col md:flex-row bg-white rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(15,23,42,0.05)] hover:shadow-[0_10px_30px_rgba(15,23,42,0.1)] transition-all group">
+<div class="w-full md:w-64 h-48 md:h-auto overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A lush tropical resort scene in Kerala with backwaters reflecting coconut palms at dawn. The water is glassy and calm, with a traditional houseboat slowly drifting by. The color palette is dominated by deep greens, teals, and soft golden light reflecting on the water. The mood is tranquil and luxurious, presented with a modern, high-end travel aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDYIHmg2ZuwnPcy8ZIKRzQIZrblnhdb-ts904YZakn2VlEkFvgPOCLXOZ4ajhDBsKFAjd8Zp4fAhbBzW7ZPU6hRPtEzTHeveVZIrm0-tX7YuoNa_vEsl9IKxY6p8It3joZ1wCu-919p7tCfs9yPpVL0WKoW4Zek5ulbtKbz8f4kiV6l9Oh2aXwavbhF4LBTCh4DpUA5MzJSth2Tk9qLzxik5fx-HbqKqoW43q4SoAC_wrOWqXLHhWEnUYHRc_ygKp47AG8D4f6-mzy"/>
+</div>
+<div class="flex-1 p-gutter flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">Backwaters Retreat, Alleppey</h3>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary-container/20 px-2 py-1 rounded-full">Dec 2022</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">A slow-paced journey through the heart of Kerala's backwaters. Living on a houseboat and waking up to the sound of chirping birds.</p>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm rounded-full">#Relaxation</span>
+<span class="px-3 py-1 bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm rounded-full">#Culture</span>
+<span class="px-3 py-1 bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm rounded-full">#Nature</span>
+</div>
+</div>
+<div class="p-gutter flex flex-row md:flex-col justify-center gap-4 bg-surface-container-lowest md:border-l border-outline-variant">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-secondary transition-colors" data-icon="favorite">favorite</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="share">share</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="more_vert">more_vert</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-margin-desktop px-gutter max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-base border-t border-outline-variant">
+<div>
+<span class="text-headline-md font-headline-md text-primary">Traveloop</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-2">© 2024 Traveloop Inc. All rights reserved.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">About Us</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Help Center</a>
+</div>
+</footer>
+</body></html>

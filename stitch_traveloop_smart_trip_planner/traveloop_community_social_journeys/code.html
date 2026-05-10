@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#ffffff",
+                    "on-surface": "#191c1e",
+                    "primary-fixed-dim": "#bec6e0",
+                    "on-tertiary-fixed": "#400010",
+                    "error": "#ba1a1a",
+                    "inverse-primary": "#bec6e0",
+                    "tertiary": "#000000",
+                    "surface-container": "#eceef0",
+                    "secondary-fixed": "#89f5e7",
+                    "surface-dim": "#d8dadc",
+                    "surface-container-low": "#f2f4f6",
+                    "secondary": "#006a61",
+                    "inverse-surface": "#2d3133",
+                    "on-tertiary": "#ffffff",
+                    "background": "#f7f9fb",
+                    "primary-container": "#131b2e",
+                    "inverse-on-surface": "#eff1f3",
+                    "outline-variant": "#c6c6cd",
+                    "on-primary-fixed": "#131b2e",
+                    "tertiary-fixed": "#ffdadc",
+                    "on-tertiary-fixed-variant": "#891933",
+                    "tertiary-container": "#400010",
+                    "on-error": "#ffffff",
+                    "surface": "#f7f9fb",
+                    "surface-tint": "#565e74",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-highest": "#e0e3e5",
+                    "tertiary-fixed-dim": "#ffb2b9",
+                    "primary-fixed": "#dae2fd",
+                    "on-surface-variant": "#45464d",
+                    "on-secondary-container": "#006f66",
+                    "error-container": "#ffdad6",
+                    "on-secondary": "#ffffff",
+                    "primary": "#000000",
+                    "on-error-container": "#93000a",
+                    "on-background": "#191c1e",
+                    "on-primary-container": "#7c839b",
+                    "secondary-container": "#86f2e4",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "surface-variant": "#e0e3e5",
+                    "on-secondary-fixed-variant": "#005049",
+                    "on-secondary-fixed": "#00201d",
+                    "on-tertiary-container": "#da586c",
+                    "surface-container-high": "#e6e8ea",
+                    "surface-bright": "#f7f9fb",
+                    "secondary-fixed-dim": "#6bd8cb",
+                    "outline": "#76777d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "section-gap": "80px",
+                    "container-max": "1280px",
+                    "base": "8px",
+                    "margin-desktop": "40px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "headline-xl": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-md": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface dark:bg-surface-dim shadow-[0_4px_20px_rgba(15,23,42,0.05)] h-16">
+<div class="max-w-container-max mx-auto px-gutter h-full flex justify-between items-center">
+<div class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">Traveloop</div>
+<nav class="hidden md:flex items-center gap-8 h-full">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">My Trips</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">Explore</a>
+<a class="font-label-md text-label-md text-secondary dark:text-secondary-fixed-dim border-b-2 border-secondary dark:border-secondary-fixed-dim pb-1" href="#">Community</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-outline-variant">
+<img alt="User profile photo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqh91VLNLdhFK7Oaj9gV9qt4Gberiifbe9pMMvcN3WGiaBJpUp8e-h8MZIUT5QmhXJ5gkT5_iVFTBSoc9EZuWg-KZYAoF2aAW_ddari17Q5oTKVDvl9D1ibc9RjrQPK55P3NZ_UoI0qVTGXca33DdsRB5JjwHnDpf5MXpVRCXbuRtLvA5ZtSGHiRuf4EtG5VLx2dfGuMEERseZe0_9RaRISfHf3TRa_7X7DGRvX7SXtWwfIzYckIJ5DI2FqrGdXQ7e8fODHqNA7u1A"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-16 pb-margin-desktop">
+<!-- Hero Section: Animated-style Tropical Resort -->
+<section class="relative w-full h-[500px] flex items-end">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A lush tropical resort at sunset rendered in a vibrant, high-fidelity animated style. The sky is a warm gradient of coral, gold, and deep indigo with soft purple clouds. Palm trees sway gently beside infinity pools reflecting the brilliant colors of the dusk sky. The overall mood is peaceful, luxurious, and filled with a sense of wonder, perfectly aligned with the Traveloop brand identity of professional yet adventurous travel planning." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5kIgEqKZKolXLmobqOJRO481u0cYa7XlNAuldiYcf1OlIMubfqFiXQ3AjQmhcdPP3hpOjDDxNbqQTzqkxNvHgvOHJxQX4iVuoZ4X0_YwZTYjWz-lLX4v5L3BWYYKZ0Lrl0vOItPtLoB0qRoj6k1NVymtJbRhScKoguV0du6lpCMqcVSlVp0Tr5WBnXDfwD-YpuurAbk9u9F3QRmKOc8BrNWmKDc8MWyIt8PwxdnSiGytnREe07wmEtAUJf-zG8I49RVHfUwmv5B74"/>
+<div class="absolute inset-0 hero-gradient"></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto px-gutter pb-margin-desktop w-full text-on-primary">
+<h1 class="font-headline-xl text-headline-xl mb-4">Collaborative Journeys</h1>
+<p class="font-body-lg text-body-lg max-w-2xl opacity-90">Discover itineraries from the world's most seasoned travelers and build your next adventure together.</p>
+<div class="flex flex-wrap gap-3 mt-8">
+<span class="px-4 py-2 bg-secondary-container text-on-secondary-fixed-variant rounded-full font-label-md text-label-md">#Oahu</span>
+<span class="px-4 py-2 bg-secondary-container text-on-secondary-fixed-variant rounded-full font-label-md text-label-md">#TropicalBudget</span>
+<span class="px-4 py-2 bg-secondary-container text-on-secondary-fixed-variant rounded-full font-label-md text-label-md">#HikingTrails</span>
+<span class="px-4 py-2 bg-white/20 backdrop-blur text-white rounded-full font-label-md text-label-md hover:bg-white/30 cursor-pointer transition-colors">+ Explore More</span>
+</div>
+</div>
+</section>
+<div class="max-w-container-max mx-auto px-gutter mt-section-gap space-y-section-gap">
+<!-- Live Dive Featured Section -->
+<section>
+<div class="flex items-center justify-between mb-8">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-tertiary-container" data-weight="fill">videocam</span>
+<h2 class="font-headline-lg text-headline-lg">Live Dive Experiences</h2>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 bg-error-container text-on-error-container rounded-lg font-label-sm text-label-sm">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-error opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-error"></span>
+</span>
+                        +1.2k watching
+                    </div>
+</div>
+<div class="relative w-full aspect-video rounded-xl overflow-hidden shadow-xl bg-primary-container">
+<img class="w-full h-full object-cover" data-alt="A wide cinematic underwater shot of a scuba diving experience in a crystal clear tropical ocean. Thousands of colorful tropical fish in schools swim across the frame in a synchronized dance. Sunlight beams pierce through the surface of the turquoise water, illuminating the vibrant coral reefs below. The atmosphere is serene and immersive, capturing the breathtaking beauty of the marine ecosystem in high-definition detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzovYtjOFL3H-8sbD2YzRox26NIxs1eI21Any5tsufi2ZI44QSZ_nV1V1g9RDjdQOvIYc6-mHnjUoJj5jQ6sFRv_nuc10dtfYnfn2BtLmHNvwpZfv0KWj16WGG4Qmer4OdbqZ9K-VKFeoRY6pJwx1eDiG3wAwb2rdwq8p4yV_koMrmRyDu1a3iIPdEC7jAXj_zu8ZbwFRmjrUMQhAoyzkt8NHycWv1H9LzbOYryJHLD7EqTQgwNUZt5f-xDEQLYzqHACIQDQEbYHLg"/>
+<div class="absolute inset-0 flex items-center justify-center bg-black/20 group cursor-pointer">
+<div class="flex flex-col items-center">
+<button class="w-20 h-20 rounded-full bg-secondary text-white flex items-center justify-center hover:scale-110 transition-transform mb-4">
+<span class="material-symbols-outlined text-4xl" data-weight="fill">play_arrow</span>
+</button>
+<span class="font-headline-md text-headline-md text-white drop-shadow-lg">Watch Now</span>
+</div>
+</div>
+<div class="absolute bottom-6 left-6 right-6 flex justify-between items-end">
+<div class="text-white">
+<h3 class="font-headline-md text-headline-md mb-1">Great Barrier Reef Explorer</h3>
+<p class="font-body-md text-body-md opacity-80">Streaming live from Queensland, Australia</p>
+</div>
+<div class="flex -space-x-3">
+<img alt="Viewer 1" class="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhGYUAX0SOo6YbNcflrKky3zcJYhaqa5Q9VmlxgTpkZkCpBV7yw_nJD4PuNivkmmNbKpspSPSSBuZQ8rzQGyQcR-cVJdOaljzecz2w-tt8ZLDCHgnWmW_4Qek63KN0zMg_iUWuPApBSMcEkhC5yqobx0EIU_wqL5jPFcNfuJp4QdVipmwMbGFAyOVfpta9CxCc372DzYpx0GxKBuh1Q2zRF-D21XglaGd4M3UDhGfWqCI7bYdocj_pmeQnIEv7GU-KVGXvZVfI0-HI"/>
+<img alt="Viewer 2" class="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcXfNUXi2nyzizjrWGhtOp2K24JC7zmYGtWH1mBp2b3aMiewCofn6MaNF-d0WHmLx359225ZRD4G3Cv2XogaLnW4loGg87M5jEFBw25KhNyV3DurNED3BFc6x_FOwxtEfBVWBX5sfYgHjzEpm9I1bd5pFJ2BzhLL-urtIDmsdzQO9NvBDObGP6AYXraueLygDRHoc0RxV01bcURBtADT3Xt9u_cKOk6Wq18xutPnPUZK8LyIez_cR1UVE0I5UjQXPa1i96wQvjuYaY"/>
+<div class="w-10 h-10 rounded-full border-2 border-white bg-secondary-container flex items-center justify-center text-[10px] font-bold text-on-secondary-fixed-variant">+1.2k</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Community Feed: Visual Journey Cards -->
+<section>
+<div class="flex items-center justify-between mb-8">
+<h2 class="font-headline-lg text-headline-lg">Visual Journeys</h2>
+<button class="text-secondary font-label-md text-label-md flex items-center gap-1 hover:gap-2 transition-all">
+                        View All <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="group bg-white rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(15,23,42,0.05)] hover:shadow-lg transition-all border border-outline-variant/30 flex flex-col">
+<div class="relative h-64">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A vibrant travel photograph of a hidden beach in Kauai, Hawaii. Turquoise waves gently lap onto pristine white sand, framed by towering emerald green cliffs and lush tropical foliage. The lighting is golden hour sun, casting a warm and inviting glow across the landscape. The style is professional and high-contrast, designed to evoke a strong desire for exploration and discovery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrWlE8HQ4Y6-FaqYlpiEBU73laEYhfJ1LHo5N4FXcOtOmH3dwBYN7ETuPKm3lYKZCyYJrZGwXDxHio5RblivXS4COQF3ktT9yh5N4z1el2kEWFs8aO2gNSBg-ZQ5aJj1li9wRUP87XRPOpyxBB601AmQzGQj_V9mWwRZwlG4DIcfKeeQ-5U_yqepmQ6fz3jeS_8mMTuYOYbc6z6BSjbWct5cZnuEkAl3Hp2TZS28kVQCVPygwzzuARTMXO9oyIjTeKNGFLNfnojBr2"/>
+<div class="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur rounded-full font-label-sm text-label-sm text-secondary">
+                                7 Days • $1,200
+                            </div>
+</div>
+<div class="p-6 flex-grow">
+<div class="flex items-center gap-3 mb-4">
+<img alt="Kai's Avatar" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpzDHWmkWOU9EuT5jJu3RajazgxdGnTUr_FLikWm0RZ_7qY1CWficNjKH3c321JgL7Aus2YJ9KqYOoErY71uamrVs9-IR7dhaD63zUQO-vy7ESR5tESi5bTcgFDqdJyUjctuSod58lZZPkrpVOYp-cNv3Btx1GdbqZrmkKCEoAdeYETGEDqIsqBbdFDK44bVFEuxYDIMD7C0WTQuxYIoS21gpKr4GbnD8BsvFcWVfHp4iX_67aJwAVDoGJyHcGdLcwrQ9Dg5guPEey"/>
+<div>
+<h3 class="font-headline-md text-[18px] leading-tight">Kai's Kauai Hidden Gems</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">by Kai Chen</p>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-6">
+                                Discover the secret trails of the Na Pali Coast and the best sunset spots on the North Shore...
+                            </p>
+<div class="flex items-center gap-3 pt-4 border-t border-outline-variant/20">
+<button class="flex-1 py-2 px-4 bg-primary text-white rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">content_copy</span> Clone
+                                </button>
+<button class="flex-1 py-2 px-4 border border-secondary text-secondary rounded-lg font-label-md text-label-md hover:bg-secondary-container transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">group</span> Collaborate
+                                </button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-white rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(15,23,42,0.05)] hover:shadow-lg transition-all border border-outline-variant/30 flex flex-col">
+<div class="relative h-64">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A lush jungle scene in Bali with tiered rice paddies reflecting a soft morning mist. A group of travelers is seen in the distance, emphasizing community and collaboration. The visual palette is dominated by deep forest greens and soft, diffused sunlight. The image feels fresh, clean, and organized, maintaining the modern travel concierge aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqLIbgebC7OwEQTSAdj-QHHvdJ_e36EZnfayXM6xShWJEK8OXOLqS7wj-nIujL1X_qCsQj7X9tQYDMqE2ctNtM-bE19ThO-oQtL4m1hg4f5uFSqv7TBzpUr5WovuClSrzYfojaSJh-HYaJdb_dbLKwxhE9kHgCl5-E8GqzKnbrpdMikY0cdFwQyXQ4SSTkTLpENagGT3hsocgnhC5CuqgsxR93E9g3SSkSDURGb2PvrTt4Qz7AnatYhu0JMvLAQb36VC7kYct0Kc-h"/>
+<div class="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur rounded-full font-label-sm text-label-sm text-secondary">
+                                10 Days • $850
+                            </div>
+</div>
+<div class="p-6 flex-grow">
+<div class="flex items-center gap-3 mb-4">
+<img alt="Elena's Avatar" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4m5lvA6KmzLH5at_9Qkli1fGOxr3YiRifqkNOB5stCbypRwkSVxrVQrmtxIfdrjFfoaPeFTTFVDApfFxHx0QEyTxv_SN9Wn1O8oAziSGVPoX2CSfIUaQiouPpoi94uJn-dk6Uc7hHnNg0XUEXfrlZsk5T9C-mTrL-hPKbflNeJxhpU2xVWyLIi3GtQEq4-EN_6wytcE9Cj_ZnvyEm2Jh3_x_eSVU8iDRPSl4BjcNcFl4BkU7WkYYYO6wfbQRKjQWvKtDTeHTJro_N"/>
+<div>
+<h3 class="font-headline-md text-[18px] leading-tight">Ubud Retreat &amp; Yoga</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">by Elena Rodriguez</p>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-6">
+                                A curated wellness journey through Bali's heart, focusing on spiritual growth and local food...
+                            </p>
+<div class="flex items-center gap-3 pt-4 border-t border-outline-variant/20">
+<button class="flex-1 py-2 px-4 bg-primary text-white rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">content_copy</span> Clone
+                                </button>
+<button class="flex-1 py-2 px-4 border border-secondary text-secondary rounded-lg font-label-md text-label-md hover:bg-secondary-container transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">group</span> Collaborate
+                                </button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group bg-white rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(15,23,42,0.05)] hover:shadow-lg transition-all border border-outline-variant/30 flex flex-col">
+<div class="relative h-64">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A cinematic aerial view of an island archipelago in Thailand. Traditional longtail boats are docked near limestone karsts that rise dramatically from emerald waters. The sky is a clear, brilliant blue, suggesting a high-energy adventure setting. The image is crisp and professional, using a bright and optimistic color profile consistent with premium travel magazines." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaoNPKiJgDd71zhI1KEnF76WQH7IWfCA5Mfzk5ym1YkDwewPPRd3gTiiFH2tWpZgTd95KvADA_49hx0eLNY2PChFWFL4IExb7yEEXzwwdN0b0hO2nxB7wPuClk5oNsxcw63LeV_FiCfsB5i7vQV97Om3NR1JGe9Hz4V7iklgs2Ey9QD2GI6PX_T1HSf67F8JSg_tEoAgs6BYVptp9m8ctfXgdwSeIONcbUYHOlZ2-tsft8tbZKpFdySJSPbAfTU0NwGK-NH0FvWega"/>
+<div class="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur rounded-full font-label-sm text-label-sm text-secondary">
+                                5 Days • $1,450
+                            </div>
+</div>
+<div class="p-6 flex-grow">
+<div class="flex items-center gap-3 mb-4">
+<img alt="Marcus's Avatar" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMNJT8dImXQLC_LYNDR89AXNeGH3JHxiQrEE9itilwDpsuLSAGOw5SQyXdaVed6KNfasR_XVqtR9QGAUy-hVZq1X9hmrcuz06XIRgVkqYE0mun0KRtGXlFCtwTAx3DUsgq5MHUUxqiR_FhqJcu3a1hibEZWeK5CPjuR0lilSpO2CvCnAx9SDbG-V_TrgZ1e7v88-OEJgvBP6MkId6HATlmUUAr1s2GjysSJS-tY95LSTYnBJZcj1WlVZqXUcnuvYY_rR-CbUKe7FEk"/>
+<div>
+<h3 class="font-headline-md text-[18px] leading-tight">Phuket Island Hopping</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">by Marcus Thorne</p>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-6">
+                                Private boat routes to avoid the crowds and find the clearest diving spots in the Andaman...
+                            </p>
+<div class="flex items-center gap-3 pt-4 border-t border-outline-variant/20">
+<button class="flex-1 py-2 px-4 bg-primary text-white rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">content_copy</span> Clone
+                                </button>
+<button class="flex-1 py-2 px-4 border border-secondary text-secondary rounded-lg font-label-md text-label-md hover:bg-secondary-container transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">group</span> Collaborate
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-margin-desktop px-gutter max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-base bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline-variant dark:border-outline">
+<div class="text-headline-md font-headline-md text-primary dark:text-primary-fixed">Traveloop</div>
+<div class="flex flex-wrap justify-center gap-8 font-body-md text-body-md">
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">About Us</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">Terms of Service</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">Help Center</a>
+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant">
+            © 2024 Traveloop Inc. All rights reserved.
+        </div>
+</footer>
+</body></html>

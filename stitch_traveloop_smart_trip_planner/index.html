@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Traveloop — Smart Trip Planner</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --primary: #131b2e;
+      --secondary: #006a61;
+      --accent: #da586c;
+      --surface: #f7f9fb;
+      --surface-container: #eceef0;
+      --surface-container-low: #f2f4f6;
+      --on-surface: #191c1e;
+      --on-surface-variant: #45464d;
+      --outline: #76777d;
+      --outline-variant: #c6c6cd;
+      --secondary-container: #86f2e4;
+      --tertiary-fixed: #ffdadc;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--surface);
+      color: var(--on-surface);
+      min-height: 100vh;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, #1e293b 40%, var(--secondary) 100%);
+      padding: 80px 24px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(134, 242, 228, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255, 218, 220, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, #86f2e4, #6bd8cb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.75);
+      max-width: 540px;
+      margin: 0 auto;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 9999px;
+      padding: 6px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #86f2e4;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    .section-title {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--secondary);
+      margin-bottom: 8px;
+    }
+
+    .section-heading {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 32px;
+      letter-spacing: -0.01em;
+    }
+
+    /* Grid */
+    .screen-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    /* Card */
+    .screen-card {
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+      border: 1px solid rgba(198, 198, 205, 0.3);
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .screen-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
+      border-color: var(--secondary);
+    }
+
+    .screen-card .preview {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      position: relative;
+      background: var(--surface-container);
+    }
+
+    .screen-card .preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      transition: transform 0.5s ease;
+    }
+
+    .screen-card:hover .preview img {
+      transform: scale(1.05);
+    }
+
+    .screen-card .preview .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(19, 27, 46, 0.6) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .screen-card:hover .preview .overlay {
+      opacity: 1;
+    }
+
+    .screen-card .preview .overlay span {
+      background: white;
+      color: var(--primary);
+      padding: 8px 20px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .screen-card .info {
+      padding: 20px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .screen-card .info h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.3;
+    }
+
+    .screen-card .info .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--secondary);
+      background: rgba(0, 106, 97, 0.08);
+      padding: 4px 10px;
+      border-radius: 9999px;
+      width: fit-content;
+    }
+
+    /* Categories */
+    .category-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+
+    .category-pill {
+      padding: 8px 20px;
+      border-radius: 9999px;
+      font-size: 14px;
+      font-weight: 600;
+      border: 1.5px solid var(--outline-variant);
+      background: white;
+      color: var(--on-surface-variant);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .category-pill:hover,
+    .category-pill.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .category-pill.active {
+      background: var(--secondary);
+      border-color: var(--secondary);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--surface-container-low);
+      border-top: 1px solid var(--outline-variant);
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: var(--outline);
+    }
+
+    /* Stats */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      margin-top: 32px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-item .number {
+      font-size: 28px;
+      font-weight: 800;
+      color: white;
+    }
+
+    .stat-item .label {
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 32px; }
+      .hero p { font-size: 16px; }
+      .screen-grid { grid-template-columns: 1fr; }
+      .stats { gap: 24px; }
+      .stat-item .number { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="badge">
+      <span class="material-symbols-outlined" style="font-size: 16px;">travel_explore</span>
+      Stitch × Traveloop
+    </div>
+    <h1>Smart <span>Trip Planner</span></h1>
+    <p>Explore all the screens and pages of the Traveloop travel platform — designed with Stitch AI.</p>
+    <div class="stats">
+      <div class="stat-item">
+        <div class="number" id="screen-count">0</div>
+        <div class="label">Screens</div>
+      </div>
+      <div class="stat-item">
+        <div class="number">45+</div>
+        <div class="label">Components</div>
+      </div>
+      <div class="stat-item">
+        <div class="number">1</div>
+        <div class="label">Design System</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="section-title">All Screens</div>
+    <div class="section-heading">Navigate the Traveloop Experience</div>
+
+    <div class="category-pills">
+      <button class="category-pill active" data-category="all">All Screens</button>
+      <button class="category-pill" data-category="auth">Login & Register</button>
+      <button class="category-pill" data-category="explore">Explore</button>
+      <button class="category-pill" data-category="trips">Trips & Itinerary</button>
+      <button class="category-pill" data-category="community">Community</button>
+      <button class="category-pill" data-category="budget">Budget & Expenses</button>
+      <button class="category-pill" data-category="profile">Profile & Settings</button>
+    </div>
+
+    <div class="screen-grid" id="screen-grid"></div>
+  </div>
+
+  <footer>
+    <p>© 2024 Traveloop Inc. — Built with Stitch AI · All screens are standalone HTML</p>
+  </footer>
+
+  <script>
+    const screens = [
+      { name: "Login", folder: "traveloop_login", category: "auth", tag: "Authentication" },
+      { name: "Interactive Login", folder: "traveloop_interactive_login", category: "auth", tag: "Authentication" },
+      { name: "Sunny Login", folder: "traveloop_sunny_login", category: "auth", tag: "Authentication" },
+      { name: "Register", folder: "traveloop_register", category: "auth", tag: "Authentication" },
+      { name: "Lush Profile Registration", folder: "traveloop_lush_profile_registration", category: "auth", tag: "Authentication" },
+      { name: "Explore Destinations", folder: "traveloop_explore_destinations", category: "explore", tag: "Discovery" },
+      { name: "Explore India Toggles", folder: "traveloop_explore_india_toggles", category: "explore", tag: "Discovery" },
+      { name: "Explore North India & Sikkim", folder: "traveloop_explore_north_india_sikkim", category: "explore", tag: "Discovery" },
+      { name: "Exclusive Packages & Offers", folder: "traveloop_exclusive_packages_offers", category: "explore", tag: "Discovery" },
+      { name: "Plan New Trip", folder: "traveloop_plan_new_trip", category: "trips", tag: "Planning" },
+      { name: "Visual Itinerary Planner", folder: "traveloop_visual_itinerary_planner", category: "trips", tag: "Planning" },
+      { name: "Hawaiian Itinerary Budget Planner", folder: "traveloop_hawaiian_itinerary_budget_planner", category: "trips", tag: "Planning" },
+      { name: "Preplanned Trips View", folder: "traveloop_preplanned_trips_view", category: "trips", tag: "Planning" },
+      { name: "Previous Trips & Memories", folder: "traveloop_previous_trips_memories", category: "trips", tag: "Memories" },
+      { name: "Trip Notes Journal", folder: "traveloop_trip_notes_journal", category: "trips", tag: "Journaling" },
+      { name: "Community Discovery", folder: "traveloop_community_discovery", category: "community", tag: "Social" },
+      { name: "Community Feed — Lush Kerala", folder: "traveloop_community_feed_lush_kerala", category: "community", tag: "Social" },
+      { name: "Community Social Discovery", folder: "traveloop_community_social_discovery", category: "community", tag: "Social" },
+      { name: "Community Social Journeys", folder: "traveloop_community_social_journeys", category: "community", tag: "Social" },
+      { name: "Discussion Thread", folder: "traveloop_discussion_thread", category: "community", tag: "Forum" },
+      { name: "Budget & Cost Breakdown", folder: "traveloop_budget_cost_breakdown", category: "budget", tag: "Finance" },
+      { name: "Kerala Lush Expense Analysis", folder: "traveloop_kerala_lush_expense_analysis", category: "budget", tag: "Finance" },
+      { name: "Tropical Budget Analysis", folder: "traveloop_tropical_budget_analysis", category: "budget", tag: "Finance" },
+      { name: "Tropical Expense Analysis Invoice", folder: "traveloop_tropical_expense_analysis_invoice", category: "budget", tag: "Finance" },
+      { name: "Interactive Profile & Memories", folder: "traveloop_interactive_profile_memories", category: "profile", tag: "Profile" },
+      { name: "Interactive Packing Checklist", folder: "traveloop_interactive_packing_checklist", category: "profile", tag: "Utilities" },
+      { name: "Lush Kerala Packing Checklist", folder: "traveloop_lush_kerala_packing_checklist", category: "profile", tag: "Utilities" },
+      { name: "Admin Analytics — Divine Theme", folder: "traveloop_admin_analytics_divine_theme", category: "profile", tag: "Admin" },
+    ];
+
+    document.getElementById('screen-count').textContent = screens.length;
+
+    const grid = document.getElementById('screen-grid');
+
+    function renderScreens(category = 'all') {
+      const filtered = category === 'all' ? screens : screens.filter(s => s.category === category);
+      grid.innerHTML = '';
+
+      filtered.forEach((screen, i) => {
+        const card = document.createElement('a');
+        card.href = `${screen.folder}/code.html`;
+        card.className = 'screen-card';
+        card.style.animationDelay = `${i * 40}ms`;
+        card.innerHTML = `
+          <div class="preview">
+            <img src="${screen.folder}/screen.png" alt="${screen.name}" loading="lazy" />
+            <div class="overlay">
+              <span>
+                <span class="material-symbols-outlined" style="font-size: 16px;">open_in_new</span>
+                Open Screen
+              </span>
+            </div>
+          </div>
+          <div class="info">
+            <h3>${screen.name}</h3>
+            <div class="tag">
+              <span class="material-symbols-outlined" style="font-size: 14px;">label</span>
+              ${screen.tag}
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // Category filtering
+    document.querySelectorAll('.category-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        document.querySelectorAll('.category-pill').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        renderScreens(pill.dataset.category);
+      });
+    });
+
+    renderScreens();
+  </script>
+</body>
+</html>

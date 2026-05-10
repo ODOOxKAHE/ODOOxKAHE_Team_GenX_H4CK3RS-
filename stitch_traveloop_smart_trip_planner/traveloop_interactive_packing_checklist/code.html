@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Packing Checklist - Traveloop</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#89f5e7",
+                        "on-primary-container": "#7c839b",
+                        "inverse-primary": "#bec6e0",
+                        "primary-fixed-dim": "#bec6e0",
+                        "inverse-surface": "#2d3133",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d8dadc",
+                        "tertiary": "#000000",
+                        "primary": "#000000",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#f7f9fb",
+                        "on-secondary-fixed-variant": "#005049",
+                        "secondary-container": "#86f2e4",
+                        "surface-container": "#eceef0",
+                        "on-surface-variant": "#45464d",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#006a61",
+                        "background": "#f7f9fb",
+                        "outline": "#76777d",
+                        "tertiary-fixed": "#ffdadc",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#400010",
+                        "surface-container-high": "#e6e8ea",
+                        "primary-fixed": "#dae2fd",
+                        "on-secondary-container": "#006f66",
+                        "secondary-fixed-dim": "#6bd8cb",
+                        "on-surface": "#191c1e",
+                        "on-secondary-fixed": "#00201d",
+                        "primary-container": "#131b2e",
+                        "on-tertiary-fixed-variant": "#891933",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#f2f4f6",
+                        "on-primary-fixed": "#131b2e",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-background": "#191c1e",
+                        "tertiary-fixed-dim": "#ffb2b9",
+                        "outline-variant": "#c6c6cd",
+                        "on-tertiary-fixed": "#400010",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "on-tertiary-container": "#da586c",
+                        "surface-tint": "#565e74",
+                        "surface": "#f7f9fb",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e0e3e5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-desktop": "40px",
+                        "container-max": "1280px",
+                        "base": "8px",
+                        "margin-mobile": "16px",
+                        "section-gap": "80px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-hero-overlay {
+            background: linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.4)), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+        }
+        .custom-shadow {
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface shadow-[0_4px_20px_rgba(15,23,42,0.05)]">
+<div class="max-w-container-max mx-auto h-16 px-gutter flex justify-between items-center">
+<div class="flex items-center gap-8">
+<span class="text-headline-md font-headline-md font-extrabold text-primary">Traveloop</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="font-label-md text-label-md text-secondary border-b-2 border-secondary pb-1" href="#">My Trips</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Explore</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Community</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-2 rounded-lg border border-outline-variant focus:outline-none focus:border-primary transition-all w-64 bg-surface-container-low" placeholder="Search destination..." type="text"/>
+</div>
+<button class="p-2 rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+</button>
+<img alt="User profile photo" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGD_d4G24qPy_yZ3Tcl1rIkwqvYL8_2biNxXPUp9RWc9X3lEL5WH6ueKCpFsH3U3rvYZnscKCacOpDox8XE3Tpm11wAMvgCollHdMQ71kKX3vhXWaQVa-SuvXH7VOVbmSXln8LrZmfrriPyzbT4sjMWZraUeEgj_VDpc4JZTG3Eu64P2yXRcRKw0Gb8VlDZVj5ywDqirhvol80FT1IucAB0ok0TtOMc8BO9YBRh-igC5b2ADSjehuk4TiP-lylFZO5IhwJ-MavLxvB"/>
+</div>
+</div>
+</header>
+<!-- Hero / Header Background Section -->
+<section class="pt-16">
+<div class="h-[300px] w-full relative flex items-center justify-center bg-hero-overlay" data-alt="A lush tropical beach resort at golden hour, featuring pristine white sands, swaying palm trees, and turquoise water. The lighting is soft and warm, creating a serene and luxurious atmosphere. The composition emphasizes the natural beauty of a high-end travel destination with a minimalist, airy aesthetic. High-fidelity colors with deep teal and soft slate tones.">
+<div class="text-center text-on-primary">
+<h1 class="font-headline-xl text-headline-xl mb-2 drop-shadow-lg">Packing Checklist</h1>
+<p class="font-body-lg text-body-lg opacity-90 drop-shadow-md">Stay organized for your upcoming adventure</p>
+</div>
+</div>
+</section>
+<!-- Main Content Grid -->
+<main class="max-w-container-max mx-auto px-gutter -mt-16 pb-section-gap relative z-10">
+<!-- Controls & Status Bar -->
+<div class="bg-surface rounded-xl custom-shadow p-6 mb-8 flex flex-col md:flex-row gap-6 items-center justify-between">
+<div class="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto">
+<div class="w-full md:w-64">
+<label class="block font-label-sm text-label-sm text-outline-variant mb-1 uppercase tracking-wider">Select Trip</label>
+<select class="w-full border-outline-variant rounded-lg font-label-md text-label-md py-2 focus:ring-0 focus:border-primary">
+<option>Summer in Bali 2024</option>
+<option>Weekend in Paris</option>
+<option>Skiing in Swiss Alps</option>
+</select>
+</div>
+<div class="w-full md:w-64">
+<label class="block font-label-sm text-label-sm text-outline-variant mb-1 uppercase tracking-wider">Quick Search</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
+<input class="w-full pl-9 pr-4 py-2 border-outline-variant rounded-lg font-label-md text-label-md focus:ring-0 focus:border-primary" placeholder="Search item..." type="text"/>
+</div>
+</div>
+</div>
+<div class="w-full md:w-80">
+<div class="flex justify-between items-end mb-2">
+<span class="font-label-md text-label-md text-on-surface">Packing Progress</span>
+<span class="font-label-md text-label-md text-secondary font-bold">5 / 12 items</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary transition-all duration-500" style="width: 41.6%;"></div>
+</div>
+<p class="text-right font-label-sm text-label-sm text-outline-variant mt-1 italic">Nearly halfway there!</p>
+</div>
+</div>
+<!-- Checklist Canvas -->
+<div class="bg-surface rounded-xl custom-shadow overflow-hidden">
+<!-- Category: Documents -->
+<div class="p-gutter border-b border-surface-container-low">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-secondary" data-icon="description">description</span>
+<h2 class="font-headline-md text-headline-md">Documents</h2>
+</div>
+<div class="space-y-4">
+<!-- Item 1: Packed -->
+<div class="flex items-center justify-between p-4 rounded-lg bg-surface-container-low border border-transparent hover:border-secondary-fixed transition-all group">
+<div class="flex items-center gap-4">
+<img class="w-12 h-12 rounded-lg object-cover grayscale-0" data-alt="A close-up shot of a dark navy blue passport lying on a clean white surface. The lighting is soft and directional, highlighting the gold-leaf text on the cover. The image has a professional and organized feel, perfect for a high-end travel planning application. Minimalist aesthetic with deep navy and pristine white color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkE5HRsGBRhT511YKR3cbejDTerjgKOSJDOyN5uaUsZcIoVOjMgbiaB27eUFZd0vgZ_3qFp1L4PYgxOfiuXviNz5PPEaQF9p-dCQufYDc2BVpnBH-XRrOJh6DWe1NrFnoV0t5BpHLo60svrg5kLvO5VdTkTjLJ778uDvoKfzpLcOvcPkheZkk9GIRMNRkQGl8Lz6p3uL9U90YAyPytL2CYHFHHQ8jgguIqu2C0bNxC0tTjGXav8YztcJbT7My6HL_ai1-5zdowKkVH"/>
+<div>
+<span class="block font-label-md text-label-md text-on-surface">Passport</span>
+<span class="text-label-sm text-outline-variant">Original + 2 copies</span>
+</div>
+</div>
+<label class="relative flex items-center cursor-pointer">
+<input checked="" class="w-6 h-6 rounded border-outline-variant text-secondary focus:ring-0 cursor-pointer" type="checkbox"/>
+</label>
+</div>
+<!-- Item 2: Not Packed -->
+<div class="flex items-center justify-between p-4 rounded-lg bg-surface-container-low border border-transparent hover:border-secondary-fixed transition-all group">
+<div class="flex items-center gap-4">
+<img class="w-12 h-12 rounded-lg object-cover" data-alt="A collection of travel insurance documents and printed flight itineraries arranged neatly on a wooden desk. Warm morning light filters through a window, casting soft shadows. The visual style is crisp and professional, emphasizing reliability and organization. A muted color palette of slate gray and cream." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkT0UAcbc6paCS_0PZlqWz815-OK0Ihw3WYwAttzlMKR_6FdmTkhqB-jiumJ5elQjZY_4nMBBAcIccAEvnEIMhatUhyOTWjn39E3U1CYflUZdcyuSwRP35I0g2YyiKx7-DnHLyh4MOsGnvjCceyPzrKgJyZ8L8pDEM5dLxJF59ZMPdFCEdh8RQnduVlJo7cXWqSF9I3sQmkLFdkJbhKbhjwIgnBPJC2G35CKp2pObstYq0UIecQdzQ8j87IZMi0QduW6TNcv1PBsNj"/>
+<div>
+<span class="block font-label-md text-label-md text-on-surface">Travel Insurance</span>
+<span class="text-label-sm text-outline-variant">Digital PDF or Printed</span>
+</div>
+</div>
+<label class="relative flex items-center cursor-pointer">
+<input class="w-6 h-6 rounded border-outline-variant text-secondary focus:ring-0 cursor-pointer" type="checkbox"/>
+</label>
+</div>
+</div>
+</div>
+<!-- Category: Clothing -->
+<div class="p-gutter border-b border-surface-container-low">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-secondary" data-icon="checkroom">checkroom</span>
+<h2 class="font-headline-md text-headline-md">Clothing</h2>
+</div>
+<div class="space-y-4">
+<!-- Item 1: Packed -->
+<div class="flex items-center justify-between p-4 rounded-lg bg-surface-container-low border border-transparent hover:border-secondary-fixed transition-all">
+<div class="flex items-center gap-4">
+<img class="w-12 h-12 rounded-lg object-cover" data-alt="A neatly folded white cotton t-shirt stacked among others on a light gray shelf. The focus is sharp, showcasing the texture of the fabric. The environment is a clean, minimalist walk-in closet with soft ambient lighting. The mood is calm and orderly. Part of a high-end luxury wardrobe set." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCncV4TpJ1uD9Y5Q_JhD5lRD6AQIA4sSOAmTQ2zJFYhixuNt34t5BErg4TAB_kt0a0AkqOSobPX0a0YGrGbPC8O907OuJnv6AeKaU6Y0SSR75IBukvrJEdbAShgfKSv4ULFP65U2S6vdbPnUTaUK3kwQTQV8k2ASroEs7Qv3MwPcsc6qSZSUoAHTmV3UCfHVGoJmW48fetGBhFTxQJ5GyyNf8m3K9IoGX30X8HOZ2oM7srUQWZZS02hJ019ht3bFxrKGBzG_KEcPo7_"/>
+<div>
+<span class="block font-label-md text-label-md text-on-surface">Casual Shirts</span>
+<span class="text-label-sm text-outline-variant">Pack 5 items</span>
+</div>
+</div>
+<input checked="" class="w-6 h-6 rounded border-outline-variant text-secondary focus:ring-0 cursor-pointer" type="checkbox"/>
+</div>
+<!-- Item 2: Packed -->
+<div class="flex items-center justify-between p-4 rounded-lg bg-surface-container-low border border-transparent hover:border-secondary-fixed transition-all">
+<div class="flex items-center gap-4">
+<img class="w-12 h-12 rounded-lg object-cover" data-alt="A pair of well-fitted blue denim jeans laid out on a soft textile background. The texture of the denim and the stitching detail are visible under bright, natural daylight. The aesthetic is modern and rugged yet sophisticated. Clean lines and a balanced composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9MXtsL4e9ScGoxrgELjbcDtWvOmFizNfQ5qqKuuUZq-I8WCKZr1n96U8_4XxVodcpWpwWKmM3jxBEGC8VgkV4X_A_BTRI9WIAk-U7jDwGtN2OPN_wRPEVBMuUdscByZcQwpBPwEg7UqbIFUk7kEORPgA0bM422n2-XmiOScDZTTdatvIL8MK-O8TLACAYM9-vP5Dj_W_uD0qlShPdTKsMIiysAHtND069tr63oWCGSdGcwKv-PANfTG_1IWlvVw_N-Wq46-bebfgn"/>
+<div>
+<span class="block font-label-md text-label-md text-on-surface">Denim Jeans</span>
+<span class="text-label-sm text-outline-variant">Pack 2 pairs</span>
+</div>
+</div>
+<input checked="" class="w-6 h-6 rounded border-outline-variant text-secondary focus:ring-0 cursor-pointer" type="checkbox"/>
+</div>
+<!-- Item 3: Not Packed -->
+<div class="flex items-center justify-between p-4 rounded-lg bg-surface-container-low border border-transparent hover:border-secondary-fixed transition-all">
+<div class="flex items-center gap-4">
+<img class="w-12 h-12 rounded-lg object-cover" data-alt="A black luxury designer swimsuit resting beside a pool edge. The background shows blurred turquoise water and sunlight glinting off the ripples. The visual style is aspirational and chic, evoking the feeling of a luxury summer vacation. Warm high-key lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-sOL8r-uVo4LiBOwNe2NuwJLsiJxwWpcBVCXY2X0N-MMqdPxFoGvtpRV969tug1z2lr02WqnsJUUl3MqgLhcsoW_YeH3QvVarlbXw6EVbmncD370toLWeIMYwMhvvfYvttGDPptfFyXTgKYH_5JdUBHGvB5Qn-QK7aYOlFMBtATXCoeYaycjK_ZMUEKhgZnGVgsABfctau3KO90_j-I29mk4McbQIhIvo3-Iv0fbA9Vee9LV1-IYITNDIoVB7KRO1J1-wLkmUrE1Z"/>
+<div>
+<span class="block font-label-md text-label-md text-on-surface">Swimwear</span>
+<span class="text-label-sm text-outline-variant">Required for resort pool</span>
+</div>
+</div>
+<input class="w-6 h-6 rounded border-outline-variant text-secondary focus:ring-0 cursor-pointer" type="checkbox"/>
+</div>
+</div>
+</div>
+<!-- Category: Electronics -->
+<div class="p-gutter">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-secondary" data-icon="devices">devices</span>
+<h2 class="font-headline-md text-headline-md">Electronics</h2>
+</div>
+<div class="space-y-4">
+<!-- Item 1: Packed -->
+<div class="flex items-center justify-between p-4 rounded-lg bg-surface-container-low border border-transparent hover:border-secondary-fixed transition-all">
+<div class="flex items-center gap-4">
+<img class="w-12 h-12 rounded-lg object-cover" data-alt="A high-speed white USB-C wall charger and a braided gray cable neatly coiled on a minimalist desk. The background is a soft slate color, creating a modern tech aesthetic. Sharp focus on the charger's branding and the cable's texture. Clean, professional lighting with soft drop shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQWa9CFMi3NFCitv0YqJVTsy_JxzKV3T9mx8YlJcwke6JppCIraIPz-eVsfepq01W2bain4rg95Ddr7YDSu7AySAJfL5PkSoGksS9n-8SuUTp7BJvWi1aAQqPWakt120HeK3Tlba0bhO9COPYLjYPD3RC4otzwnPtuW_rC3qD5Q9vzeLg5L-EpBvB9_jxW8getZME89H5J-Z4d8lorlgnIN6WUz7v9QPRjAbEwFp9YmPBzVZ3op84i6DvHmmDBNEse4a1i5tYka6ZB"/>
+<div>
+<span class="block font-label-md text-label-md text-on-surface">Phone charger</span>
+<span class="text-label-sm text-outline-variant">Fast charging block + cable</span>
+</div>
+</div>
+<input checked="" class="w-6 h-6 rounded border-outline-variant text-secondary focus:ring-0 cursor-pointer" type="checkbox"/>
+</div>
+<!-- Item 2: Not Packed -->
+<div class="flex items-center justify-between p-4 rounded-lg bg-surface-container-low border border-transparent hover:border-secondary-fixed transition-all">
+<div class="flex items-center gap-4">
+<img class="w-12 h-12 rounded-lg object-cover" data-alt="A sleek, metallic silver noise-canceling headphone set resting on a premium travel pillow. The background is slightly out of focus, suggesting a modern airport lounge environment. The style is premium and high-tech, with a cool-toned color palette of silver and navy. Crisp lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdPrSpSt1aMOtG0nTyPUHtGTZcLAbkCK6wB0IYzy3gVSX7x5DlcbBQqYxoug3ioYDDA5N1TmG6dQpwF3bU2dLue3njOLQgq1JT5W5tqy-e4BYTaXSKNGllkg45SYzkVSbDyVvaupuNA_1IS_c8PpThoYZbMY92Ey6KYSCUku4LohW_I2Riemvxse0ZPVY95J28lXzuqGLO0W0_PyGDrlK9GGy793NF_3pXzQZnV_y9hIk6LG3czRHY1H4HVUndKekHiCbsyRZjFeHz"/>
+<div>
+<span class="block font-label-md text-label-md text-on-surface">Headphones</span>
+<span class="text-label-sm text-outline-variant">Noise cancelling for flight</span>
+</div>
+</div>
+<input class="w-6 h-6 rounded border-outline-variant text-secondary focus:ring-0 cursor-pointer" type="checkbox"/>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="p-gutter bg-surface-container-low flex flex-col md:flex-row justify-between items-center gap-4">
+<button class="w-full md:w-auto px-6 py-3 bg-primary text-on-primary rounded-lg font-label-md text-label-md flex items-center justify-center gap-2 hover:opacity-90 transition-all active:scale-95">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+                    + add item to checklist
+                </button>
+<div class="flex items-center gap-4 w-full md:w-auto">
+<button class="flex-1 md:flex-initial px-6 py-3 border border-outline-variant text-on-surface-variant rounded-lg font-label-md text-label-md hover:bg-surface-container transition-all active:scale-95">
+                        Reset all
+                    </button>
+<button class="flex-1 md:flex-initial px-6 py-3 bg-secondary text-on-secondary rounded-lg font-label-md text-label-md flex items-center justify-center gap-2 hover:opacity-90 transition-all active:scale-95 shadow-md">
+<span class="material-symbols-outlined text-[20px]" data-icon="share">share</span>
+                        Share Checklist
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant">
+<div class="max-w-container-max mx-auto py-margin-desktop px-gutter flex flex-col md:flex-row justify-between items-center gap-base">
+<span class="text-headline-md font-headline-md text-primary font-bold">Traveloop</span>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">About Us</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Help Center</a>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 Traveloop Inc. All rights reserved.</p>
+</div>
+</footer>
+</body></html>
