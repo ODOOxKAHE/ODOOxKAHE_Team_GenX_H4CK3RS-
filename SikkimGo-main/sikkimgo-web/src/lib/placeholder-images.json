@@ -1,0 +1,82 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-background",
+      "description": "A breathtaking landscape of Sikkim mountains at sunrise.",
+      "imageUrl": "https://picsum.photos/seed/10/1920/1080",
+      "imageHint": "mountain sunrise"
+    },
+    {
+      "id": "tsomgo-lake",
+      "description": "A glacial lake in East Sikkim, India.",
+      "imageUrl": "https://picsum.photos/seed/11/600/400",
+      "imageHint": "mountain lake"
+    },
+    {
+      "id": "gurudongmar-lake",
+      "description": "One of the highest lakes in the world, located in North Sikkim.",
+      "imageUrl": "https://picsum.photos/seed/12/600/400",
+      "imageHint": "high-altitude lake"
+    },
+    {
+      "id": "yumthang-valley",
+      "description": "A valley of flowers sanctuary with a river, yaks, and hot springs.",
+      "imageUrl": "https://picsum.photos/seed/13/600/400",
+      "imageHint": "flower valley"
+    },
+    {
+      "id": "pelling",
+      "description": "A town in West Sikkim known for views of Kangchenjunga.",
+      "imageUrl": "https://picsum.photos/seed/14/600/400",
+      "imageHint": "mountain town"
+    },
+    {
+      "id": "gangtok-dest",
+      "description": "The vibrant capital city of Sikkim.",
+      "imageUrl": "https://picsum.photos/seed/15/600/400",
+      "imageHint": "city mountains"
+    },
+    {
+      "id": "ravangla",
+      "description": "A small tourist town with the Buddha Park of Ravangla.",
+      "imageUrl": "https://picsum.photos/seed/16/600/400",
+      "imageHint": "buddha statue"
+    },
+    {
+      "id": "gangtok",
+      "description": "Gangtok, Sikkim's capital, blends culture and stunning views.",
+      "imageUrl": "https://www.sikkimdarshan.com/assets/Images/districts/gangtok.jpeg",
+      "imageHint": "mountain city"
+    },
+    {
+      "id": "namchi",
+      "description": "Namchi, a serene town in Sikkim, with views of Kanchenjunga.",
+      "imageUrl": "https://www.sikkimdarshan.com/assets/Images/districts/namchi.jpg",
+      "imageHint": "statue hills"
+    },
+    {
+      "id": "mangan",
+      "description": "Mangan, a tranquil town in North Sikkim, surrounded by lush greenery.",
+      "imageUrl": "https://www.sikkimdarshan.com/assets/Images/districts/mangan.jpg",
+      "imageHint": "green valley"
+    },
+    {
+      "id": "gezing",
+      "description": "Gyalshing, a peaceful town in West Sikkim, with cultural richness.",
+      "imageUrl": "https://www.sikkimdarshan.com/assets/Images/districts/gyalshing.jpg",
+      "imageHint": "monastery mountains"
+    },
+    {
+      "id": "pakyong",
+      "description": "Pakyong, a district in Sikkim, with scenic landscapes and rich biodiversity.",
+      "imageUrl": "https://www.sikkimdarshan.com/assets/Images/districts/pakyong.jpeg",
+      "imageHint": "airport valley"
+    },
+    {
+      "id": "soreng",
+      "description": "Soreng, a peaceful district in Sikkim, known for its natural beauty.",
+      "imageUrl": "https://www.sikkimdarshan.com/assets/Images/districts/soreng.jpg",
+      "imageHint": "tea garden"
+    }
+  ]
+}
