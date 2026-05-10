@@ -1,2 +1,2 @@
 # SikkimGo
-For SIH 2025
+For ODOO X KAHE Hackathon!
